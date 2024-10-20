@@ -1,0 +1,396 @@
+// Default 5.3.3
+// Bootstrap
+
+$theme: "default" !default;
+
+
+
+// https://colordesigner.io/color-palette-builder?mode=lch#546E7A-0B203C-07485B-0D6986-8EC7D2-F2C12E-F44336-FF822E-66BB6A-4192D9
+
+
+// COLOR
+// ********************************************
+
+// Main Colors HEX
+$primary    :#26a269 !default;
+$secondary  :#6C757D !default;
+$third      :#186742 !default;
+
+// Main Colors RGB
+$primary-rgb   : rgb(38, 162, 105);
+$primary-rgba  : rgba(38, 162, 105, 0.35);
+$secondary-rgb : rgb(108, 117, 125);
+$secondary-rgba: rgba(108, 117, 125, 0.35);
+$third-rgb     : rgb(24, 103, 66);
+$third-rgba    : rgba(24, 103, 66, 0.35);
+
+// States Colors
+$success   : #198754 !default;
+$info      : #0DCAF0 !default;
+$warning   : #FFC107 !default;
+$danger    : #DC3545 !default;
+
+// Theme Colors
+$dark      : #343A40 !default;
+$light     : #F8F9FA !default;
+
+// Gradient Colors
+$grad-1     : #239661 !default;
+$grad-2     : #208a59 !default;
+$grad-3     : #1e7f52 !default;
+$grad-4     : #1b734a !default;
+$grad-g1    : #9698A2 !default;
+$grad-g2    : #575A6B !default;
+
+// Grey Colors
+$grey      : #e4e4e8 !default;
+$dark-grey : #515569 !default;
+
+// Others
+$blue      : #0D6EFD !default;
+$indigo    : #6610F2 !default;
+$purple    : #6F42C1 !default;
+$pink      : #D63384 !default;
+$magenta   : #ae2573 !default;
+$brown     : #978c87 !default;
+$red       : #D9534F !default;
+$orange    : #FD7E14 !default;
+$yellow    : #FFd505 !default;
+$green     : #28A745 !default;
+$teal      : #20C997 !default;
+$cyan      : #17A2B8 !default;
+$white     : #FFFFFF !default;
+
+// Grey Gradient Colors
+$white:    #fff !default;
+$gray-100: #ebebeb !default;
+$gray-200: #dee2e6 !default;
+$gray-300: #ced4da !default;
+$gray-400: #adb5bd !default;
+$gray-500: #868e96 !default;
+$gray-600: #4e5d6c !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+// Theme Colors List
+$theme-colors: (
+	'primary'	: #26a269,
+	'secondary'	: #6C757D,
+	'third'		: #186742,
+	'dark'		: #343A40,
+	'light'		: #F8F9FA,
+	'white'		: #FFFFFF,
+	'grad-1'	: #239661,
+	'grad-2'	: #208a59,
+	'grad-3'	: #1e7f52,
+	'grad-4'	: #1b734a,
+	'grad-g1'	: #9698A2,
+	'grad-g2'	: #575A6B,
+	'success'	: #198754,
+	'info'		: #0DCAF0,
+	'warning'	: #FFC107,
+	'danger'	: #DC3545,
+	'magenta'	: #ae2573,
+	'brown'		: #978c87,
+	'grey'		: #e4e4e8,
+	'dark-grey'	: #515569,
+	'blue'		: #0D6EFD,
+	'indigo'	: #6610F2,
+	'purple'	: #6F42C1,
+	'pink'		: #D63384,
+	'red'		: #D9534F,
+	'orange'	: #FD7E14,
+	'yellow'	: #FFd505,
+	'green'		: #28A745,
+	'teal'		: #20C997,
+	'cyan'		: #17A2B8,
+);
+
+
+
+$min-contrast-ratio:   2.5 !default;
+
+
+// Body
+
+// Light Mode
+$body-bg:                   white !default; // Background
+$body-color:                $gray-600 !default; // Text
+
+// Dark Mode
+$dark-mode : #0f2537;
+$light-mode : white;
+
+// Custom item color to change the color of :
+// dropdown-item, breadcrumb-item, nav-item, form-file-button-color
+$item-color: $gray-300;
+
+
+// Links
+
+$link-color:                $primary !default;
+$link-hover-color:          $link-color !default;
+
+// Components
+
+$component-active-color:      white !default;
+$component-active-bg:         $primary !default;
+
+// Fonts
+
+$font-family-sans-serif:      "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+
+// Tables
+
+$table-color:                 $gray-500 !default;
+$table-accent-bg:             rgba($white, .05) !default;
+$table-hover-bg:              rgba($white, .075) !default;
+$table-border-color:          rgba($black, .15) !default;
+$table-head-bg:               $light !default;
+$table-dark-bg:               $light !default;
+$table-dark-border-color:     $gray-600 !default;
+$table-dark-color:            $body-bg !default;
+
+$table-bg-scale:              0% !default;
+
+// Forms
+
+$input-bg:                          white !default;
+$input-disabled-color:              $gray-600 !default;
+$input-disabled-bg:                 $gray-100 !default;
+
+$input-color:                       $gray-900 !default;
+$input-border-color:                $primary !default;
+
+$input-placeholder-color:            $gray-500 !default;
+
+$input-group-addon-color:           white !default;
+$input-group-addon-bg:              $gray-600 !default;
+
+$form-select-disabled-bg:           $input-disabled-bg !default;
+$form-select-disabled-color:        $input-disabled-color !default;
+
+$form-check-input-bg:               rgb(225, 244, 252) !default;
+$form-check-input-border:           $primary !default;
+
+// $form-file-button-color:          $input-group-addon-color !default;
+$form-file-button-color:          white !default;
+$form-file-button-bg:             $input-group-addon-bg !default;
+$form-file-button-hover-bg:       darken($form-file-button-bg, 5%) !default;
+
+$form-floating-label-opacity:     1 !default;
+
+
+// Dropdowns
+
+$dropdown-bg:                       $body-bg !default;
+$dropdown-divider-bg:               rgba($black, .15) !default;
+$dropdown-link-color:               $body-color !default;
+$dropdown-link-hover-color:         white !default;
+$dropdown-link-hover-bg:            $primary !default;
+
+$dropdown-header-color:             $gray-500 !default;
+
+// Navs
+
+$nav-link-disabled-color:           $gray-400 !default;
+$nav-tabs-border-color:             $gray-600 !default;
+$nav-tabs-link-hover-border-color:  $nav-tabs-border-color !default;
+$nav-tabs-link-active-color:        $primary !default;
+$nav-tabs-link-active-border-color: $gray-600 !default;
+
+// Navbars
+
+$navbar-dark-color:                 rgba($white, .75) !default;
+$navbar-dark-hover-color:           $white !default;
+
+// Pagination
+
+$pagination-color:                  $white !default;
+$pagination-bg:                     $gray-600 !default;
+$pagination-border-color:           transparent !default;
+$pagination-hover-color:            $white !default;
+$pagination-hover-bg:               $nav-link-disabled-color !default;
+$pagination-hover-border-color:     $pagination-border-color !default;
+$pagination-disabled-color:         $nav-link-disabled-color !default;
+$pagination-disabled-bg:            $pagination-bg !default;
+$pagination-disabled-border-color:  $pagination-border-color !default;
+
+// Cards
+
+// $card-border-color:                 rgba($gray-600, .95) !default;
+// $card-cap-bg:                       rgba($gray-800, .25) !default;
+// $card-bg:                           rgba($gray-200, .125) !default;
+
+
+// Accordion
+
+$accordion-bg:                            white !default;
+$accordion-border-width:                  0 !default;
+$accordion-button-bg:                     white !default;
+$accordion-button-active-bg:              $primary !default;
+$accordion-button-active-color:           white !default;
+
+// Popovers
+
+$popover-bg:                        var(--bs-tertiary-bg) !default;
+$popover-header-bg:                 $table-hover-bg !default;
+// $popover-border-color:              $body-bg !default;
+
+
+// Toasts
+
+$toast-background-color:            $gray-600 !default;
+$toast-color:                       $gray-600 !default;
+$toast-border-color:                rgba(0, 0, 0, .2) !default;
+$toast-header-color:                white !default;
+$toast-header-background-color:     $toast-background-color !default;
+$toast-header-border-color:         $toast-border-color !default;
+
+// Modals
+
+$modal-content-bg:                  $gray-600 !default;
+$modal-content-color:               $white !default;
+$modal-header-border-color:         rgba(0, 0, 0, .2) !default;
+
+// Progress bars
+
+$progress-bg:                       $gray-600 !default;
+$progress-bar-color:                $primary !default;
+
+// List group
+
+$list-group-color:                  $primary !default;
+$list-group-color-dark:             white !default;
+$list-group-bg:                     none !default;
+$list-group-border-color:           transparent !default;
+$list-group-hover-bg:               $nav-link-disabled-color !default;
+$list-group-disabled-color:         $nav-link-disabled-color !default;
+$list-group-action-color:           $white !default;
+$list-group-action-hover-color:     $white !default;
+
+// Breadcrumbs
+
+$breadcrumb-padding-y:              .375rem !default;
+$breadcrumb-padding-x:              .75rem !default;
+$breadcrumb-bg:                     $gray-600 !default;
+// $breadcrumb-divider-color:          $body-color !default;
+// $breadcrumb-active-color:           $body-color !default;
+$breadcrumb-divider-color:          $item-color !default;
+$breadcrumb-active-color:           $item-color !default;
+
+// Close
+
+$btn-close-color:            $gray-500 !default;
+$btn-close-opacity:          .5 !default;
+$btn-close-hover-opacity:    1 !default;
+
+
+// Button
+
+$btn-color:    white !default;
+
+
+// Code
+
+$pre-color:                         inherit !default;
+
+
+
+
+
+
+// Dark color mode variables
+//
+// Custom variables for the `[data-bs-theme="dark"]` theme. Use this as a starting point for your own custom color modes by creating a new theme-specific file like `_variables-dark.scss` and adding the variables you need.
+
+//
+// Global colors
+//
+
+// scss-docs-start sass-dark-mode-vars
+// scss-docs-start theme-text-dark-variables
+$primary-text-emphasis-dark:        tint-color($primary, 40%) !default;
+$secondary-text-emphasis-dark:      tint-color($secondary, 40%) !default;
+$success-text-emphasis-dark:        tint-color($success, 40%) !default;
+$info-text-emphasis-dark:           tint-color($info, 40%) !default;
+$warning-text-emphasis-dark:        tint-color($warning, 40%) !default;
+$danger-text-emphasis-dark:         tint-color($danger, 40%) !default;
+$light-text-emphasis-dark:          $gray-100 !default;
+$dark-text-emphasis-dark:           $gray-300 !default;
+// scss-docs-end theme-text-dark-variables
+
+// scss-docs-start theme-bg-subtle-dark-variables
+$primary-bg-subtle-dark:            shade-color($primary, 80%) !default;
+$secondary-bg-subtle-dark:          shade-color($secondary, 80%) !default;
+$success-bg-subtle-dark:            shade-color($success, 80%) !default;
+$info-bg-subtle-dark:               shade-color($info, 80%) !default;
+$warning-bg-subtle-dark:            shade-color($warning, 80%) !default;
+$danger-bg-subtle-dark:             shade-color($danger, 80%) !default;
+$light-bg-subtle-dark:              $gray-800 !default;
+$dark-bg-subtle-dark:               mix($gray-800, $black) !default;
+// scss-docs-end theme-bg-subtle-dark-variables
+
+// scss-docs-start theme-border-subtle-dark-variables
+$primary-border-subtle-dark:        shade-color($primary, 40%) !default;
+$secondary-border-subtle-dark:      shade-color($secondary, 40%) !default;
+$success-border-subtle-dark:        shade-color($success, 40%) !default;
+$info-border-subtle-dark:           shade-color($info, 40%) !default;
+$warning-border-subtle-dark:        shade-color($warning, 40%) !default;
+$danger-border-subtle-dark:         shade-color($danger, 40%) !default;
+$light-border-subtle-dark:          $gray-700 !default;
+$dark-border-subtle-dark:           $gray-800 !default;
+// scss-docs-end theme-border-subtle-dark-variables
+
+// $link-shade-percentage: 50%;
+// $code-color: $dark-mode;
+
+$body-color-dark:                   white !default;
+$body-bg-dark:                      $dark-mode !default;
+$body-secondary-color-dark:         rgba($body-color-dark, .75) !default;
+$body-secondary-bg-dark:            $gray-800 !default;
+$body-tertiary-color-dark:          rgba($body-color-dark, .5) !default;
+$body-tertiary-bg-dark:             $gray-600 !default;
+$body-emphasis-color-dark:          $white !default;
+$border-color-dark:                 $gray-700 !default;
+$border-color-translucent-dark:     rgba($white, .15) !default;
+$headings-color-dark:               inherit !default;
+// $link-color-dark:                   tint-color($primary, 40%) !default;
+// $link-hover-color-dark:             shift-color($link-color-dark, -$link-shade-percentage) !default;
+// $code-color-dark:                   tint-color($code-color, 40%) !default;
+$mark-color-dark:                   $body-color-dark !default;
+$mark-bg-dark:                      $yellow !default;
+
+
+//
+// Forms
+//
+
+$form-select-indicator-color-dark:  $gray-600 !default;
+$form-select-indicator-dark:        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$form-select-indicator-color-dark}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/></svg>") !default;
+
+$form-switch-color-dark:            rgba($gray-600, .25) !default;
+$form-switch-bg-image-dark:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-color-dark}'/></svg>") !default;
+
+
+// scss-docs-start form-validation-colors-dark
+$form-valid-color-dark:             $success !default;
+$form-valid-border-color-dark:      $success !default;
+$form-invalid-color-dark:           $red !default;
+$form-invalid-border-color-dark:    $red !default;
+// scss-docs-end form-validation-colors-dark
+
+
+//
+// Accordion
+//
+
+$accordion-icon-color-dark:         $primary-text-emphasis-dark !default;
+$accordion-icon-active-color-dark:  $primary-text-emphasis-dark !default;
+
+$accordion-button-icon-dark:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-color-dark}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !default;
+$accordion-button-active-icon-dark:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-active-color-dark}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !default;
+// scss-docs-end sass-dark-mode-vars
+

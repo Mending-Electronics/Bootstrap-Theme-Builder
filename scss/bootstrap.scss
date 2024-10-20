@@ -1,0 +1,446 @@
+// Default 5.3.3
+// Bootstrap
+
+
+
+// include custom theme variables
+@import "_variables.scss";
+
+
+// include all original Bootstrap class
+@import "../bootstrap/scss/bootstrap.scss";
+
+
+
+// Variables
+
+// $web-font-path: "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" !default;
+// @if $web-font-path {
+//   @import url("#{$web-font-path}");
+// }
+
+
+
+
+
+// ADDITIONAL CUSTOM CLASS  ********************
+
+
+@font-face {
+  font-family: 'CenturyGothic';
+  src: url('../fonts/Century_Gothic/CenturyGothic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Fredoka';
+  src: url('../fonts/Fredoka/FredokaOne-Regular.ttf') format('truetype');
+}
+
+// @font-face {
+//   font-family: 'Roboto';
+//   src: url('../fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+// }
+
+// @font-face {
+//   font-family: 'Arial';
+//   src: url('../fonts/Arial/ArialMT.ttf') format('truetype');
+// }
+
+// body {
+//   font-family: 'CenturyGothic', sans-serif;
+// }
+
+// Justify all text contents
+p {
+  text-align: justify;
+}
+.accordion-body {
+  text-align: justify;
+}
+
+
+
+
+// Hamburger menu icon style
+.hamburger {
+  background:none;
+  position:absolute;
+  top:0;
+  right:0;
+  line-height:22px;
+  padding:2px 15px 0px 15px;
+  color:#999;
+  border:0;
+  font-size:1.2em;
+  font-weight:bold;
+  cursor:pointer;
+  outline:none;
+  z-index:10000000000000;
+  border: none;
+  
+}
+
+
+
+
+/* Create a zoom animation class */
+.hover-zoom-in {
+  transition: transform .1s;
+}
+.hover-zoom-in:hover {
+  transform: scale(1.02,1.02);
+}
+
+
+.shadow-primary {
+  box-shadow: 0px 0px 20px 3px $primary-rgba;
+  -webkit-box-shadow: 0px 0px 20px 3px $primary-rgba;
+  -moz-box-shadow: 0px 0px 20px 3px $primary-rgba;
+}
+
+.shadow-third {
+  box-shadow: 0px 0px 20px 3px $secondary-rgba;
+  -webkit-box-shadow: 0px 0px 20px 3px $secondary-rgba;
+  -moz-box-shadow: 0px 0px 20px 3px $secondary-rgba;
+}
+
+
+.hover-shadow:hover {
+  box-shadow: 4px 6px 23px -5px rgba(0,0,0,0.51);
+  -webkit-box-shadow: 4px 6px 23px -5px rgba(0,0,0,0.51);
+  -moz-box-shadow: 4px 6px 23px -5px rgba(0,0,0,0.51);
+
+}
+
+/* Create border animation class */
+.hover-border-primary {
+  transition: transform .1s;
+  color: $primary !important
+}
+.hover-border-primary:hover {
+  border-bottom: 3px $primary solid;
+  color: $primary !important
+}
+
+/* Create a border animation class */
+.hover-border-third {
+  transition: transform .1s;
+  color: $primary !important
+}
+.hover-border-third:hover {
+  border-bottom: 3px $third solid;
+  color: $primary !important
+}
+
+
+ul.list-primary {
+
+  li {
+    list-style-type: none;
+    color: $secondary !important;
+  }
+
+  li a:hover {
+    color: $primary !important; /* Hover effect color */
+  }
+
+
+  li > a {
+    margin-left: -1em !important;
+  }
+
+  li a::before {
+    content: "•"; /* Custom bullet character */
+    color: transparent; /* Change the color as desired */
+    display: inline-block;
+    width: 1em; /* Adjust the width if needed */
+  }
+
+  li a:hover::before {
+    display: inline-block;
+    color: $primary; /* Hover effect color */
+  }
+
+  a {
+    /* Apply the same style to anchor elements within ul.list-primary */
+    color: var(--bg-body); /* Change the color as desired */
+    text-decoration: none; /* Remove underline */
+    left: -1em;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+// DEFAULT THEME CUSTOM ********************
+
+
+
+// Buttons
+
+.btn {
+  @each $color, $value in $theme-colors {
+    &-#{$color} {
+      @if $enable-gradients {
+        background: $value linear-gradient(180deg, mix($white, $value, 15%), $value) repeat-x;
+        color: white;
+      } @else {
+        background-color: $value;
+        color: white;
+      }
+    }
+  }
+}
+
+.btn:hover {
+  color: white;
+}
+
+.btn .disabled {
+color: white;
+}
+
+
+.btn-group {
+  .btn-check:checked + .btn-outline-primary {
+    color: white; // Replace #your-color with the color you want
+  }
+}
+
+
+// Indicators
+
+.alert {
+  color: $white;
+  border: none;
+
+  a,
+  .alert-link {
+    color: $white;
+    text-decoration: underline;
+  }
+
+  @each $color, $value in $theme-colors {
+    &-#{$color} {
+      @if $enable-gradients {
+        background: $value linear-gradient(180deg, mix($white, $value, 15%), $value) repeat-x;
+      } @else {
+        background-color: $value;
+      }
+    }
+  }
+
+  &-light {
+    &,
+    a:not(.btn),
+    .alert-link {
+      color: $body-bg;
+    }
+  }
+}
+
+.badge {
+  &.bg-light {
+    color: $dark;
+  }
+}
+
+.tooltip {
+  --bs-tooltip-bg: var(--bs-tertiary-bg);
+  --bs-tooltip-color: var(--bs-emphasis-color);
+}
+
+
+
+
+
+// Generate emphasis colors
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+.text-primary-emphasis      {        color: tint($primary, 40%) !important};
+.text-secondary-emphasis    {        color: tint($secondary, 40%) !important}; 
+.text-success-emphasis      {        color: tint($success, 40%) !important}; 
+.text-info-emphasis         {        color: tint($info, 40%) !important}; 
+.text-warning-emphasis      {        color: tint($warning, 40%) !important}; 
+.text-danger-emphasis       {        color: tint($danger, 40%) !important}; 
+$light-text-emphasis:          $gray-100 !default;
+$dark-text-emphasis:           $gray-300 !default;
+
+.bg-primary-emphasis      {        background-color: tint($primary, 40%) !important; color: white};
+.bg-secondary-emphasis    {        background-color: tint($secondary, 40%) !important; color: white};
+.bg-success-emphasis      {        background-color: tint($success, 40%) !important; color: white};
+.bg-info-emphasis         {        background-color: tint($info, 40%) !important; color: white};
+.bg-warning-emphasis      {        background-color: tint($warning, 40%) !important; color: white};
+.bg-danger-emphasis       {        background-color: tint($danger, 40%) !important; color: white};
+
+
+
+.list-group-dark {
+  border: 1px, $primary; /* No border */
+}
+
+/* Default style for list items */
+.list-group-dark .list-group-item {
+  background-color: $gray-600; /* Dark background color */
+  color: white; /* White text color */
+  border: none; /* No border */
+  padding: 10px; /* Padding for spacing */
+}
+
+/* Hover effect */
+.list-group-dark .list-group-item:hover {
+  background-color: $third; /* Slightly lighter background on hover */
+  color: #fff; /* White text color remains */
+}
+
+/* Active (selected) item */
+.list-group-dark .list-group-item.active {
+  background-color: $primary; /* Blue background for active item */
+  color: #fff; /* White text color */
+  border: none; /* No border */
+}
+
+/* Inactive (desactivated) item */
+.list-group-dark .list-group-item.disabled {
+  background-color: $gray-400; /* Gray background for inactive item */
+  color: $gray-200; /* Light gray text color */
+  border: none; /* No border */
+}
+
+
+
+
+
+// https://angel-rs.github.io/css-color-filter-generator/
+
+
+// Generate Filters (ex : use filter-primary to change svg fill color) 
+$filters: (
+	$primary	: "brightness(0) saturate(100%) invert(62%) sepia(162%) saturate(750%) hue-rotate(105deg) brightness(105%) contrast(95%)",
+	$secondary	: "brightness(0) saturate(100%) invert(-8%) sepia(117%) saturate(750%) hue-rotate(125deg) brightness(105%) contrast(95%)",
+	$third		: "brightness(0) saturate(100%) invert(76%) sepia(103%) saturate(750%) hue-rotate(66deg) brightness(105%) contrast(95%)",
+	$dark		: "brightness(0) saturate(100%) invert(48%) sepia(58%) saturate(750%) hue-rotate(64deg) brightness(105%) contrast(95%)",
+	$light		: "brightness(0) saturate(100%) invert(-148%) sepia(249%) saturate(750%) hue-rotate(250deg) brightness(105%) contrast(95%)",
+	$white		: "brightness(0) saturate(100%) invert(-155%) sepia(255%) saturate(750%) hue-rotate(255deg) brightness(105%) contrast(95%)",
+	$grad-1		: "brightness(0) saturate(100%) invert(65%) sepia(150%) saturate(750%) hue-rotate(97deg) brightness(105%) contrast(95%)",
+	$grad-2		: "brightness(0) saturate(100%) invert(68%) sepia(138%) saturate(750%) hue-rotate(89deg) brightness(105%) contrast(95%)",
+	$grad-3		: "brightness(0) saturate(100%) invert(70%) sepia(127%) saturate(750%) hue-rotate(82deg) brightness(105%) contrast(95%)",
+	$grad-4		: "brightness(0) saturate(100%) invert(73%) sepia(115%) saturate(750%) hue-rotate(74deg) brightness(105%) contrast(95%)",
+	$grad-g1	: "brightness(0) saturate(100%) invert(-50%) sepia(152%) saturate(750%) hue-rotate(162deg) brightness(105%) contrast(95%)",
+	$grad-g2	: "brightness(0) saturate(100%) invert(13%) sepia(90%) saturate(750%) hue-rotate(107deg) brightness(105%) contrast(95%)",
+	$success	: "brightness(0) saturate(100%) invert(75%) sepia(135%) saturate(750%) hue-rotate(84deg) brightness(105%) contrast(95%)",
+	$info		: "brightness(0) saturate(100%) invert(87%) sepia(202%) saturate(750%) hue-rotate(240deg) brightness(105%) contrast(95%)",
+	$warning	: "brightness(0) saturate(100%) invert(-155%) sepia(193%) saturate(750%) hue-rotate(7deg) brightness(105%) contrast(95%)",
+	$danger		: "brightness(0) saturate(100%) invert(-120%) sepia(53%) saturate(750%) hue-rotate(69deg) brightness(105%) contrast(95%)",
+	$magenta	: "brightness(0) saturate(100%) invert(-74%) sepia(37%) saturate(750%) hue-rotate(115deg) brightness(105%) contrast(95%)",
+	$brown		: "brightness(0) saturate(100%) invert(-51%) sepia(140%) saturate(750%) hue-rotate(135deg) brightness(105%) contrast(95%)",
+	$grey		: "brightness(0) saturate(100%) invert(-128%) sepia(228%) saturate(750%) hue-rotate(232deg) brightness(105%) contrast(95%)",
+	$dark-grey	: "brightness(0) saturate(100%) invert(19%) sepia(85%) saturate(750%) hue-rotate(105deg) brightness(105%) contrast(95%)",
+	$blue		: "brightness(0) saturate(100%) invert(87%) sepia(110%) saturate(750%) hue-rotate(253deg) brightness(105%) contrast(95%)",
+	$indigo		: "brightness(0) saturate(100%) invert(-2%) sepia(16%) saturate(750%) hue-rotate(242deg) brightness(105%) contrast(95%)",
+	$purple		: "brightness(0) saturate(100%) invert(-11%) sepia(66%) saturate(750%) hue-rotate(193deg) brightness(105%) contrast(95%)",
+	$pink		: "brightness(0) saturate(100%) invert(-114%) sepia(51%) saturate(750%) hue-rotate(132deg) brightness(105%) contrast(95%)",
+	$red		: "brightness(0) saturate(100%) invert(-117%) sepia(83%) saturate(750%) hue-rotate(79deg) brightness(105%) contrast(95%)",
+	$orange		: "brightness(0) saturate(100%) invert(-153%) sepia(126%) saturate(750%) hue-rotate(20deg) brightness(105%) contrast(95%)",
+	$yellow		: "brightness(0) saturate(100%) invert(-155%) sepia(213%) saturate(750%) hue-rotate(5deg) brightness(105%) contrast(95%)",
+	$green		: "brightness(0) saturate(100%) invert(60%) sepia(167%) saturate(750%) hue-rotate(69deg) brightness(105%) contrast(95%)",
+	$teal		: "brightness(0) saturate(100%) invert(68%) sepia(201%) saturate(750%) hue-rotate(151deg) brightness(105%) contrast(95%)",
+	$cyan		: "brightness(0) saturate(100%) invert(77%) sepia(162%) saturate(750%) hue-rotate(184deg) brightness(105%) contrast(95%)",
+);
+@each $color-name, $color in $theme-colors {
+  $filter: map-get($filters, $color);
+  .filter-#{$color-name} {
+    filter: unquote($filter);
+  }
+}
+
+// ********************************************
+
+
+
+
+
+
+// Logo (svg-logo)
+@mixin svg-logo($width: 100px, $height: 100px) {
+                                    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwbW0iIGhlaWdodD0iMTAwbW0iIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDMuMzUxIC04Ny44OTEpIj4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIC0uMTE3ODgpIiBmaWxsPSIjMjZhMjY5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1vcGFjaXR5PSIuNDgyMzUiIHN0cm9rZS13aWR0aD0iLjAxIj4KICAgPHBhdGggZD0ibTEwNSAxMTMuMjQtMzUuMjU0IDM1LjI1NGEzNS4yNTggMzUuMjU4IDAgMCAwIDAgNGUtMyAzNS4yNTggMzUuMjU4IDAgMCAwIDM1LjI1OCAzNS4yNTggMzUuMjU4IDM1LjI1OCAwIDAgMCAzNS4yNTgtMzUuMjU4IDM1LjI1OCAzNS4yNTggMCAwIDAtMzUuMjU4LTM1LjI1OCAzNS4yNTggMzUuMjU4IDAgMCAwLTRlLTMgMHptMmUtMyAxMC41OTVoNS4yZS00YTI0LjY2MyAyNC42NjMgMCAwIDEgMmUtMyAwIDI0LjY2MyAyNC42NjMgMCAwIDEgMjQuNjY0IDI0LjY2MyAyNC42NjMgMjQuNjYzIDAgMCAxLTI0LjY2NCAyNC42NjQgMjQuNjYzIDI0LjY2MyAwIDAgMS0yNC42NjMtMjQuNjY0IDI0LjY2MyAyNC42NjMgMCAwIDEgMC0zZS0zeiIgc3R5bGU9InBhaW50LW9yZGVyOm1hcmtlcnMgc3Ryb2tlIGZpbGwiLz4KICAgPHBhdGggZD0ibTc4LjQ3IDEyOC44MS0xOS4xMDUgOC4zMzY4LTEyLjg1My0yLjQzMTYgOC4zMzY4LTguNjg0MnoiIHN0eWxlPSJwYWludC1vcmRlcjptYXJrZXJzIHN0cm9rZSBmaWxsIi8+CiAgIDxwYXRoIGQ9Im04Mi42MDggMTI1LjU1LTM0LjA4NS0xNi43ODEtMi4wNzg3LTE0LjYzMiAxNi40NjQgMi43NDkzeiIgc3R5bGU9InBhaW50LW9yZGVyOm1hcmtlcnMgc3Ryb2tlIGZpbGwiLz4KICAgPHBhdGggZD0ibTg3LjIxIDEyMi4yMi02LjU5NjQtMTkuNjk1IDMuMzM1NS0xMC4yNjcgNi44OTkyIDkuNjkzOXoiIHN0eWxlPSJwYWludC1vcmRlcjptYXJrZXJzIHN0cm9rZSBmaWxsIi8+CiAgPC9nPgogPC9nPgo8L3N2Zz4K);
+                                    background-repeat: no-repeat;
+                                    background-size: contain;
+                                    width: $width;
+                                    height: $height;
+                                }
+.svg-logo {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwbW0iIGhlaWdodD0iMTAwbW0iIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDMuMzUxIC04Ny44OTEpIj4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIC0uMTE3ODgpIiBmaWxsPSIjMjZhMjY5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1vcGFjaXR5PSIuNDgyMzUiIHN0cm9rZS13aWR0aD0iLjAxIj4KICAgPHBhdGggZD0ibTEwNSAxMTMuMjQtMzUuMjU0IDM1LjI1NGEzNS4yNTggMzUuMjU4IDAgMCAwIDAgNGUtMyAzNS4yNTggMzUuMjU4IDAgMCAwIDM1LjI1OCAzNS4yNTggMzUuMjU4IDM1LjI1OCAwIDAgMCAzNS4yNTgtMzUuMjU4IDM1LjI1OCAzNS4yNTggMCAwIDAtMzUuMjU4LTM1LjI1OCAzNS4yNTggMzUuMjU4IDAgMCAwLTRlLTMgMHptMmUtMyAxMC41OTVoNS4yZS00YTI0LjY2MyAyNC42NjMgMCAwIDEgMmUtMyAwIDI0LjY2MyAyNC42NjMgMCAwIDEgMjQuNjY0IDI0LjY2MyAyNC42NjMgMjQuNjYzIDAgMCAxLTI0LjY2NCAyNC42NjQgMjQuNjYzIDI0LjY2MyAwIDAgMS0yNC42NjMtMjQuNjY0IDI0LjY2MyAyNC42NjMgMCAwIDEgMC0zZS0zeiIgc3R5bGU9InBhaW50LW9yZGVyOm1hcmtlcnMgc3Ryb2tlIGZpbGwiLz4KICAgPHBhdGggZD0ibTc4LjQ3IDEyOC44MS0xOS4xMDUgOC4zMzY4LTEyLjg1My0yLjQzMTYgOC4zMzY4LTguNjg0MnoiIHN0eWxlPSJwYWludC1vcmRlcjptYXJrZXJzIHN0cm9rZSBmaWxsIi8+CiAgIDxwYXRoIGQ9Im04Mi42MDggMTI1LjU1LTM0LjA4NS0xNi43ODEtMi4wNzg3LTE0LjYzMiAxNi40NjQgMi43NDkzeiIgc3R5bGU9InBhaW50LW9yZGVyOm1hcmtlcnMgc3Ryb2tlIGZpbGwiLz4KICAgPHBhdGggZD0ibTg3LjIxIDEyMi4yMi02LjU5NjQtMTkuNjk1IDMuMzM1NS0xMC4yNjcgNi44OTkyIDkuNjkzOXoiIHN0eWxlPSJwYWludC1vcmRlcjptYXJrZXJzIHN0cm9rZSBmaWxsIi8+CiAgPC9nPgogPC9nPgo8L3N2Zz4K);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+}
+
+
+// custom toogle dark-theme button dropdown color 
+.btn-bd-primary {
+  --bd-primary-bg: $primary;
+  --bd-primary-rgb: $primary-rgb;
+
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bd-primary-bg);
+  --bs-btn-border-color: var(--bd-primary-bg);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: $primary;
+  --bs-btn-hover-border-color: $primary;
+  --bs-btn-focus-shadow-rgb: var(--bd-primary-rgb);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: $third;
+  --bs-btn-active-border-color: $third;
+}
+
+// custom table colors
+.table-success th,
+.table-success td,
+.table-success tr
+ {
+  color: white;
+}
+
+.table-warning th,
+.table-warning td,
+.table-warning tr
+ {
+  color: white;
+}
+
+.table-light th,
+.table-light td,
+.table-light tr
+ {
+  color: white;
+}
+
+
+// custom accordion header color
+.accordion-button:not(.collapsed) {
+  color: white !important; /* Change text color */
+}
+
+// @function hex-to-hue($color) {
+//   $hue: hue($color);
+//   @return $hue;
+// }
+
+// $myColor: #0011ff;
+// .filter-mycolor {
+//   filter: brightness(0) saturate(100%) invert(51%) sepia(66%) saturate(4588%) hue-rotate(hex-to-hue($myColor)) brightness(90%) contrast(77%);
+//   // filter: brightness(0) saturate(100%) invert(51%) sepia(66%) saturate(4588%) hue-rotate(333deg) brightness(90%) contrast(77%);
+// }
+

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="icon" href="https://v2.fr.vuejs.org/images/logo.svg">
+
+
+    <title>Color Picker</title>
+  
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.2/yeti/bootstrap.min.css" integrity="sha512-iHA7zcOiFZ4ajvU4RMt3fDIRWPmkLawqZqG1xguHmFxbH4PQQk7t/I8NYL03eI9rrU2fi6l/Pi+/wuspMeX8CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-coy.min.css" integrity="sha512-XcB0I04SuOVkb6ewfVz0qMhU5QADIiFBFxPRRNWZUANF1W5onx8GlbHYYIivw3gXrTuZfu+1gAG8HvvKQG3oGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-scss.min.js"></script>
+    
+    <script src="colorFilter.js"></script>
+
+</head>
+<body>
+
+
+
+
+
+
+    <div id="app" class="container mt-5">
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="scssModal" tabindex="-1" aria-labelledby="scssModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="scssModalLabel">Generated SCSS Code</h5>
+                        <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <pre class="mt-3 language-scss" id="scssCode" style="max-height: 100% !important"><code class="language-scss">{{ scssCode }}</code></pre>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="copyButton">Copy to Clipboard</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <h1 class="mb-3">Logo</h1>
+        
+        <input type="file" class="form-control visually-hidden" id="LogoFile" accept="image/*" @change="importSvgLogo">
+        <button class="btn btn-primary mt-3" type="button" onclick="document.getElementById('LogoFile').click()">Choose SVG Files</button>
+
+        <div class="mt-3">
+            <div class="row justify-content-center" id="imagePreviews"></div>
+        </div>
+
+
+
+
+
+        <div class="container my-5 mx-0 px-0">
+            <h1 class="mb-3">Gradient Color Picker</h1>
+
+            <div id="colorCards" class="color-row row mx-1 my-2"></div>
+
+
+            <form id="colorForm" onsubmit="event.preventDefault(); generateColors();">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="numVariants" class="form-label">Number of Variants</label>
+                            <input type="number" class="form-control" id="numVariants" placeholder="e.g. 7">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="mb-3">
+                            <label for="startColor" class="form-label">Start Color (Hex)</label>
+                            <input type="color" class="form-control p-0 m-0 w-100" style="height: 38px; border: 0px" id="startColor" placeholder="e.g. #A7C511">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="mb-3">
+                            <label for="endColor" class="form-label">End Color (Hex)</label>
+                            <input type="color" class="form-control p-0 m-0 w-100"style="height: 38px; border: 0px" id="endColor" placeholder="e.g. #21224B">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-primary" onclick="generateColors()">Generate Gradient Colors</button>
+            </form>
+
+        </div>
+
+
+
+
+
+
+
+        <h1 class="mb-3">Color Picker</h1>
+        <div class="row">
+            <div class="col-md-2 my-3" v-for="(color, key) in colors" :key="key">
+                <div class="card">
+                    <input type="color" class="card-header border-0 form-control w-100 p-0 m-0" :id="key" :name="key" v-model="colors[key]">
+                    <label :for="key" class="form-label text-center d-flex align-items-center justify-content-center fs-4">{{ key.replace(/_/g, ' ') }}</label>
+                </div>
+            </div>
+        </div>
+
+         
+
+        <button class="btn btn-success mt-3" @click="saveToLocalStorage">Save Config to Local Storage</button>
+        <button class="btn btn-info mt-3" @click="downloadJsonConfig">Download Config</button>
+        <input type="file" class="form-control visually-hidden" id="configFile" accept="*.json" multiple @change="importJsonConfig"> 
+        <button class="btn btn-dark mt-3" type="button" onclick="document.getElementById('configFile').click()"> Import Config </button>
+
+
+        <div class="w-100 d-flex justify-content-center my-5">
+            <button class="btn btn-primary fw-bold mt-3" type="button" @click="generateSCSS" :disabled="isLoading">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" v-if="isLoading"></span>
+                <span v-if="isLoading" class="ms-2">Loading...</span>
+                <span v-else>Generate SCSS</span>
+            </button>
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <!-- External / CDN JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.37/dist/vue.global.prod.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <script>
+
+
+
+        // Assume colorFilter.js provides the function generateFilter
+        function generateFilter(hexColor) {
+            // The actual implementation based on the external library logic
+            const R = parseInt(hexColor.substr(1, 2), 16);
+            const G = parseInt(hexColor.substr(3, 2), 16);
+            const B = parseInt(hexColor.substr(5, 2), 16);
+
+            // Dummy filter generation logic for demonstration
+            return `brightness(0) saturate(100%) invert(${100 - R}%) sepia(${G}%) saturate(750%) hue-rotate(${B}deg) brightness(105%) contrast(95%)`;
+        }
+
+
+
+
+
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    colors: {
+                        primary     : '#0D6986',
+                        secondary   : '#6C757D',
+                        third       : '#21224B',
+                        dark        : '#343A40',
+                        light       : '#F8F9FA',
+                        white       : '#FFFFFF',
+                        grad1       : '#8ca41d',
+                        grad2       : '#718428',
+                        grad3       : '#576334',
+                        grad4       : '#21224b',
+                        gradG1      : '#9698A2',
+                        gradG2      : '#575A6B',
+                        success     : '#198754',
+                        info        : '#0DCAF0',
+                        warning     : '#FFC107',
+                        danger      : '#DC3545',
+                        magenta     : '#ae2573',
+                        brown       : '#978c87',
+                        grey        : '#e4e4e8',
+                        darkGrey    : '#515569',
+                        blue        : '#0D6EFD',
+                        indigo      : '#6610F2',
+                        purple      : '#6F42C1',
+                        pink        : '#D63384',
+                        red         : '#D9534F',
+                        orange      : '#FD7E14',
+                        yellow      : '#FFd505',
+                        green       : '#28A745',
+                        teal        : '#20C997',
+                        cyan        : '#17A2B8'
+                    
+                    },
+                    scssCode: '',
+                    isLoading: false,
+                    svgDataUri: ''
+                };
+            },
+            methods: {
+                hexToRgb(hex) {
+                    const bigint = parseInt(hex.replace('#', ''), 16);
+                    const r = (bigint >> 16) & 255;
+                    const g = (bigint >> 8) & 255;
+                    const b = bigint & 255;
+                    return `${r}, ${g}, ${b}`;
+                },
+                generateSCSS() {
+                    this.isLoading = true; // Start loading
+
+                    
+                        let scss = `// COLOR\n// ********************************************\n`;
+
+                        // Main Colors HEX
+                        scss += `\n// Main Colors HEX\n`;
+                        scss += `$primary    :${this.colors.primary} !default;\n`;
+                        scss += `$secondary  :${this.colors.secondary} !default;\n`;
+                        scss += `$third      :${this.colors.third} !default;\n`;
+
+                        // Main Colors RGB
+                        scss += `\n// Main Colors RGB\n`;
+                        const primaryRgb = this.hexToRgb(this.colors.primary);
+                        const secondaryRgb = this.hexToRgb(this.colors.secondary);
+                        const thirdRgb = this.hexToRgb(this.colors.third);
+                        scss += `$primary-rgb   : rgb(${primaryRgb});\n`;
+                        scss += `$primary-rgba  : rgba(${primaryRgb}, 0.35);\n`;
+                        scss += `$secondary-rgb : rgb(${secondaryRgb});\n`;
+                        scss += `$secondary-rgba: rgba(${secondaryRgb}, 0.35);\n`;
+                        scss += `$third-rgb     : rgb(${thirdRgb});\n`;
+                        scss += `$third-rgba    : rgba(${thirdRgb}, 0.35);\n`;
+
+                        // States Colors
+                        scss += `\n// States Colors\n`;
+                        scss += `$success   : ${this.colors.success} !default;\n`;
+                        scss += `$info      : ${this.colors.info} !default;\n`;
+                        scss += `$warning   : ${this.colors.warning} !default;\n`;
+                        scss += `$danger    : ${this.colors.danger} !default;\n`;
+
+                        // Theme Colors
+                        scss += `\n// Theme Colors\n`;
+                        scss += `$dark      : ${this.colors.dark} !default;\n`;
+                        scss += `$light     : ${this.colors.light} !default;\n`;
+
+                        // Gradient Colors
+                        scss += `\n// Gradient Colors\n`;
+                        scss += `$grad-1     : ${this.colors.grad1} !default;\n`;
+                        scss += `$grad-2     : ${this.colors.grad2} !default;\n`;
+                        scss += `$grad-3     : ${this.colors.grad3} !default;\n`;
+                        scss += `$grad-4     : ${this.colors.grad4} !default;\n`;
+                        scss += `$grad-g1    : ${this.colors.gradG1} !default;\n`;
+                        scss += `$grad-g2    : ${this.colors.gradG2} !default;\n`;
+
+                        // Grey Colors
+                        scss += `\n// Grey Colors\n`;
+                        scss += `$grey      : ${this.colors.grey} !default;\n`;
+                        scss += `$dark-grey : ${this.colors.darkGrey} !default;\n`;
+
+                        // Others
+                        scss += `\n// Others\n`;
+                        scss += `$blue      : ${this.colors.blue} !default;\n`;
+                        scss += `$indigo    : ${this.colors.indigo} !default;\n`;
+                        scss += `$purple    : ${this.colors.purple} !default;\n`;
+                        scss += `$pink      : ${this.colors.pink} !default;\n`;
+                        scss += `$magenta   : ${this.colors.magenta} !default;\n`;
+                        scss += `$brown     : ${this.colors.brown} !default;\n`;
+                        scss += `$red       : ${this.colors.red} !default;\n`;
+                        scss += `$orange    : ${this.colors.orange} !default;\n`;
+                        scss += `$yellow    : ${this.colors.yellow} !default;\n`;
+                        scss += `$green     : ${this.colors.green} !default;\n`;
+                        scss += `$teal      : ${this.colors.teal} !default;\n`;
+                        scss += `$cyan      : ${this.colors.cyan} !default;\n`;
+                        scss += `$white     : ${this.colors.white} !default;\n`;
+
+                        // Grey Gradient Colors
+                        scss += `\n// Grey Gradient Colors\n`;
+                        scss += `$white:    #fff !default;\n`;
+                        scss += `$gray-100: #ebebeb !default;\n`;
+                        scss += `$gray-200: #dee2e6 !default;\n`;
+                        scss += `$gray-300: #ced4da !default;\n`;
+                        scss += `$gray-400: #adb5bd !default;\n`;
+                        scss += `$gray-500: #868e96 !default;\n`;
+                        scss += `$gray-600: #4e5d6c !default;\n`;
+                        scss += `$gray-700: #495057 !default;\n`;
+                        scss += `$gray-800: #343a40 !default;\n`;
+                        scss += `$gray-900: #212529 !default;\n`;
+                        scss += `$black:    #000 !default;\n`;
+
+                        // Theme Colors List
+                        scss += `\n// Theme Colors List\n`;
+                        scss += `$theme-colors: (\n`;
+                        for (const [key, value] of Object.entries(this.colors)) {
+                            let formattedKey = key.replace('grad1', 'grad-1')
+                                                .replace('grad2', 'grad-2')
+                                                .replace('grad3', 'grad-3')
+                                                .replace('grad4', 'grad-4')
+                                                .replace('gradG1', 'grad-g1')
+                                                .replace('gradG2', 'grad-g2')
+                                                .replace('darkGrey', 'dark-grey');
+                            // scss += `    '${formattedKey}'   : ${value},\n`;
+                            if (formattedKey.length <= 5) {
+                                scss += `\t'${formattedKey}'\t\t: ${value},\n`;
+                            } else {
+                                scss += `\t'${formattedKey}'\t: ${value},\n`;
+                            }
+                        }
+                        scss += `);\n`;
+
+                        // Generate Filters
+                        scss += `\n// Generate Filters (ex : use filter-primary to change svg fill color) \n`;
+                        scss += `$filters: (\n`;
+                        for (const [key, value] of Object.entries(this.colors)) {
+                            let formattedKey = key.replace('grad1', 'grad-1')
+                                                .replace('grad2', 'grad-2')
+                                                .replace('grad3', 'grad-3')
+                                                .replace('grad4', 'grad-4')
+                                                .replace('gradG1', 'grad-g1')
+                                                .replace('gradG2', 'grad-g2')
+                                                .replace('darkGrey', 'dark-grey');
+
+                            const filter = generateFilter(value); // Use the manually defined function
+
+                            if (formattedKey.length <= 6) {
+                                scss += `\t$${formattedKey}\t\t: "${filter}",\n`;
+                            } else {
+                                scss += `\t$${formattedKey}\t: "${filter}",\n`;
+                            }
+                        }
+                        scss += `);\n`;
+
+                        scss += `@each $color-name, $color in $theme-colors {\n`;
+                        scss += `  $filter: map-get($filters, $color);\n`;
+                        scss += `  .filter-#{$color-name} {\n`;
+                        scss += `    filter: unquote($filter);\n`;
+                        scss += `  }\n`;
+                        scss += `}\n`;
+
+                        scss += `// ********************************************\n`;
+                        
+                        // Existing SCSS generation logic
+                        if (this.svgDataUri) {
+                            setTimeout(() => {
+                                scss += `\n// Logo (svg-logo)\n`;
+                                scss += `@mixin svg-logo($width: 100px, $height: 100px) {
+                                    background-image: url(${this.svgDataUri});
+                                    background-repeat: no-repeat;
+                                    background-size: contain;
+                                    width: $width;
+                                    height: $height;
+                                }\n`;
+                                this.scssCode = scss;
+                                this.isLoading = false; // Stop loading
+
+                                // Trigger modal display
+                                const scssModal = new bootstrap.Modal(document.getElementById('scssModal'));
+                                scssModal.show();
+                            }, 35000); // Adjust the delay as needed
+                        } else {
+                            this.scssCode = scss;
+                            this.isLoading = false; // Stop loading
+
+                            // Trigger modal display
+                            const scssModal = new bootstrap.Modal(document.getElementById('scssModal'));
+                            scssModal.show();
+                        }
+                    
+                },
+                saveToLocalStorage() {
+                    localStorage.setItem('colorsConfig', JSON.stringify(this.colors));
+                    alert('Colors configuration saved to local storage.');
+                },
+                downloadJsonConfig() {
+                    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.colors));
+                    const downloadAnchorNode = document.createElement('a');
+                    downloadAnchorNode.setAttribute("href", dataStr);
+                    downloadAnchorNode.setAttribute("download", "colorsConfig.json");
+                    document.body.appendChild(downloadAnchorNode);
+                    downloadAnchorNode.click();
+                    downloadAnchorNode.remove();
+                },
+                importJsonConfig(event) {
+                    const file = event.target.files[0];
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const result = JSON.parse(e.target.result);
+                        this.colors = result;
+                    };
+                    reader.readAsText(file);
+                },
+                loadFromLocalStorage() {
+                    const storedColors = localStorage.getItem('colorsConfig');
+                    if (storedColors) {
+                        this.colors = JSON.parse(storedColors);
+                    }
+                },
+                chooseFile() {
+                    document.getElementById('customFile').click();
+                },
+                importSvgLogo(event) {
+                    const file = event.target.files[0];
+                    if (file && file.type === 'image/svg+xml') {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            this.svgDataUri = e.target.result;
+                            this.displaySvgPreview(this.svgDataUri);
+                        };
+                        reader.readAsDataURL(file);
+                    } else {
+                        alert('Please upload a valid SVG file.');
+                    }
+                },
+                displaySvgPreview(svgUri) {
+                    const previewsContainer = document.getElementById('imagePreviews');
+                    previewsContainer.innerHTML = ''; // Clear previous previews
+                    const preview = document.createElement('div');
+                    preview.classList.add('col-md-4', 'mb-3');
+                    preview.innerHTML = `<img src="${svgUri}" alt="SVG Preview" class="img-fluid rounded">
+                                        <div class="text-center mt-2">
+                                        <span class="badge bg-secondary">SVG Logo</span>
+                                        </div>`;
+                    previewsContainer.appendChild(preview);
+                }
+            },
+            mounted() {
+                this.loadFromLocalStorage();
+            }
+        }).mount('#app');
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('copyButton').addEventListener('click', function() {
+                const scssCodeElement = document.getElementById('scssCode').querySelector('code');
+                const range = document.createRange();
+                range.selectNode(scssCodeElement);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+
+                try {
+                    const successful = document.execCommand('copy');
+                    if (successful) {
+                        alert('SCSS code copied to clipboard!');
+                    } else {
+                        alert('Failed to copy SCSS code.');
+                    }
+                } catch (err) {
+                    alert('Failed to copy SCSS code.');
+                }
+
+                window.getSelection().removeAllRanges();
+            });
+
+            // Ensure the code inside the modal is highlighted
+            document.getElementById('scssModal').addEventListener('shown.bs.modal', function () {
+                Prism.highlightAll();
+            });
+        });
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+    <!-- Gradient generator -->
+    <script>
+        function generateColors() {
+            const startColor = document.getElementById('startColor').value.trim();
+            const endColor = document.getElementById('endColor').value.trim();
+            const numVariants = parseInt(document.getElementById('numVariants').value);
+
+            if (!startColor || !endColor || isNaN(numVariants) || numVariants < 1) {
+                alert('Please provide valid input values.');
+                return;
+            }
+
+            const startRGB = hexToRgb(startColor);
+            const endRGB = hexToRgb(endColor);
+            const colorVariants = generateColorVariants(startRGB, endRGB, numVariants);
+            displayColors(colorVariants);
+        }
+
+        function hexToRgb(hex) {
+            const bigint = parseInt(hex.replace('#', ''), 16);
+            const r = (bigint >> 16) & 255;
+            const g = (bigint >> 8) & 255;
+            const b = bigint & 255;
+            return [r, g, b];
+        }
+
+        function rgbToHex(r, g, b) {
+            return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
+        }
+
+        function generateColorVariants(startRGB, endRGB, numVariants) {
+            const colors = [];
+            for (let i = 0; i < numVariants; i++) {
+                const r = Math.round(startRGB[0] + (endRGB[0] - startRGB[0]) * (i / (numVariants - 1)));
+                const g = Math.round(startRGB[1] + (endRGB[1] - startRGB[1]) * (i / (numVariants - 1)));
+                const b = Math.round(startRGB[2] + (endRGB[2] - startRGB[2]) * (i / (numVariants - 1)));
+                colors.push(rgbToHex(r, g, b));
+            }
+            return colors;
+        }
+
+        function displayColors(colors) {
+            const colorCards = document.getElementById('colorCards');
+            colorCards.innerHTML = '';
+            colors.forEach(color => {
+                const card = document.createElement('div');
+                card.className = 'card color-card col-md-2';
+                card.style.backgroundColor = color;
+                card.innerHTML = `<div class="card-body text-white"><h5 class="card-title">${color}</h5></div>`;
+                colorCards.appendChild(card);
+            });
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
