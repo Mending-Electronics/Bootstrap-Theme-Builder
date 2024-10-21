@@ -7,22 +7,21 @@ $theme: "default" !default;
 
 // https://colordesigner.io/color-palette-builder?mode=lch#546E7A-0B203C-07485B-0D6986-8EC7D2-F2C12E-F44336-FF822E-66BB6A-4192D9
 
-
 // COLOR
 // ********************************************
 
 // Main Colors HEX
-$primary    :#26a269 !default;
+$primary    :#0D6986 !default;
 $secondary  :#6C757D !default;
-$third      :#186742 !default;
+$third      :#21224B !default;
 
 // Main Colors RGB
-$primary-rgb   : rgb(38, 162, 105);
-$primary-rgba  : rgba(38, 162, 105, 0.35);
+$primary-rgb   : rgb(13, 105, 134);
+$primary-rgba  : rgba(13, 105, 134, 0.35);
 $secondary-rgb : rgb(108, 117, 125);
 $secondary-rgba: rgba(108, 117, 125, 0.35);
-$third-rgb     : rgb(24, 103, 66);
-$third-rgba    : rgba(24, 103, 66, 0.35);
+$third-rgb     : rgb(33, 34, 75);
+$third-rgba    : rgba(33, 34, 75, 0.35);
 
 // States Colors
 $success   : #198754 !default;
@@ -35,10 +34,10 @@ $dark      : #343A40 !default;
 $light     : #F8F9FA !default;
 
 // Gradient Colors
-$grad-1     : #239661 !default;
-$grad-2     : #208a59 !default;
-$grad-3     : #1e7f52 !default;
-$grad-4     : #1b734a !default;
+$grad-1     : #115b7a !default;
+$grad-2     : #154d6e !default;
+$grad-3     : #193e63 !default;
+$grad-4     : #1d3057 !default;
 $grad-g1    : #9698A2 !default;
 $grad-g2    : #575A6B !default;
 
@@ -76,16 +75,16 @@ $black:    #000 !default;
 
 // Theme Colors List
 $theme-colors: (
-	'primary'	: #26a269,
+	'primary'	: #0D6986,
 	'secondary'	: #6C757D,
-	'third'		: #186742,
+	'third'		: #21224B,
 	'dark'		: #343A40,
 	'light'		: #F8F9FA,
 	'white'		: #FFFFFF,
-	'grad-1'	: #239661,
-	'grad-2'	: #208a59,
-	'grad-3'	: #1e7f52,
-	'grad-4'	: #1b734a,
+	'grad-1'	: #115b7a,
+	'grad-2'	: #154d6e,
+	'grad-3'	: #193e63,
+	'grad-4'	: #1d3057,
 	'grad-g1'	: #9698A2,
 	'grad-g2'	: #575A6B,
 	'success'	: #198754,
@@ -107,7 +106,6 @@ $theme-colors: (
 	'teal'		: #20C997,
 	'cyan'		: #17A2B8,
 );
-
 
 
 $min-contrast-ratio:   2.5 !default;

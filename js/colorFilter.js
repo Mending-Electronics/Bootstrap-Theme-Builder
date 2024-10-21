@@ -1,26 +1,4 @@
-const colorRadio = document.getElementById("color-radio");
-const colorInput = document.getElementById("color-input");
-
-colorRadio.addEventListener("change", () => {
-  colorInput.value = colorRadio.value;
-  validateColor(colorInput.value);
-});
-
-colorInput.addEventListener("input", () => {
-  validateColor(colorInput.value);
-
-  switch (colorInput.value.length) {
-    case 4:
-      colorRadio.value = "#" + hexexpand(colorInput.value);
-      break;
-    case 7:
-      colorRadio.value = colorInput.value;
-      break;
-    default:
-      colorRadio.value = "#000000";
-      break;
-  }
-});
+// Code taken from https://github.com/angel-rs/css-color-filter-generator, licensed under MIT.
 
 // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
 function expandHex(hextexp) {
@@ -367,8 +345,8 @@ class Solver {
   }
 }
 
-function compute() {
-  const input = document.getElementById("color-input").value;
+function generateFilter(input) {
+
   let rgb;
 
   if (isHEXValid(input)) {
@@ -406,33 +384,22 @@ function compute() {
     res.lossMsg = "The color is extremely off. Run it again!";
   }
 
-  const filterPixel = document.getElementById("filterPixel");
-  const filterPixelText = document.getElementById("filterPixelText");
-  const lossDetail = document.getElementById("lossDetail");
-  const realPixel = document.getElementById("realPixel");
-  const realPixelTextRGB = document.getElementById("realPixelTextRGB");
-  const realPixelTextHEX = document.getElementById("realPixelTextHEX");
-  const rgbColor = res.color.toRgb();
-  const hexColor = res.color.toHex();
+  lossResult = res.result.loss.toFixed(1)
+    
+  console.log(input);
+  // console.log(`Loss: ${res.result.loss.toFixed(1)}.`);
 
-  realPixel.style.backgroundColor = rgbColor;
-  realPixelTextRGB.innerText = rgbColor;
-  realPixelTextRGB.parentElement.setAttribute("data-clipboard-text", rgbColor);
-  realPixelTextHEX.innerText = hexColor;
-  realPixelTextHEX.parentElement.setAttribute("data-clipboard-text", hexColor);
 
-  filterPixel.style.filter = String(res.result.filterRaw);
-  filterPixel.style.webkitFilter = String(res.result.filterRaw);
+  return {
+    filter: String(result.filterRaw),
+    loss: result.loss.toFixed(1)
+  };
 
-  filterPixelText.innerText = res.result.filter;
-  filterPixelText.parentElement.setAttribute(
-    "data-clipboard-text",
-    res.result.filter
-  );
 
-  lossDetail.innerHTML = `Loss: ${res.result.loss.toFixed(1)}. <b>${
-    res.lossMsg
-  }</b>`;
+
+
+
+
 }
 
 function isHEXValid(color) {
@@ -467,50 +434,3 @@ function isRGBValid(color) {
     return false;
   }
 }
-
-function validateColor(color) {
-  const submitButton = document.getElementById("action-button");
-
-  if (isHEXValid(color) || isRGBValid(color)) {
-    submitButton.classList.remove("disabled");
-  } else if (!submitButton.classList.contains("disabled")) {
-    submitButton.classList.add("disabled");
-  }
-}
-
-function onStart() {
-  const initialColor = new URLSearchParams(document.location.search).get(
-    "color"
-  );
-  if (initialColor && isHEXValid(`#${initialColor}`)) {
-    document
-      .getElementById("color-input")
-      .setAttribute("value", `#${initialColor}`);
-    document
-      .getElementById("color-radio")
-      .setAttribute("value", `#${initialColor}`);
-    validateColor(`#${initialColor}`);
-    compute();
-  }
-
-  const copyableElements = document.querySelectorAll(".copyable");
-  const copyEl = document.querySelectorAll(".pos");
-
-  new ClipboardJS("span.copyable");
-
-  copyableElements.forEach((el, index) => {
-    el.addEventListener("click", () => {
-      copyEl[index].classList.add("copied");
-
-      setTimeout(() => {
-        copyEl[index].classList.remove("copied");
-      }, 1500);
-    });
-  });
-
-  document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("color-input").removeAttribute("disabled");
-  });
-}
-
-onStart();

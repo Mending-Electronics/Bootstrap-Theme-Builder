@@ -261,27 +261,145 @@ color: white;
 
 
 
-// Generate emphasis colors
+
+// Generate emphasis Text and Background colors
 @function tint($color, $percentage) {
-  @return mix(white, $color, $percentage);
+	@return mix(white, $color, $percentage);
 }
 
-.text-primary-emphasis      {        color: tint($primary, 40%) !important};
-.text-secondary-emphasis    {        color: tint($secondary, 40%) !important}; 
-.text-success-emphasis      {        color: tint($success, 40%) !important}; 
-.text-info-emphasis         {        color: tint($info, 40%) !important}; 
-.text-warning-emphasis      {        color: tint($warning, 40%) !important}; 
-.text-danger-emphasis       {        color: tint($danger, 40%) !important}; 
+
+.text-primary-emphasis			{color: tint($primary, 40%) !important};
+.text-secondary-emphasis		{color: tint($secondary, 40%) !important};
+.text-third-emphasis			{color: tint($third, 40%) !important};
+.text-dark-emphasis				{color: tint($dark, 40%) !important};
+.text-light-emphasis			{color: tint($light, 40%) !important};
+.text-white-emphasis			{color: tint($white, 40%) !important};
+.text-grad-1-emphasis			{color: tint($grad-1, 40%) !important};
+.text-grad-2-emphasis			{color: tint($grad-2, 40%) !important};
+.text-grad-3-emphasis			{color: tint($grad-3, 40%) !important};
+.text-grad-4-emphasis			{color: tint($grad-4, 40%) !important};
+.text-grad-g1-emphasis			{color: tint($grad-g1, 40%) !important};
+.text-grad-g2-emphasis			{color: tint($grad-g2, 40%) !important};
+.text-success-emphasis			{color: tint($success, 40%) !important};
+.text-info-emphasis				{color: tint($info, 40%) !important};
+.text-warning-emphasis			{color: tint($warning, 40%) !important};
+.text-danger-emphasis			{color: tint($danger, 40%) !important};
+.text-magenta-emphasis			{color: tint($magenta, 40%) !important};
+.text-brown-emphasis			{color: tint($brown, 40%) !important};
+.text-grey-emphasis				{color: tint($grey, 40%) !important};
+.text-dark-grey-emphasis		{color: tint($dark-grey, 40%) !important};
+.text-blue-emphasis				{color: tint($blue, 40%) !important};
+.text-indigo-emphasis			{color: tint($indigo, 40%) !important};
+.text-purple-emphasis			{color: tint($purple, 40%) !important};
+.text-pink-emphasis				{color: tint($pink, 40%) !important};
+.text-red-emphasis				{color: tint($red, 40%) !important};
+.text-orange-emphasis			{color: tint($orange, 40%) !important};
+.text-yellow-emphasis			{color: tint($yellow, 40%) !important};
+.text-green-emphasis			{color: tint($green, 40%) !important};
+.text-teal-emphasis				{color: tint($teal, 40%) !important};
+.text-cyan-emphasis				{color: tint($cyan, 40%) !important};
+
 $light-text-emphasis:          $gray-100 !default;
 $dark-text-emphasis:           $gray-300 !default;
 
-.bg-primary-emphasis      {        background-color: tint($primary, 40%) !important; color: white};
-.bg-secondary-emphasis    {        background-color: tint($secondary, 40%) !important; color: white};
-.bg-success-emphasis      {        background-color: tint($success, 40%) !important; color: white};
-.bg-info-emphasis         {        background-color: tint($info, 40%) !important; color: white};
-.bg-warning-emphasis      {        background-color: tint($warning, 40%) !important; color: white};
-.bg-danger-emphasis       {        background-color: tint($danger, 40%) !important; color: white};
+.bg-primary-emphasis			{background-color: tint($primary, 40%) !important; color: white};
+.bg-secondary-emphasis			{background-color: tint($secondary, 40%) !important; color: white};
+.bg-third-emphasis				{background-color: tint($third, 40%) !important; color: white};
+.bg-dark-emphasis				{background-color: tint($dark, 40%) !important; color: white};
+.bg-light-emphasis				{background-color: tint($light, 40%) !important; color: white};
+.bg-white-emphasis				{background-color: tint($white, 40%) !important; color: white};
+.bg-grad-1-emphasis				{background-color: tint($grad-1, 40%) !important; color: white};
+.bg-grad-2-emphasis				{background-color: tint($grad-2, 40%) !important; color: white};
+.bg-grad-3-emphasis				{background-color: tint($grad-3, 40%) !important; color: white};
+.bg-grad-4-emphasis				{background-color: tint($grad-4, 40%) !important; color: white};
+.bg-grad-g1-emphasis			{background-color: tint($grad-g1, 40%) !important; color: white};
+.bg-grad-g2-emphasis			{background-color: tint($grad-g2, 40%) !important; color: white};
+.bg-success-emphasis			{background-color: tint($success, 40%) !important; color: white};
+.bg-info-emphasis				{background-color: tint($info, 40%) !important; color: white};
+.bg-warning-emphasis			{background-color: tint($warning, 40%) !important; color: white};
+.bg-danger-emphasis				{background-color: tint($danger, 40%) !important; color: white};
+.bg-magenta-emphasis			{background-color: tint($magenta, 40%) !important; color: white};
+.bg-brown-emphasis				{background-color: tint($brown, 40%) !important; color: white};
+.bg-grey-emphasis				{background-color: tint($grey, 40%) !important; color: white};
+.bg-dark-grey-emphasis			{background-color: tint($dark-grey, 40%) !important; color: white};
+.bg-blue-emphasis				{background-color: tint($blue, 40%) !important; color: white};
+.bg-indigo-emphasis				{background-color: tint($indigo, 40%) !important; color: white};
+.bg-purple-emphasis				{background-color: tint($purple, 40%) !important; color: white};
+.bg-pink-emphasis				{background-color: tint($pink, 40%) !important; color: white};
+.bg-red-emphasis				{background-color: tint($red, 40%) !important; color: white};
+.bg-orange-emphasis				{background-color: tint($orange, 40%) !important; color: white};
+.bg-yellow-emphasis				{background-color: tint($yellow, 40%) !important; color: white};
+.bg-green-emphasis				{background-color: tint($green, 40%) !important; color: white};
+.bg-teal-emphasis				{background-color: tint($teal, 40%) !important; color: white};
+.bg-cyan-emphasis				{background-color: tint($cyan, 40%) !important; color: white};
 
+// Generate Filters (ex : use filter-primary to change svg fill color) 
+$filters: (
+	$primary	: "brightness(0) saturate(100%) invert(18%) sepia(61%) saturate(4447%) hue-rotate(179deg) brightness(91%) contrast(90%)",	//Loss 0.2
+	$secondary	: "brightness(0) saturate(100%) invert(50%) sepia(9%) saturate(479%) hue-rotate(167deg) brightness(86%) contrast(79%)",	//Loss 0.1
+	$third		: "brightness(0) saturate(100%) invert(9%) sepia(50%) saturate(2636%) hue-rotate(225deg) brightness(91%) contrast(90%)",	// Loss 0.8
+	$dark		: "brightness(0) saturate(100%) invert(19%) sepia(6%) saturate(1316%) hue-rotate(169deg) brightness(91%) contrast(85%)",	// Loss 0.1
+	$light		: "brightness(0) saturate(100%) invert(100%) sepia(28%) saturate(184%) hue-rotate(175deg) brightness(99%) contrast(97%)",	// Loss 0.1
+	$white		: "brightness(0) saturate(100%) invert(99%) sepia(31%) saturate(2%) hue-rotate(203deg) brightness(112%) contrast(100%)",	// Loss 0.0
+	$grad-1		: "brightness(0) saturate(100%) invert(23%) sepia(33%) saturate(2843%) hue-rotate(169deg) brightness(96%) contrast(87%)",	// Loss 0.1
+	$grad-2		: "brightness(0) saturate(100%) invert(21%) sepia(55%) saturate(1464%) hue-rotate(173deg) brightness(88%) contrast(85%)",	// Loss 0.9
+	$grad-3		: "brightness(0) saturate(100%) invert(18%) sepia(18%) saturate(3884%) hue-rotate(181deg) brightness(91%) contrast(88%)",	// Loss 0.7
+	$grad-4		: "brightness(0) saturate(100%) invert(14%) sepia(74%) saturate(600%) hue-rotate(183deg) brightness(97%) contrast(94%)",	// Loss 0.0
+	$grad-g1	: "brightness(0) saturate(100%) invert(66%) sepia(11%) saturate(216%) hue-rotate(193deg) brightness(90%) contrast(89%)",	//Loss 0.1
+	$grad-g2	: "brightness(0) saturate(100%) invert(36%) sepia(6%) saturate(1239%) hue-rotate(194deg) brightness(90%) contrast(86%)",	//Loss 0.1
+	$success	: "brightness(0) saturate(100%) invert(25%) sepia(79%) saturate(2306%) hue-rotate(141deg) brightness(96%) contrast(80%)",	//Loss 0.2
+	$info		: "brightness(0) saturate(100%) invert(73%) sepia(97%) saturate(2477%) hue-rotate(146deg) brightness(95%) contrast(98%)",	// Loss 0.8
+	$warning	: "brightness(0) saturate(100%) invert(71%) sepia(97%) saturate(1001%) hue-rotate(354deg) brightness(101%) contrast(101%)",	//Loss 0.2
+	$danger		: "brightness(0) saturate(100%) invert(30%) sepia(56%) saturate(2995%) hue-rotate(335deg) brightness(89%) contrast(94%)",	// Loss 0.1
+	$magenta	: "brightness(0) saturate(100%) invert(19%) sepia(29%) saturate(6548%) hue-rotate(306deg) brightness(97%) contrast(89%)",	//Loss 0.1
+	$brown		: "brightness(0) saturate(100%) invert(63%) sepia(7%) saturate(411%) hue-rotate(334deg) brightness(89%) contrast(86%)",	// Loss 0.1
+	$grey		: "brightness(0) saturate(100%) invert(95%) sepia(9%) saturate(55%) hue-rotate(202deg) brightness(93%) contrast(97%)",	// Loss 0.8
+	$dark-grey	: "brightness(0) saturate(100%) invert(30%) sepia(8%) saturate(1297%) hue-rotate(193deg) brightness(99%) contrast(85%)",	//Loss 0.0
+	$blue		: "brightness(0) saturate(100%) invert(36%) sepia(46%) saturate(7498%) hue-rotate(210deg) brightness(102%) contrast(99%)",	// Loss 0.5
+	$indigo		: "brightness(0) saturate(100%) invert(12%) sepia(97%) saturate(5613%) hue-rotate(265deg) brightness(90%) contrast(113%)",	// Loss 0.9
+	$purple		: "brightness(0) saturate(100%) invert(32%) sepia(17%) saturate(4713%) hue-rotate(235deg) brightness(92%) contrast(99%)",	// Loss 0.7
+	$pink		: "brightness(0) saturate(100%) invert(30%) sepia(68%) saturate(2076%) hue-rotate(305deg) brightness(87%) contrast(91%)",	// Loss 0.4
+	$red		: "brightness(0) saturate(100%) invert(47%) sepia(9%) saturate(3353%) hue-rotate(313deg) brightness(91%) contrast(105%)",	// Loss 0.7
+	$orange		: "brightness(0) saturate(100%) invert(47%) sepia(83%) saturate(818%) hue-rotate(351deg) brightness(101%) contrast(98%)",	// Loss 0.3
+	$yellow		: "brightness(0) saturate(100%) invert(89%) sepia(32%) saturate(4135%) hue-rotate(354deg) brightness(107%) contrast(102%)",	// Loss 0.1
+	$green		: "brightness(0) saturate(100%) invert(55%) sepia(15%) saturate(2270%) hue-rotate(81deg) brightness(92%) contrast(80%)",	// Loss 0.3
+	$teal		: "brightness(0) saturate(100%) invert(62%) sepia(33%) saturate(880%) hue-rotate(111deg) brightness(97%) contrast(95%)",	// Loss 0.2
+	$cyan		: "brightness(0) saturate(100%) invert(45%) sepia(53%) saturate(1437%) hue-rotate(152deg) brightness(97%) contrast(82%)",	// Loss 0.2
+);
+@each $color-name, $color in $theme-colors {
+  $filter: map-get($filters, $color);
+  .filter-#{$color-name} {
+    filter: unquote($filter);
+  }
+}
+
+
+
+
+
+
+// Logo (svg-logo)
+@mixin svg-logo($width: 100px, $height: 100px) {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwbW0iIGhlaWdodD0iMTAwbW0iIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDMuMzUxIC04Ny44OTEpIj4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIC0uMTE3ODgpIiBmaWxsPSIjMjZhMjY5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1vcGFjaXR5PSIuNDgyMzUiIHN0cm9rZS13aWR0aD0iLjAxIj4KICAgPHBhdGggZD0ibTEwNSAxMTMuMjQtMzUuMjU0IDM1LjI1NGEzNS4yNTggMzUuMjU4IDAgMCAwIDAgNGUtMyAzNS4yNTggMzUuMjU4IDAgMCAwIDM1LjI1OCAzNS4yNTggMzUuMjU4IDM1LjI1OCAwIDAgMCAzNS4yNTgtMzUuMjU4IDM1LjI1OCAzNS4yNTggMCAwIDAtMzUuMjU4LTM1LjI1OCAzNS4yNTggMzUuMjU4IDAgMCAwLTRlLTMgMHptMmUtMyAxMC41OTVoNS4yZS00YTI0LjY2MyAyNC42NjMgMCAwIDEgMmUtMyAwIDI0LjY2MyAyNC42NjMgMCAwIDEgMjQuNjY0IDI0LjY2MyAyNC42NjMgMjQuNjYzIDAgMCAxLTI0LjY2NCAyNC42NjQgMjQuNjYzIDI0LjY2MyAwIDAgMS0yNC42NjMtMjQuNjY0IDI0LjY2MyAyNC42NjMgMCAwIDEgMC0zZS0zeiIgc3R5bGU9InBhaW50LW9yZGVyOm1hcmtlcnMgc3Ryb2tlIGZpbGwiLz4KICAgPHBhdGggZD0ibTc4LjQ3IDEyOC44MS0xOS4xMDUgOC4zMzY4LTEyLjg1My0yLjQzMTYgOC4zMzY4LTguNjg0MnoiIHN0eWxlPSJwYWludC1vcmRlcjptYXJrZXJzIHN0cm9rZSBmaWxsIi8+CiAgIDxwYXRoIGQ9Im04Mi42MDggMTI1LjU1LTM0LjA4NS0xNi43ODEtMi4wNzg3LTE0LjYzMiAxNi40NjQgMi43NDkzeiIgc3R5bGU9InBhaW50LW9yZGVyOm1hcmtlcnMgc3Ryb2tlIGZpbGwiLz4KICAgPHBhdGggZD0ibTg3LjIxIDEyMi4yMi02LjU5NjQtMTkuNjk1IDMuMzM1NS0xMC4yNjcgNi44OTkyIDkuNjkzOXoiIHN0eWxlPSJwYWludC1vcmRlcjptYXJrZXJzIHN0cm9rZSBmaWxsIi8+CiAgPC9nPgogPC9nPgo8L3N2Zz4K);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: $width;
+  height: $height;
+}
+.svg-logo {
+background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwbW0iIGhlaWdodD0iMTAwbW0iIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDMuMzUxIC04Ny44OTEpIj4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIC0uMTE3ODgpIiBmaWxsPSIjMjZhMjY5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1vcGFjaXR5PSIuNDgyMzUiIHN0cm9rZS13aWR0aD0iLjAxIj4KICAgPHBhdGggZD0ibTEwNSAxMTMuMjQtMzUuMjU0IDM1LjI1NGEzNS4yNTggMzUuMjU4IDAgMCAwIDAgNGUtMyAzNS4yNTggMzUuMjU4IDAgMCAwIDM1LjI1OCAzNS4yNTggMzUuMjU4IDM1LjI1OCAwIDAgMCAzNS4yNTgtMzUuMjU4IDM1LjI1OCAzNS4yNTggMCAwIDAtMzUuMjU4LTM1LjI1OCAzNS4yNTggMzUuMjU4IDAgMCAwLTRlLTMgMHptMmUtMyAxMC41OTVoNS4yZS00YTI0LjY2MyAyNC42NjMgMCAwIDEgMmUtMyAwIDI0LjY2MyAyNC42NjMgMCAwIDEgMjQuNjY0IDI0LjY2MyAyNC42NjMgMjQuNjYzIDAgMCAxLTI0LjY2NCAyNC42NjQgMjQuNjYzIDI0LjY2MyAwIDAgMS0yNC42NjMtMjQuNjY0IDI0LjY2MyAyNC42NjMgMCAwIDEgMC0zZS0zeiIgc3R5bGU9InBhaW50LW9yZGVyOm1hcmtlcnMgc3Ryb2tlIGZpbGwiLz4KICAgPHBhdGggZD0ibTc4LjQ3IDEyOC44MS0xOS4xMDUgOC4zMzY4LTEyLjg1My0yLjQzMTYgOC4zMzY4LTguNjg0MnoiIHN0eWxlPSJwYWludC1vcmRlcjptYXJrZXJzIHN0cm9rZSBmaWxsIi8+CiAgIDxwYXRoIGQ9Im04Mi42MDggMTI1LjU1LTM0LjA4NS0xNi43ODEtMi4wNzg3LTE0LjYzMiAxNi40NjQgMi43NDkzeiIgc3R5bGU9InBhaW50LW9yZGVyOm1hcmtlcnMgc3Ryb2tlIGZpbGwiLz4KICAgPHBhdGggZD0ibTg3LjIxIDEyMi4yMi02LjU5NjQtMTkuNjk1IDMuMzM1NS0xMC4yNjcgNi44OTkyIDkuNjkzOXoiIHN0eWxlPSJwYWludC1vcmRlcjptYXJrZXJzIHN0cm9rZSBmaWxsIi8+CiAgPC9nPgogPC9nPgo8L3N2Zz4K);
+background-repeat: no-repeat;
+background-size: contain;
+width: 30px;
+height: 30px;
+}
+
+
+
+
+
+
+// ********************************************
 
 
 .list-group-dark {
@@ -319,72 +437,6 @@ $dark-text-emphasis:           $gray-300 !default;
 
 
 
-
-// https://angel-rs.github.io/css-color-filter-generator/
-
-
-// Generate Filters (ex : use filter-primary to change svg fill color) 
-$filters: (
-	$primary	: "brightness(0) saturate(100%) invert(62%) sepia(162%) saturate(750%) hue-rotate(105deg) brightness(105%) contrast(95%)",
-	$secondary	: "brightness(0) saturate(100%) invert(-8%) sepia(117%) saturate(750%) hue-rotate(125deg) brightness(105%) contrast(95%)",
-	$third		: "brightness(0) saturate(100%) invert(76%) sepia(103%) saturate(750%) hue-rotate(66deg) brightness(105%) contrast(95%)",
-	$dark		: "brightness(0) saturate(100%) invert(48%) sepia(58%) saturate(750%) hue-rotate(64deg) brightness(105%) contrast(95%)",
-	$light		: "brightness(0) saturate(100%) invert(-148%) sepia(249%) saturate(750%) hue-rotate(250deg) brightness(105%) contrast(95%)",
-	$white		: "brightness(0) saturate(100%) invert(-155%) sepia(255%) saturate(750%) hue-rotate(255deg) brightness(105%) contrast(95%)",
-	$grad-1		: "brightness(0) saturate(100%) invert(65%) sepia(150%) saturate(750%) hue-rotate(97deg) brightness(105%) contrast(95%)",
-	$grad-2		: "brightness(0) saturate(100%) invert(68%) sepia(138%) saturate(750%) hue-rotate(89deg) brightness(105%) contrast(95%)",
-	$grad-3		: "brightness(0) saturate(100%) invert(70%) sepia(127%) saturate(750%) hue-rotate(82deg) brightness(105%) contrast(95%)",
-	$grad-4		: "brightness(0) saturate(100%) invert(73%) sepia(115%) saturate(750%) hue-rotate(74deg) brightness(105%) contrast(95%)",
-	$grad-g1	: "brightness(0) saturate(100%) invert(-50%) sepia(152%) saturate(750%) hue-rotate(162deg) brightness(105%) contrast(95%)",
-	$grad-g2	: "brightness(0) saturate(100%) invert(13%) sepia(90%) saturate(750%) hue-rotate(107deg) brightness(105%) contrast(95%)",
-	$success	: "brightness(0) saturate(100%) invert(75%) sepia(135%) saturate(750%) hue-rotate(84deg) brightness(105%) contrast(95%)",
-	$info		: "brightness(0) saturate(100%) invert(87%) sepia(202%) saturate(750%) hue-rotate(240deg) brightness(105%) contrast(95%)",
-	$warning	: "brightness(0) saturate(100%) invert(-155%) sepia(193%) saturate(750%) hue-rotate(7deg) brightness(105%) contrast(95%)",
-	$danger		: "brightness(0) saturate(100%) invert(-120%) sepia(53%) saturate(750%) hue-rotate(69deg) brightness(105%) contrast(95%)",
-	$magenta	: "brightness(0) saturate(100%) invert(-74%) sepia(37%) saturate(750%) hue-rotate(115deg) brightness(105%) contrast(95%)",
-	$brown		: "brightness(0) saturate(100%) invert(-51%) sepia(140%) saturate(750%) hue-rotate(135deg) brightness(105%) contrast(95%)",
-	$grey		: "brightness(0) saturate(100%) invert(-128%) sepia(228%) saturate(750%) hue-rotate(232deg) brightness(105%) contrast(95%)",
-	$dark-grey	: "brightness(0) saturate(100%) invert(19%) sepia(85%) saturate(750%) hue-rotate(105deg) brightness(105%) contrast(95%)",
-	$blue		: "brightness(0) saturate(100%) invert(87%) sepia(110%) saturate(750%) hue-rotate(253deg) brightness(105%) contrast(95%)",
-	$indigo		: "brightness(0) saturate(100%) invert(-2%) sepia(16%) saturate(750%) hue-rotate(242deg) brightness(105%) contrast(95%)",
-	$purple		: "brightness(0) saturate(100%) invert(-11%) sepia(66%) saturate(750%) hue-rotate(193deg) brightness(105%) contrast(95%)",
-	$pink		: "brightness(0) saturate(100%) invert(-114%) sepia(51%) saturate(750%) hue-rotate(132deg) brightness(105%) contrast(95%)",
-	$red		: "brightness(0) saturate(100%) invert(-117%) sepia(83%) saturate(750%) hue-rotate(79deg) brightness(105%) contrast(95%)",
-	$orange		: "brightness(0) saturate(100%) invert(-153%) sepia(126%) saturate(750%) hue-rotate(20deg) brightness(105%) contrast(95%)",
-	$yellow		: "brightness(0) saturate(100%) invert(-155%) sepia(213%) saturate(750%) hue-rotate(5deg) brightness(105%) contrast(95%)",
-	$green		: "brightness(0) saturate(100%) invert(60%) sepia(167%) saturate(750%) hue-rotate(69deg) brightness(105%) contrast(95%)",
-	$teal		: "brightness(0) saturate(100%) invert(68%) sepia(201%) saturate(750%) hue-rotate(151deg) brightness(105%) contrast(95%)",
-	$cyan		: "brightness(0) saturate(100%) invert(77%) sepia(162%) saturate(750%) hue-rotate(184deg) brightness(105%) contrast(95%)",
-);
-@each $color-name, $color in $theme-colors {
-  $filter: map-get($filters, $color);
-  .filter-#{$color-name} {
-    filter: unquote($filter);
-  }
-}
-
-// ********************************************
-
-
-
-
-
-
-// Logo (svg-logo)
-@mixin svg-logo($width: 100px, $height: 100px) {
-                                    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwbW0iIGhlaWdodD0iMTAwbW0iIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDMuMzUxIC04Ny44OTEpIj4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIC0uMTE3ODgpIiBmaWxsPSIjMjZhMjY5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1vcGFjaXR5PSIuNDgyMzUiIHN0cm9rZS13aWR0aD0iLjAxIj4KICAgPHBhdGggZD0ibTEwNSAxMTMuMjQtMzUuMjU0IDM1LjI1NGEzNS4yNTggMzUuMjU4IDAgMCAwIDAgNGUtMyAzNS4yNTggMzUuMjU4IDAgMCAwIDM1LjI1OCAzNS4yNTggMzUuMjU4IDM1LjI1OCAwIDAgMCAzNS4yNTgtMzUuMjU4IDM1LjI1OCAzNS4yNTggMCAwIDAtMzUuMjU4LTM1LjI1OCAzNS4yNTggMzUuMjU4IDAgMCAwLTRlLTMgMHptMmUtMyAxMC41OTVoNS4yZS00YTI0LjY2MyAyNC42NjMgMCAwIDEgMmUtMyAwIDI0LjY2MyAyNC42NjMgMCAwIDEgMjQuNjY0IDI0LjY2MyAyNC42NjMgMjQuNjYzIDAgMCAxLTI0LjY2NCAyNC42NjQgMjQuNjYzIDI0LjY2MyAwIDAgMS0yNC42NjMtMjQuNjY0IDI0LjY2MyAyNC42NjMgMCAwIDEgMC0zZS0zeiIgc3R5bGU9InBhaW50LW9yZGVyOm1hcmtlcnMgc3Ryb2tlIGZpbGwiLz4KICAgPHBhdGggZD0ibTc4LjQ3IDEyOC44MS0xOS4xMDUgOC4zMzY4LTEyLjg1My0yLjQzMTYgOC4zMzY4LTguNjg0MnoiIHN0eWxlPSJwYWludC1vcmRlcjptYXJrZXJzIHN0cm9rZSBmaWxsIi8+CiAgIDxwYXRoIGQ9Im04Mi42MDggMTI1LjU1LTM0LjA4NS0xNi43ODEtMi4wNzg3LTE0LjYzMiAxNi40NjQgMi43NDkzeiIgc3R5bGU9InBhaW50LW9yZGVyOm1hcmtlcnMgc3Ryb2tlIGZpbGwiLz4KICAgPHBhdGggZD0ibTg3LjIxIDEyMi4yMi02LjU5NjQtMTkuNjk1IDMuMzM1NS0xMC4yNjcgNi44OTkyIDkuNjkzOXoiIHN0eWxlPSJwYWludC1vcmRlcjptYXJrZXJzIHN0cm9rZSBmaWxsIi8+CiAgPC9nPgogPC9nPgo8L3N2Zz4K);
-                                    background-repeat: no-repeat;
-                                    background-size: contain;
-                                    width: $width;
-                                    height: $height;
-                                }
-.svg-logo {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwbW0iIGhlaWdodD0iMTAwbW0iIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDMuMzUxIC04Ny44OTEpIj4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIC0uMTE3ODgpIiBmaWxsPSIjMjZhMjY5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1vcGFjaXR5PSIuNDgyMzUiIHN0cm9rZS13aWR0aD0iLjAxIj4KICAgPHBhdGggZD0ibTEwNSAxMTMuMjQtMzUuMjU0IDM1LjI1NGEzNS4yNTggMzUuMjU4IDAgMCAwIDAgNGUtMyAzNS4yNTggMzUuMjU4IDAgMCAwIDM1LjI1OCAzNS4yNTggMzUuMjU4IDM1LjI1OCAwIDAgMCAzNS4yNTgtMzUuMjU4IDM1LjI1OCAzNS4yNTggMCAwIDAtMzUuMjU4LTM1LjI1OCAzNS4yNTggMzUuMjU4IDAgMCAwLTRlLTMgMHptMmUtMyAxMC41OTVoNS4yZS00YTI0LjY2MyAyNC42NjMgMCAwIDEgMmUtMyAwIDI0LjY2MyAyNC42NjMgMCAwIDEgMjQuNjY0IDI0LjY2MyAyNC42NjMgMjQuNjYzIDAgMCAxLTI0LjY2NCAyNC42NjQgMjQuNjYzIDI0LjY2MyAwIDAgMS0yNC42NjMtMjQuNjY0IDI0LjY2MyAyNC42NjMgMCAwIDEgMC0zZS0zeiIgc3R5bGU9InBhaW50LW9yZGVyOm1hcmtlcnMgc3Ryb2tlIGZpbGwiLz4KICAgPHBhdGggZD0ibTc4LjQ3IDEyOC44MS0xOS4xMDUgOC4zMzY4LTEyLjg1My0yLjQzMTYgOC4zMzY4LTguNjg0MnoiIHN0eWxlPSJwYWludC1vcmRlcjptYXJrZXJzIHN0cm9rZSBmaWxsIi8+CiAgIDxwYXRoIGQ9Im04Mi42MDggMTI1LjU1LTM0LjA4NS0xNi43ODEtMi4wNzg3LTE0LjYzMiAxNi40NjQgMi43NDkzeiIgc3R5bGU9InBhaW50LW9yZGVyOm1hcmtlcnMgc3Ryb2tlIGZpbGwiLz4KICAgPHBhdGggZD0ibTg3LjIxIDEyMi4yMi02LjU5NjQtMTkuNjk1IDMuMzM1NS0xMC4yNjcgNi44OTkyIDkuNjkzOXoiIHN0eWxlPSJwYWludC1vcmRlcjptYXJrZXJzIHN0cm9rZSBmaWxsIi8+CiAgPC9nPgogPC9nPgo8L3N2Zz4K);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 30px;
-    height: 30px;
-}
 
 
 // custom toogle dark-theme button dropdown color 
