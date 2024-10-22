@@ -40,10 +40,17 @@
                         <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <pre class="mt-3 language-scss" id="scssCode" style="max-height: 100% !important"><code class="language-scss">{{ scssCode }}</code></pre>
+                        <pre class="mt-3 language-scss" id="variablesScssCode" style="max-height: 100% !important"><code class="language-scss">{{ variablesScssCode }}</code></pre>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="copyButton">Copy to Clipboard</button>
+                        <button type="button" class="btn btn-primary" id="copyButton1">Copy to Clipboard</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                    <div class="modal-body">
+                        <pre class="mt-3 language-scss" id="bootstrapScssCode" style="max-height: 100% !important"><code class="language-scss">{{ bootstrapScssCode }}</code></pre>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="copyButton2">Copy to Clipboard</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -159,8 +166,29 @@
     <script>
 
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('copyButton').addEventListener('click', function() {
-                const scssCodeElement = document.getElementById('scssCode').querySelector('code');
+            document.getElementById('copyButton1').addEventListener('click', function() {
+                const scssCodeElement = document.getElementById('variablesScssCode').querySelector('code');
+                const range = document.createRange();
+                range.selectNode(scssCodeElement);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+
+                try {
+                    const successful = document.execCommand('copy');
+                    if (successful) {
+                        alert('SCSS code copied to clipboard!');
+                    } else {
+                        alert('Failed to copy SCSS code.');
+                    }
+                } catch (err) {
+                    alert('Failed to copy SCSS code.');
+                }
+
+                window.getSelection().removeAllRanges();
+            });
+
+            document.getElementById('copyButton2').addEventListener('click', function() {
+                const scssCodeElement = document.getElementById('bootstrapScssCode').querySelector('code');
                 const range = document.createRange();
                 range.selectNode(scssCodeElement);
                 window.getSelection().removeAllRanges();

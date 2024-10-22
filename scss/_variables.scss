@@ -4,60 +4,71 @@
 $theme: "default" !default;
 
 
-
 // https://colordesigner.io/color-palette-builder?mode=lch#546E7A-0B203C-07485B-0D6986-8EC7D2-F2C12E-F44336-FF822E-66BB6A-4192D9
+
+
+
+// Place the part of the custom code here
+// ********************************************
+
+
+// Place this parts of the code into _variables.scss
+// ********************************************
+
+// Place this parts of the code into _variables.scss
+// ********************************************
 
 // COLOR
 // ********************************************
 
 // Main Colors HEX
 $primary    :#0D6986 !default;
-$secondary  :#6C757D !default;
-$third      :#21224B !default;
+$secondary  :#546e7a !default;
+$third      :#0b203c !default;
 
 // Main Colors RGB
 $primary-rgb   : rgb(13, 105, 134);
 $primary-rgba  : rgba(13, 105, 134, 0.35);
-$secondary-rgb : rgb(108, 117, 125);
-$secondary-rgba: rgba(108, 117, 125, 0.35);
-$third-rgb     : rgb(33, 34, 75);
-$third-rgba    : rgba(33, 34, 75, 0.35);
+$secondary-rgb : rgb(84, 110, 122);
+$secondary-rgba: rgba(84, 110, 122, 0.35);
+$third-rgb     : rgb(11, 32, 60);
+$third-rgba    : rgba(11, 32, 60, 0.35);
 
 // States Colors
-$success   : #198754 !default;
-$info      : #0DCAF0 !default;
-$warning   : #FFC107 !default;
-$danger    : #DC3545 !default;
+$success   : #5bc460 !default;
+$info      : #60a3bc !default;
+$warning   : #fa983a !default;
+$danger    : #e55039 !default;
 
 // Theme Colors
-$dark      : #343A40 !default;
-$light     : #F8F9FA !default;
+$dark      : #212529 !default;
+$light     : #dee2e6 !default;
 
 // Gradient Colors
-$grad-1     : #115b7a !default;
-$grad-2     : #154d6e !default;
-$grad-3     : #193e63 !default;
-$grad-4     : #1d3057 !default;
-$grad-g1    : #9698A2 !default;
-$grad-g2    : #575A6B !default;
+$grad-1     : #0d5a77 !default;
+$grad-2     : #0c4c68 !default;
+$grad-3     : #0c3d5a !default;
+$grad-4     : #0b2f4b !default;
+$grad-g1    : #66747a !default;
+$grad-g2    : #4b5458 !default;
 
 // Grey Colors
 $grey      : #e4e4e8 !default;
 $dark-grey : #515569 !default;
 
 // Others
-$blue      : #0D6EFD !default;
+$blue      : #0080ff !default;
 $indigo    : #6610F2 !default;
 $purple    : #6F42C1 !default;
-$pink      : #D63384 !default;
+$pink      : #e83e8c !default;
 $magenta   : #ae2573 !default;
 $brown     : #978c87 !default;
 $red       : #D9534F !default;
-$orange    : #FD7E14 !default;
-$yellow    : #FFd505 !default;
-$green     : #28A745 !default;
+$orange    : #df6919 !default;
+$yellow    : #f2c12e !default;
+$green     : #5cb85c !default;
 $teal      : #20C997 !default;
-$cyan      : #17A2B8 !default;
+$cyan      : #5bc0de !default;
 $white     : #FFFFFF !default;
 
 // Grey Gradient Colors
@@ -76,37 +87,38 @@ $black:    #000 !default;
 // Theme Colors List
 $theme-colors: (
 	'primary'	: #0D6986,
-	'secondary'	: #6C757D,
-	'third'		: #21224B,
-	'dark'		: #343A40,
-	'light'		: #F8F9FA,
+	'secondary'	: #546e7a,
+	'third'		: #0b203c,
+	'dark'		: #212529,
+	'light'		: #dee2e6,
 	'white'		: #FFFFFF,
-	'grad-1'	: #115b7a,
-	'grad-2'	: #154d6e,
-	'grad-3'	: #193e63,
-	'grad-4'	: #1d3057,
-	'grad-g1'	: #9698A2,
-	'grad-g2'	: #575A6B,
-	'success'	: #198754,
-	'info'		: #0DCAF0,
-	'warning'	: #FFC107,
-	'danger'	: #DC3545,
+	'grad-1'	: #0d5a77,
+	'grad-2'	: #0c4c68,
+	'grad-3'	: #0c3d5a,
+	'grad-4'	: #0b2f4b,
+	'grad-g1'	: #66747a,
+	'grad-g2'	: #4b5458,
+	'success'	: #5bc460,
+	'info'		: #60a3bc,
+	'warning'	: #fa983a,
+	'danger'	: #e55039,
 	'magenta'	: #ae2573,
 	'brown'		: #978c87,
 	'grey'		: #e4e4e8,
 	'dark-grey'	: #515569,
-	'blue'		: #0D6EFD,
+	'blue'		: #0080ff,
 	'indigo'	: #6610F2,
 	'purple'	: #6F42C1,
-	'pink'		: #D63384,
+	'pink'		: #e83e8c,
 	'red'		: #D9534F,
-	'orange'	: #FD7E14,
-	'yellow'	: #FFd505,
-	'green'		: #28A745,
+	'orange'	: #df6919,
+	'yellow'	: #f2c12e,
+	'green'		: #5cb85c,
 	'teal'		: #20C997,
-	'cyan'		: #17A2B8,
+	'cyan'		: #5bc0de,
 );
 
+// ********************************************
 
 $min-contrast-ratio:   2.5 !default;
 

@@ -36,7 +36,8 @@ createApp({
                 cyan        : '#17A2B8'
             
             },
-            scssCode: '',
+            variablesScssCode: '',
+            bootstrapScssCode: '',
             isLoading: false,
             svgDataUri: ''
         };
@@ -52,8 +53,7 @@ createApp({
         generateSCSS() {
             this.isLoading = true; // Start loading
 
-            
-
+            setTimeout(() => {
 
                 let scss = `// Place this parts of the code into _variables.scss\n// ********************************************\n`;
 
@@ -145,7 +145,7 @@ createApp({
                                         .replace('gradG1', 'grad-g1')
                                         .replace('gradG2', 'grad-g2')
                                         .replace('darkGrey', 'dark-grey');
-              
+                
                     if (formattedKey.length <= 5) {
                         scss += `\t'${formattedKey}'\t\t: ${value},\n`;
                     } else {
@@ -153,6 +153,11 @@ createApp({
                     }
                 }
                 scss += `);\n`;
+
+                this.variablesScssCode = scss;
+                
+                scss = '';
+
 
 
                 scss += `\n\n// Place this parts of the code into bootstrap.scss\n// ********************************************\n`;
@@ -204,12 +209,6 @@ createApp({
                     else  {
                         scss += `.bg-${formattedKey}-emphasis\t\t\t{background-color: tint($${formattedKey}, 40%) !important; color: white};\n`;
                     }
-                    // else {
-                    //     scss += `.bg-${formattedKey}-emphasis\t\t{\t\tbackground-color: tint($${formattedKey}, 40%) !important; color: white};\n`;
-                    // }
-
-
-
                     
             
                 }
@@ -266,14 +265,29 @@ createApp({
                 if (this.svgDataUri) {
                     setTimeout(() => {
                         scss += `\n// Logo (svg-logo)\n`;
-                        scss += `@mixin svg-logo($width: 100px, $height: 100px) {
+                        scss += `@mixin svg-logo($width, $height) {
                             background-image: url(${this.svgDataUri});
                             background-repeat: no-repeat;
                             background-size: contain;
                             width: $width;
                             height: $height;
-                        }\n`;
-                        this.scssCode = scss;
+                            }\n`;
+
+
+
+                        scss += `.svg-logo\t\t{@include svg-logo(30px, 30px);}\n`;
+                            
+                        scss += `.svg-logo-25\t{@include svg-logo(25%, 25%);}\n`;
+                            
+                        scss += `.svg-logo-50\t{@include svg-logo(50%, 50%);}\n`;
+                            
+                        scss += `.svg-logo-75\t{@include svg-logo(75%, 75%);}\n`;
+                            
+                        scss += `.svg-logo-100\t{@include svg-logo(100%, 100%);}\n`;
+
+
+
+                        this.bootstrapScssCode = scss;
                         this.isLoading = false; // Stop loading
 
                         // Trigger modal display
@@ -281,14 +295,17 @@ createApp({
                         scssModal.show();
                     }, 35000); // Adjust the delay as needed
                 } else {
-                    this.scssCode = scss;
-                    this.isLoading = false; // Stop loading
+                    
+                        this.bootstrapScssCode = scss;
+                        this.isLoading = false; // Stop loading
 
-                    // Trigger modal display
-                    const scssModal = new bootstrap.Modal(document.getElementById('scssModal'));
-                    scssModal.show();
+                        // Trigger modal display
+                        const scssModal = new bootstrap.Modal(document.getElementById('scssModal'));
+                        scssModal.show();
+                    
                 }
-            
+            }, 2000); // Adjust the delay as needed
+        
         },
         saveToLocalStorage() {
             localStorage.setItem('colorsConfig', JSON.stringify(this.colors));

@@ -12,6 +12,155 @@
 
 
 
+
+// Place the part of the custom code here
+// ********************************************
+
+
+
+
+// Place this parts of the code into bootstrap.scss
+// ********************************************
+
+
+
+// Place this parts of the code into bootstrap.scss
+// ********************************************
+
+
+
+
+// Place this parts of the code into bootstrap.scss
+// ********************************************
+
+// Generate emphasis Text and Background colors
+@function tint($color, $percentage) {
+	@return mix(white, $color, $percentage);
+}
+
+.text-primary-emphasis			{color: tint($primary, 40%) !important};
+.text-secondary-emphasis		{color: tint($secondary, 40%) !important};
+.text-third-emphasis			{color: tint($third, 40%) !important};
+.text-dark-emphasis				{color: tint($dark, 40%) !important};
+.text-light-emphasis			{color: tint($light, 40%) !important};
+.text-white-emphasis			{color: tint($white, 40%) !important};
+.text-grad-1-emphasis			{color: tint($grad-1, 40%) !important};
+.text-grad-2-emphasis			{color: tint($grad-2, 40%) !important};
+.text-grad-3-emphasis			{color: tint($grad-3, 40%) !important};
+.text-grad-4-emphasis			{color: tint($grad-4, 40%) !important};
+.text-grad-g1-emphasis			{color: tint($grad-g1, 40%) !important};
+.text-grad-g2-emphasis			{color: tint($grad-g2, 40%) !important};
+.text-success-emphasis			{color: tint($success, 40%) !important};
+.text-info-emphasis				{color: tint($info, 40%) !important};
+.text-warning-emphasis			{color: tint($warning, 40%) !important};
+.text-danger-emphasis			{color: tint($danger, 40%) !important};
+.text-magenta-emphasis			{color: tint($magenta, 40%) !important};
+.text-brown-emphasis			{color: tint($brown, 40%) !important};
+.text-grey-emphasis				{color: tint($grey, 40%) !important};
+.text-dark-grey-emphasis		{color: tint($dark-grey, 40%) !important};
+.text-blue-emphasis				{color: tint($blue, 40%) !important};
+.text-indigo-emphasis			{color: tint($indigo, 40%) !important};
+.text-purple-emphasis			{color: tint($purple, 40%) !important};
+.text-pink-emphasis				{color: tint($pink, 40%) !important};
+.text-red-emphasis				{color: tint($red, 40%) !important};
+.text-orange-emphasis			{color: tint($orange, 40%) !important};
+.text-yellow-emphasis			{color: tint($yellow, 40%) !important};
+.text-green-emphasis			{color: tint($green, 40%) !important};
+.text-teal-emphasis				{color: tint($teal, 40%) !important};
+.text-cyan-emphasis				{color: tint($cyan, 40%) !important};
+
+$light-text-emphasis:          $gray-100 !default;
+$dark-text-emphasis:           $gray-300 !default;
+
+.bg-primary-emphasis			{background-color: tint($primary, 40%) !important; color: white};
+.bg-secondary-emphasis			{background-color: tint($secondary, 40%) !important; color: white};
+.bg-third-emphasis				{background-color: tint($third, 40%) !important; color: white};
+.bg-dark-emphasis				{background-color: tint($dark, 40%) !important; color: white};
+.bg-light-emphasis				{background-color: tint($light, 40%) !important; color: white};
+.bg-white-emphasis				{background-color: tint($white, 40%) !important; color: white};
+.bg-grad-1-emphasis				{background-color: tint($grad-1, 40%) !important; color: white};
+.bg-grad-2-emphasis				{background-color: tint($grad-2, 40%) !important; color: white};
+.bg-grad-3-emphasis				{background-color: tint($grad-3, 40%) !important; color: white};
+.bg-grad-4-emphasis				{background-color: tint($grad-4, 40%) !important; color: white};
+.bg-grad-g1-emphasis			{background-color: tint($grad-g1, 40%) !important; color: white};
+.bg-grad-g2-emphasis			{background-color: tint($grad-g2, 40%) !important; color: white};
+.bg-success-emphasis			{background-color: tint($success, 40%) !important; color: white};
+.bg-info-emphasis				{background-color: tint($info, 40%) !important; color: white};
+.bg-warning-emphasis			{background-color: tint($warning, 40%) !important; color: white};
+.bg-danger-emphasis				{background-color: tint($danger, 40%) !important; color: white};
+.bg-magenta-emphasis			{background-color: tint($magenta, 40%) !important; color: white};
+.bg-brown-emphasis				{background-color: tint($brown, 40%) !important; color: white};
+.bg-grey-emphasis				{background-color: tint($grey, 40%) !important; color: white};
+.bg-dark-grey-emphasis			{background-color: tint($dark-grey, 40%) !important; color: white};
+.bg-blue-emphasis				{background-color: tint($blue, 40%) !important; color: white};
+.bg-indigo-emphasis				{background-color: tint($indigo, 40%) !important; color: white};
+.bg-purple-emphasis				{background-color: tint($purple, 40%) !important; color: white};
+.bg-pink-emphasis				{background-color: tint($pink, 40%) !important; color: white};
+.bg-red-emphasis				{background-color: tint($red, 40%) !important; color: white};
+.bg-orange-emphasis				{background-color: tint($orange, 40%) !important; color: white};
+.bg-yellow-emphasis				{background-color: tint($yellow, 40%) !important; color: white};
+.bg-green-emphasis				{background-color: tint($green, 40%) !important; color: white};
+.bg-teal-emphasis				{background-color: tint($teal, 40%) !important; color: white};
+.bg-cyan-emphasis				{background-color: tint($cyan, 40%) !important; color: white};
+
+// Generate Filters (ex : use filter-primary to change svg fill color) 
+$filters: (
+	$primary	: "brightness(0) saturate(100%) invert(28%) sepia(21%) saturate(3317%) hue-rotate(160deg) brightness(102%) contrast(90%)",	//Loss 0.1
+	$secondary	: "brightness(0) saturate(100%) invert(43%) sepia(9%) saturate(1145%) hue-rotate(154deg) brightness(92%) contrast(87%)",	//Loss 0.2
+	$third		: "brightness(0) saturate(100%) invert(10%) sepia(26%) saturate(3004%) hue-rotate(189deg) brightness(91%) contrast(98%)",	// Loss 0.7
+	$dark		: "brightness(0) saturate(100%) invert(13%) sepia(10%) saturate(645%) hue-rotate(169deg) brightness(93%) contrast(95%)",	// Loss 0.1
+	$light		: "brightness(0) saturate(100%) invert(98%) sepia(2%) saturate(475%) hue-rotate(178deg) brightness(92%) contrast(95%)",	// Loss 1.0
+	$white		: "brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7492%) hue-rotate(148deg) brightness(104%) contrast(104%)",	// Loss 0.0
+	$grad-1		: "brightness(0) saturate(100%) invert(30%) sepia(31%) saturate(1137%) hue-rotate(151deg) brightness(92%) contrast(100%)",	// Loss 0.1
+	$grad-2		: "brightness(0) saturate(100%) invert(18%) sepia(57%) saturate(1924%) hue-rotate(171deg) brightness(96%) contrast(91%)",	// Loss 0.4
+	$grad-3		: "brightness(0) saturate(100%) invert(18%) sepia(34%) saturate(1735%) hue-rotate(166deg) brightness(95%) contrast(94%)",	// Loss 0.4
+	$grad-4		: "brightness(0) saturate(100%) invert(15%) sepia(71%) saturate(571%) hue-rotate(164deg) brightness(91%) contrast(100%)",	// Loss 0.7
+	$grad-g1	: "brightness(0) saturate(100%) invert(46%) sepia(24%) saturate(198%) hue-rotate(153deg) brightness(91%) contrast(90%)",	//Loss 0.2
+	$grad-g2	: "brightness(0) saturate(100%) invert(33%) sepia(21%) saturate(217%) hue-rotate(154deg) brightness(88%) contrast(89%)",	//Loss 0.2
+	$success	: "brightness(0) saturate(100%) invert(62%) sepia(90%) saturate(296%) hue-rotate(73deg) brightness(91%) contrast(87%)",	//Loss 0.3
+	$info		: "brightness(0) saturate(100%) invert(60%) sepia(63%) saturate(287%) hue-rotate(150deg) brightness(89%) contrast(87%)",	// Loss 0.4
+	$warning	: "brightness(0) saturate(100%) invert(68%) sepia(75%) saturate(1060%) hue-rotate(331deg) brightness(99%) contrast(98%)",	//Loss 0.3
+	$danger		: "brightness(0) saturate(100%) invert(58%) sepia(67%) saturate(6621%) hue-rotate(342deg) brightness(96%) contrast(86%)",	// Loss 0.5
+	$magenta	: "brightness(0) saturate(100%) invert(22%) sepia(36%) saturate(4609%) hue-rotate(303deg) brightness(88%) contrast(92%)",	//Loss 0.0
+	$brown		: "brightness(0) saturate(100%) invert(57%) sepia(15%) saturate(207%) hue-rotate(334deg) brightness(95%) contrast(86%)",	// Loss 0.1
+	$grey		: "brightness(0) saturate(100%) invert(94%) sepia(7%) saturate(75%) hue-rotate(202deg) brightness(94%) contrast(98%)",	// Loss 0.6
+	$dark-grey	: "brightness(0) saturate(100%) invert(33%) sepia(19%) saturate(536%) hue-rotate(192deg) brightness(89%) contrast(83%)",	//Loss 0.8
+	$blue		: "brightness(0) saturate(100%) invert(33%) sepia(95%) saturate(2757%) hue-rotate(197deg) brightness(102%) contrast(107%)",	// Loss 0.0
+	$indigo		: "brightness(0) saturate(100%) invert(15%) sepia(91%) saturate(7404%) hue-rotate(266deg) brightness(91%) contrast(110%)",	// Loss 0.3
+	$purple		: "brightness(0) saturate(100%) invert(25%) sepia(71%) saturate(3638%) hue-rotate(252deg) brightness(82%) contrast(80%)",	// Loss 0.2
+	$pink		: "brightness(0) saturate(100%) invert(31%) sepia(78%) saturate(1699%) hue-rotate(306deg) brightness(97%) contrast(87%)",	// Loss 0.2
+	$red		: "brightness(0) saturate(100%) invert(47%) sepia(73%) saturate(3167%) hue-rotate(331deg) brightness(91%) contrast(85%)",	// Loss 0.9
+	$orange		: "brightness(0) saturate(100%) invert(73%) sepia(58%) saturate(6992%) hue-rotate(354deg) brightness(93%) contrast(88%)",	// Loss 0.7
+	$yellow		: "brightness(0) saturate(100%) invert(83%) sepia(33%) saturate(1039%) hue-rotate(345deg) brightness(97%) contrast(96%)",	// Loss 0.1
+	$green		: "brightness(0) saturate(100%) invert(61%) sepia(10%) saturate(2002%) hue-rotate(71deg) brightness(100%) contrast(98%)",	// Loss 0.8
+	$teal		: "brightness(0) saturate(100%) invert(62%) sepia(43%) saturate(680%) hue-rotate(111deg) brightness(95%) contrast(97%)",	// Loss 0.3
+	$cyan		: "brightness(0) saturate(100%) invert(89%) sepia(21%) saturate(3721%) hue-rotate(163deg) brightness(87%) contrast(99%)",	// Loss 0.3
+);
+@each $color-name, $color in $theme-colors {
+  $filter: map-get($filters, $color);
+  .filter-#{$color-name} {
+    filter: unquote($filter);
+  }
+}
+// ********************************************
+
+// Logo (svg-logo)
+@mixin svg-logo($width, $height) {
+                            background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB3aWR0aD0iOTYuNDc2ODQ1bW0iCiAgIGhlaWdodD0iMzIuMzAxMDc1bW0iCiAgIHZpZXdCb3g9IjAgMCA5Ni40NzY4NDUgMzIuMzAxMDc1IgogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmcxIgogICB4bWw6c3BhY2U9InByZXNlcnZlIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIxLjIuMiAoNzMyYTAxZGE2MywgMjAyMi0xMi0wOSkiCiAgIHNvZGlwb2RpOmRvY25hbWU9ImxvZ28tbWVuZGluZy1lbGVjdHJvbmljcy5zdmciCiAgIGlua3NjYXBlOmV4cG9ydC1maWxlbmFtZT0ibG9nby1tZW5kaW5nLWVsZWN0cm9uaWNzLWdyYXkucG5nIgogICBpbmtzY2FwZTpleHBvcnQteGRwaT0iMTAxLjYiCiAgIGlua3NjYXBlOmV4cG9ydC15ZHBpPSIxMDEuNiIKICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiCiAgIHhtbG5zOnNvZGlwb2RpPSJodHRwOi8vc29kaXBvZGkuc291cmNlZm9yZ2UubmV0L0RURC9zb2RpcG9kaS0wLmR0ZCIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgaWQ9Im5hbWVkdmlldzEiCiAgICAgcGFnZWNvbG9yPSIjNTA1MDUwIgogICAgIGJvcmRlcmNvbG9yPSIjZWVlZWVlIgogICAgIGJvcmRlcm9wYWNpdHk9IjEiCiAgICAgaW5rc2NhcGU6c2hvd3BhZ2VzaGFkb3c9IjAiCiAgICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAiCiAgICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgICBpbmtzY2FwZTpkZXNrY29sb3I9IiNkMWQxZDEiCiAgICAgaW5rc2NhcGU6ZG9jdW1lbnQtdW5pdHM9Im1tIgogICAgIGlua3NjYXBlOnpvb209IjAuNjkzMDc0OSIKICAgICBpbmtzY2FwZTpjeD0iMjcxLjI1NDk1IgogICAgIGlua3NjYXBlOmN5PSIxMDMuODg0ODgiCiAgICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxMDgwIgogICAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjE4NDkiCiAgICAgaW5rc2NhcGU6d2luZG93LXg9IjE5MTIiCiAgICAgaW5rc2NhcGU6d2luZG93LXk9Ii04IgogICAgIGlua3NjYXBlOndpbmRvdy1tYXhpbWl6ZWQ9IjEiCiAgICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ibGF5ZXIxIgogICAgIHNob3dncmlkPSJmYWxzZSIgLz48ZGVmcwogICAgIGlkPSJkZWZzMSI+PGZvbnQKICAgICAgIGhvcml6LWFkdi14PSIxMDAwIgogICAgICAgaWQ9ImZvbnQ4IgogICAgICAgaW5rc2NhcGU6bGFiZWw9ImZvbnRlIDEiCiAgICAgICBob3Jpei1vcmlnaW4teD0iMCIKICAgICAgIGhvcml6LW9yaWdpbi15PSIwIgogICAgICAgdmVydC1vcmlnaW4teD0iNTEyIgogICAgICAgdmVydC1vcmlnaW4teT0iNzY4IgogICAgICAgdmVydC1hZHYteT0iMTAyNCI+PGZvbnQtZmFjZQogICAgICAgICB1bml0cy1wZXItZW09IjEwMDAiCiAgICAgICAgIGFzY2VudD0iNzgwIgogICAgICAgICBjYXAtaGVpZ2h0PSI2MDAiCiAgICAgICAgIHgtaGVpZ2h0PSI0MDAiCiAgICAgICAgIGRlc2NlbnQ9IjIwMCIKICAgICAgICAgaWQ9ImZvbnQtZmFjZTgiCiAgICAgICAgIGZvbnQtZmFtaWx5PSJTVkdGb250IDEiIC8+PG1pc3NpbmctZ2x5cGgKICAgICAgICAgZD0iTTAsMGgxMDAwdjEwMDBoLTEwMDB6IgogICAgICAgICBpZD0ibWlzc2luZy1nbHlwaDgiIC8+PC9mb250PjwvZGVmcz48ZwogICAgIGlua3NjYXBlOmxhYmVsPSJDYWxxdWUgMSIKICAgICBpbmtzY2FwZTpncm91cG1vZGU9ImxheWVyIgogICAgIGlkPSJsYXllcjEiCiAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTYwOC4zNzU0OCwtNDEzLjczODMzKSI+PGcKICAgICAgIGlkPSJnNzgiCiAgICAgICB0cmFuc2Zvcm09Im1hdHJpeCgwLjQ5Nzc1NTMzLDAsMCwwLjQ5Nzc1NTMzLDYwMy42MjkwOSwzNTUuNjU2ODkpIgogICAgICAgaW5rc2NhcGU6bGFiZWw9ImxvZ28iPjxnCiAgICAgICAgIGlkPSJnNTMiCiAgICAgICAgIGlua3NjYXBlOmxhYmVsPSJzY3JlZW4iCiAgICAgICAgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEuMzAwMTI5OSwxMi43MDAwMDIpIgogICAgICAgICBzdHlsZT0ib3BhY2l0eToxO2ZpbGw6IzMxMzIzNTtmaWxsLW9wYWNpdHk6MSI+PHBhdGgKICAgICAgICAgICBpZD0icGF0aDUxIgogICAgICAgICAgIHN0eWxlPSJvcGFjaXR5OjE7ZmlsbDojMzEzMjM1O2ZpbGwtb3BhY2l0eToxO3N0cm9rZS13aWR0aDozLjAyOTgyO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtwYWludC1vcmRlcjpzdHJva2UgbWFya2VycyBmaWxsIgogICAgICAgICAgIGQ9Im0gODAuNjk0Mjk5LDEwNC4wNTIwNSBjIC0zLjczNDYzNCwwIC02Ljc0MTE5LDMuMDA2NTQgLTYuNzQxMTksNi43NDExOSB2IDQyLjA4NDc3IGMgMCwzLjczNDYyIDMuMDA2NTU2LDYuNzQxMTkgNi43NDExOSw2Ljc0MTE5IEggMTI5LjcyNDkgYyAzLjczNDYyLDAgNi43NDExOSwtMy4wMDY1NyA2Ljc0MTE5LC02Ljc0MTE5IHYgLTQyLjA4NDc3IGMgMCwtMy43MzQ2NSAtMy4wMDY1NywtNi43NDExOSAtNi43NDExOSwtNi43NDExOSB6IG0gMC43MzIyNTUsNC42MTQ3IGggNDcuNTY2MDg2IGMgMS42MTI3LDAgMi45MTA5NCwxLjI5ODc1IDIuOTEwOTQsMi45MTE0NSB2IDE3LjI0NTQ2IDE3LjQzMjUzIDUuNTExMjkgSCA3OC41MTU2MjEgdiAtNS41MTEyOSAtMTcuNDMyNTMgLTE3LjI0NTQ2IGMgMCwtMS42MTI3IDEuMjk4MjQsLTIuOTExNDUgMi45MTA5MzMsLTIuOTExNDUgeiBNIDEwNS4yMDk2LDE1My4wMTM0IGEgMS45NzQ4MDg5LDEuOTc0ODA4OSAwIDAgMSAxLjk3NDU2LDEuOTc1MDcgMS45NzQ4MDg5LDEuOTc0ODA4OSAwIDAgMSAtMS45NzQ1NiwxLjk3NDU2IDEuOTc0ODA4OSwxLjk3NDgwODkgMCAwIDEgLTEuOTc0NTYsLTEuOTc0NTYgMS45NzQ4MDg5LDEuOTc0ODA4OSAwIDAgMSAxLjk3NDU2LC0xLjk3NTA3IHoiIC8+PHJlY3QKICAgICAgICAgICBzdHlsZT0ib3BhY2l0eToxO2ZpbGw6IzMxMzIzNTtmaWxsLW9wYWNpdHk6MTtzdHJva2Utd2lkdGg6MztzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7cGFpbnQtb3JkZXI6c3Ryb2tlIG1hcmtlcnMgZmlsbCIKICAgICAgICAgICBpZD0icmVjdDUyIgogICAgICAgICAgIHdpZHRoPSIzMi42ODY0ODUiCiAgICAgICAgICAgaGVpZ2h0PSI0Ljc2Njc3ODUiCiAgICAgICAgICAgeD0iODguODY2MzU2IgogICAgICAgICAgIHk9IjE2NC4xMTM0MyIKICAgICAgICAgICByeT0iMi4zODMzODkyIiAvPjxnCiAgICAgICAgICAgaWQ9Imc1MiIKICAgICAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTAuMzUwNzIzLDAuMDY4MDk2ODYpIgogICAgICAgICAgIHN0eWxlPSJvcGFjaXR5OjE7ZmlsbDojMzEzMjM1O2ZpbGwtb3BhY2l0eToxIj48cGF0aAogICAgICAgICAgICAgaWQ9InBhdGg1MiIKICAgICAgICAgICAgIHN0eWxlPSJvcGFjaXR5OjE7ZmlsbDojMzEzMjM1O2ZpbGwtb3BhY2l0eToxO3N0cm9rZS13aWR0aDozO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtwYWludC1vcmRlcjpzdHJva2UgbWFya2VycyBmaWxsIgogICAgICAgICAgICAgZD0ibSA5My42MzA5MTEsMTExLjYxNTUzIGMgLTAuOTQ2OTk5LDAgLTEuNzA5NDU2LDAuNzYyNDUgLTEuNzA5NDU2LDEuNzA5NDUgdiAwLjAyNDMgMy44MjgxOSBjIDAsMC45NDcgMC43NjI0NTcsMS43MDk0NiAxLjcwOTQ1NiwxLjcwOTQ2IDAuOTQ2OTk5LDAgMS43MDk0NTYsLTAuNzYyNDYgMS43MDk0NTYsLTEuNzA5NDYgdiAtMi4wOTQ5NiBoIDUuMjAwNzEzIGMgMC45NjAzNCwwIDEuNzMzMjMsLTAuNzcyODkgMS43MzMyMywtMS43MzMyMyAwLC0wLjk2MDM0IC0wLjc3Mjg5LC0xLjczMzc0IC0xLjczMzIzLC0xLjczMzc0IGggLTYuODg1ODgxIGMgLTAuMDAzLDAgLTAuMDA1OCw1ZS00IC0wLjAwODgsNS4xZS00IC0wLjAwNTIsLTRlLTUgLTAuMDEwMzEsLTUuMWUtNCAtMC4wMTU1LC01LjFlLTQgeiIgLz48L2c+PHBhdGgKICAgICAgICAgICBkPSJtIDEwNy45Mzk2NywxMTYuMzUyOSBjIDEuNTA4OTEsMC4yNjYwNiAyLjUxNjM5LDEuNzA1MDMgMi4yNTA0MiwzLjIxNDAxIGwgLTQuNDk2NTYsMjUuNTAxMDIgYyAtMC4yNjU5OCwxLjUwODkgLTEuNzA0OTYsMi41MTY1NiAtMy4yMTQwNSwyLjI1MDQgLTEuNTA4OSwtMC4yNjU5NyAtMi41MTY0OTcsLTEuNzA0OTYgLTIuMjUwNDEsLTMuMjE0MDQgbCA0LjQ5NjU2LC0yNS41MDA5MSBjIDAuMjY2LC0xLjUwOSAxLjcwNDk3LC0yLjUxNjU3IDMuMjE0MDQsLTIuMjUwNDggeiBtIC0xMC45NDEwNDQsNS42NzM2OCBjIDEuMDgzNDYxLDEuMDgzNDYgMS4wODM0NjEsMi44NDAxMSAwLDMuOTIzNTkgbCAtNS44ODU0MDksNS44ODUzNSA1Ljg4NTQxLDUuODg1NDMgYyAxLjA4MzQ2LDEuMDgzNDkgMS4wODM0NiwyLjg0MDA2IDAsMy45MjM1NSAtMS4wODM0OCwxLjA4MzUgLTIuODQwMTQsMS4wODM1IC0zLjkyMzYyLDAgbCAtNy44NDcxOCwtNy44NDcxMSBjIC0wLjUyMDI2LC0wLjUyMDI5IC0wLjgxMjYyLC0xLjIyNjEgLTAuODEyNjIsLTEuOTYxODcgMCwtMC43MzU3NyAwLjI5MjI4LC0xLjQ0MTM5IDAuODEyNjIsLTEuOTYxNjggbCA3Ljg0NzE4LC03Ljg0NzI2IGMgMS4wODM0OCwtMS4wODM0OCAyLjg0MDE0LC0xLjA4MzQ4IDMuOTIzNjE5LDAgeiBtIDIwLjM0NTUzNCwwIDcuODQ3MjksNy44NDcyNiBjIDAuNTIwMzUsMC41MjAyOSAwLjgxMjU0LDEuMjI1OTEgMC44MTI1NCwxLjk2MTY4IDAsMC43MzU3NyAtMC4yOTIxOSwxLjQ0MTU4IC0wLjgxMjU0LDEuOTYxODcgbCAtNy44NDcyOSw3Ljg0NzExIGMgLTEuMDgzNTEsMS4wODM1IC0yLjg0MDA3LDEuMDgzNSAtMy45MjM1NiwwIC0xLjA4MzUsLTEuMDgzNDkgLTEuMDgzNSwtMi44NDAwNiAwLC0zLjkyMzU1IGwgNS44ODU0MiwtNS44ODU0MyAtNS44ODU0MiwtNS44ODUzNSBjIC0xLjA4MzUsLTEuMDgzNDggLTEuMDgzNSwtMi44NDAxMyAwLC0zLjkyMzU5IDEuMDgzNDksLTEuMDgzNDggMi44NDAwNSwtMS4wODM0OCAzLjkyMzU2LDAgeiIKICAgICAgICAgICBpZD0icGF0aDUzIgogICAgICAgICAgIGZpbGw9IiMwOTI0NGIiCiAgICAgICAgICAgc3R5bGU9ImZpbGw6IzMxMzIzNTtmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6bm9uemVybztzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MS44NDk2IgogICAgICAgICAgIGlua3NjYXBlOmxhYmVsPSImbHQ7Y29kZSZndDsiIC8+PC9nPjxnCiAgICAgICAgIGlkPSJnMTY4MSIKICAgICAgICAgaW5rc2NhcGU6bGFiZWw9InBpc3RlcyIKICAgICAgICAgc3R5bGU9InN0cm9rZTojMzEzMjM1O3N0cm9rZS1vcGFjaXR5OjEiPjxnCiAgICAgICAgICAgaWQ9Imc3NCIKICAgICAgICAgICBpbmtzY2FwZTpsYWJlbD0idGwiCiAgICAgICAgICAgc3R5bGU9InN0cm9rZTojMzEzMjM1O3N0cm9rZS1vcGFjaXR5OjEiPjxwYXRoCiAgICAgICAgICAgICBzdHlsZT0ib3BhY2l0eToxO2ZpbGw6bm9uZTtmaWxsLW9wYWNpdHk6MTtzdHJva2U6IzMxMzIzNTtzdHJva2Utd2lkdGg6NC41NzcwOTtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjE7cGFpbnQtb3JkZXI6c3Ryb2tlIG1hcmtlcnMgZmlsbCIKICAgICAgICAgICAgIGQ9Ik0gNjkuNzM4NjQ1LDE0Mi4wMjE3OCBIIDUwLjMzMDA3NSBMIDM2LjM4MDE2NywxMjQuNTM5MyBIIDIyLjgzNDYwMyIKICAgICAgICAgICAgIGlkPSJwYXRoNzQiIC8+PGNpcmNsZQogICAgICAgICAgICAgc3R5bGU9Im9wYWNpdHk6MTtmaWxsOm5vbmU7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOiMzMTMyMzU7c3Ryb2tlLXdpZHRoOjQuOTk5OTk7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxO3BhaW50LW9yZGVyOnN0cm9rZSBtYXJrZXJzIGZpbGwiCiAgICAgICAgICAgICBpZD0iY2lyY2xlNzQiCiAgICAgICAgICAgICBjeD0iMTYuOTk5MjY0IgogICAgICAgICAgICAgY3k9IjEyNC4xNTA0MSIKICAgICAgICAgICAgIHI9IjQuOTYzNjgyMiIgLz48L2c+PGcKICAgICAgICAgICBpZD0iZzc1IgogICAgICAgICAgIHRyYW5zZm9ybT0ibWF0cml4KDAuNjg1MDI4OCwwLDAsLTAuNjg1MDI4OCwyMi42ODY0OSwyNTAuODcyMDQpIgogICAgICAgICAgIGlua3NjYXBlOmxhYmVsPSJibCIKICAgICAgICAgICBzdHlsZT0ic3Ryb2tlOiMzMTMyMzU7c3Ryb2tlLW9wYWNpdHk6MSI+PHBhdGgKICAgICAgICAgICAgIHN0eWxlPSJvcGFjaXR5OjE7ZmlsbDpub25lO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTojMzEzMjM1O3N0cm9rZS13aWR0aDo0LjU3NzA5O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MTtwYWludC1vcmRlcjpzdHJva2UgbWFya2VycyBmaWxsIgogICAgICAgICAgICAgZD0iTSA2OS43Mzg2NDUsMTQyLjAyMTc4IEggNTAuMzMwMDc1IEwgMzYuMzgwMTY3LDEyNC41MzkzIEggMjIuODM0NjAzIgogICAgICAgICAgICAgaWQ9InBhdGg3NSIgLz48Y2lyY2xlCiAgICAgICAgICAgICBzdHlsZT0ib3BhY2l0eToxO2ZpbGw6bm9uZTtmaWxsLW9wYWNpdHk6MTtzdHJva2U6IzMxMzIzNTtzdHJva2Utd2lkdGg6NC45OTk5OTtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjE7cGFpbnQtb3JkZXI6c3Ryb2tlIG1hcmtlcnMgZmlsbCIKICAgICAgICAgICAgIGlkPSJjaXJjbGU3NSIKICAgICAgICAgICAgIGN4PSIxNi45OTkyNjQiCiAgICAgICAgICAgICBjeT0iMTI0LjE1MDQxIgogICAgICAgICAgICAgcj0iNC45NjM2ODIyIiAvPjwvZz48ZwogICAgICAgICAgIGlkPSJnNzYiCiAgICAgICAgICAgdHJhbnNmb3JtPSJtYXRyaXgoLTAuNjg1MDI4OCwwLDAsMC42ODUwMjg4LDE5MC4yMDg1MSw0NC43NjI0ODgpIgogICAgICAgICAgIGlua3NjYXBlOmxhYmVsPSJ0ciIKICAgICAgICAgICBzdHlsZT0ic3Ryb2tlOiMzMTMyMzU7c3Ryb2tlLW9wYWNpdHk6MSI+PHBhdGgKICAgICAgICAgICAgIHN0eWxlPSJvcGFjaXR5OjE7ZmlsbDpub25lO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTojMzEzMjM1O3N0cm9rZS13aWR0aDo0LjU3NzA5O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MTtwYWludC1vcmRlcjpzdHJva2UgbWFya2VycyBmaWxsIgogICAgICAgICAgICAgZD0iTSA2OS43Mzg2NDUsMTQyLjAyMTc4IEggNTAuMzMwMDc1IEwgMzYuMzgwMTY3LDEyNC41MzkzIEggMjIuODM0NjAzIgogICAgICAgICAgICAgaWQ9InBhdGg3NiIgLz48Y2lyY2xlCiAgICAgICAgICAgICBzdHlsZT0ib3BhY2l0eToxO2ZpbGw6bm9uZTtmaWxsLW9wYWNpdHk6MTtzdHJva2U6IzMxMzIzNTtzdHJva2Utd2lkdGg6NC45OTk5OTtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjE7cGFpbnQtb3JkZXI6c3Ryb2tlIG1hcmtlcnMgZmlsbCIKICAgICAgICAgICAgIGlkPSJjaXJjbGU3NiIKICAgICAgICAgICAgIGN4PSIxNi45OTkyNjQiCiAgICAgICAgICAgICBjeT0iMTI0LjE1MDQxIgogICAgICAgICAgICAgcj0iNC45NjM2ODIyIiAvPjwvZz48ZwogICAgICAgICAgIGlkPSJnNzciCiAgICAgICAgICAgdHJhbnNmb3JtPSJyb3RhdGUoMTgwLDEwNi40NDc1LDE0Ny44MDcyNCkiCiAgICAgICAgICAgaW5rc2NhcGU6bGFiZWw9ImJyIgogICAgICAgICAgIHN0eWxlPSJzdHJva2U6IzMxMzIzNTtzdHJva2Utb3BhY2l0eToxIj48cGF0aAogICAgICAgICAgICAgc3R5bGU9Im9wYWNpdHk6MTtmaWxsOm5vbmU7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOiMzMTMyMzU7c3Ryb2tlLXdpZHRoOjQuNTc3MDk7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxO3BhaW50LW9yZGVyOnN0cm9rZSBtYXJrZXJzIGZpbGwiCiAgICAgICAgICAgICBkPSJNIDY5LjczODY0NSwxNDIuMDIxNzggSCA1MC4zMzAwNzUgTCAzNi4zODAxNjcsMTI0LjUzOTMgSCAyMi44MzQ2MDMiCiAgICAgICAgICAgICBpZD0icGF0aDc3IiAvPjxjaXJjbGUKICAgICAgICAgICAgIHN0eWxlPSJvcGFjaXR5OjE7ZmlsbDpub25lO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTojMzEzMjM1O3N0cm9rZS13aWR0aDo0Ljk5OTk5O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MTtwYWludC1vcmRlcjpzdHJva2UgbWFya2VycyBmaWxsIgogICAgICAgICAgICAgaWQ9ImNpcmNsZTc3IgogICAgICAgICAgICAgY3g9IjE2Ljk5OTI2NCIKICAgICAgICAgICAgIGN5PSIxMjQuMTUwNDEiCiAgICAgICAgICAgICByPSI0Ljk2MzY4MjIiIC8+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPgo=);
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            background-position:center;
+                            width: $width;
+                            height: $height;
+                            }
+.svg-logo		{@include svg-logo(30px, 30px);}
+.svg-logo-25	{@include svg-logo(25%, 25%);}
+.svg-logo-50	{@include svg-logo(50%, 50%);}
+.svg-logo-75	{@include svg-logo(75%, 75%);}
+.svg-logo-100	{@include svg-logo(100%, 100%);}
+
+//*********************************************
+
 // Variables
 
 // $web-font-path: "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" !default;
@@ -261,144 +410,6 @@ color: white;
 
 
 
-
-// Generate emphasis Text and Background colors
-@function tint($color, $percentage) {
-	@return mix(white, $color, $percentage);
-}
-
-
-.text-primary-emphasis			{color: tint($primary, 40%) !important};
-.text-secondary-emphasis		{color: tint($secondary, 40%) !important};
-.text-third-emphasis			{color: tint($third, 40%) !important};
-.text-dark-emphasis				{color: tint($dark, 40%) !important};
-.text-light-emphasis			{color: tint($light, 40%) !important};
-.text-white-emphasis			{color: tint($white, 40%) !important};
-.text-grad-1-emphasis			{color: tint($grad-1, 40%) !important};
-.text-grad-2-emphasis			{color: tint($grad-2, 40%) !important};
-.text-grad-3-emphasis			{color: tint($grad-3, 40%) !important};
-.text-grad-4-emphasis			{color: tint($grad-4, 40%) !important};
-.text-grad-g1-emphasis			{color: tint($grad-g1, 40%) !important};
-.text-grad-g2-emphasis			{color: tint($grad-g2, 40%) !important};
-.text-success-emphasis			{color: tint($success, 40%) !important};
-.text-info-emphasis				{color: tint($info, 40%) !important};
-.text-warning-emphasis			{color: tint($warning, 40%) !important};
-.text-danger-emphasis			{color: tint($danger, 40%) !important};
-.text-magenta-emphasis			{color: tint($magenta, 40%) !important};
-.text-brown-emphasis			{color: tint($brown, 40%) !important};
-.text-grey-emphasis				{color: tint($grey, 40%) !important};
-.text-dark-grey-emphasis		{color: tint($dark-grey, 40%) !important};
-.text-blue-emphasis				{color: tint($blue, 40%) !important};
-.text-indigo-emphasis			{color: tint($indigo, 40%) !important};
-.text-purple-emphasis			{color: tint($purple, 40%) !important};
-.text-pink-emphasis				{color: tint($pink, 40%) !important};
-.text-red-emphasis				{color: tint($red, 40%) !important};
-.text-orange-emphasis			{color: tint($orange, 40%) !important};
-.text-yellow-emphasis			{color: tint($yellow, 40%) !important};
-.text-green-emphasis			{color: tint($green, 40%) !important};
-.text-teal-emphasis				{color: tint($teal, 40%) !important};
-.text-cyan-emphasis				{color: tint($cyan, 40%) !important};
-
-$light-text-emphasis:          $gray-100 !default;
-$dark-text-emphasis:           $gray-300 !default;
-
-.bg-primary-emphasis			{background-color: tint($primary, 40%) !important; color: white};
-.bg-secondary-emphasis			{background-color: tint($secondary, 40%) !important; color: white};
-.bg-third-emphasis				{background-color: tint($third, 40%) !important; color: white};
-.bg-dark-emphasis				{background-color: tint($dark, 40%) !important; color: white};
-.bg-light-emphasis				{background-color: tint($light, 40%) !important; color: white};
-.bg-white-emphasis				{background-color: tint($white, 40%) !important; color: white};
-.bg-grad-1-emphasis				{background-color: tint($grad-1, 40%) !important; color: white};
-.bg-grad-2-emphasis				{background-color: tint($grad-2, 40%) !important; color: white};
-.bg-grad-3-emphasis				{background-color: tint($grad-3, 40%) !important; color: white};
-.bg-grad-4-emphasis				{background-color: tint($grad-4, 40%) !important; color: white};
-.bg-grad-g1-emphasis			{background-color: tint($grad-g1, 40%) !important; color: white};
-.bg-grad-g2-emphasis			{background-color: tint($grad-g2, 40%) !important; color: white};
-.bg-success-emphasis			{background-color: tint($success, 40%) !important; color: white};
-.bg-info-emphasis				{background-color: tint($info, 40%) !important; color: white};
-.bg-warning-emphasis			{background-color: tint($warning, 40%) !important; color: white};
-.bg-danger-emphasis				{background-color: tint($danger, 40%) !important; color: white};
-.bg-magenta-emphasis			{background-color: tint($magenta, 40%) !important; color: white};
-.bg-brown-emphasis				{background-color: tint($brown, 40%) !important; color: white};
-.bg-grey-emphasis				{background-color: tint($grey, 40%) !important; color: white};
-.bg-dark-grey-emphasis			{background-color: tint($dark-grey, 40%) !important; color: white};
-.bg-blue-emphasis				{background-color: tint($blue, 40%) !important; color: white};
-.bg-indigo-emphasis				{background-color: tint($indigo, 40%) !important; color: white};
-.bg-purple-emphasis				{background-color: tint($purple, 40%) !important; color: white};
-.bg-pink-emphasis				{background-color: tint($pink, 40%) !important; color: white};
-.bg-red-emphasis				{background-color: tint($red, 40%) !important; color: white};
-.bg-orange-emphasis				{background-color: tint($orange, 40%) !important; color: white};
-.bg-yellow-emphasis				{background-color: tint($yellow, 40%) !important; color: white};
-.bg-green-emphasis				{background-color: tint($green, 40%) !important; color: white};
-.bg-teal-emphasis				{background-color: tint($teal, 40%) !important; color: white};
-.bg-cyan-emphasis				{background-color: tint($cyan, 40%) !important; color: white};
-
-// Generate Filters (ex : use filter-primary to change svg fill color) 
-$filters: (
-	$primary	: "brightness(0) saturate(100%) invert(18%) sepia(61%) saturate(4447%) hue-rotate(179deg) brightness(91%) contrast(90%)",	//Loss 0.2
-	$secondary	: "brightness(0) saturate(100%) invert(50%) sepia(9%) saturate(479%) hue-rotate(167deg) brightness(86%) contrast(79%)",	//Loss 0.1
-	$third		: "brightness(0) saturate(100%) invert(9%) sepia(50%) saturate(2636%) hue-rotate(225deg) brightness(91%) contrast(90%)",	// Loss 0.8
-	$dark		: "brightness(0) saturate(100%) invert(19%) sepia(6%) saturate(1316%) hue-rotate(169deg) brightness(91%) contrast(85%)",	// Loss 0.1
-	$light		: "brightness(0) saturate(100%) invert(100%) sepia(28%) saturate(184%) hue-rotate(175deg) brightness(99%) contrast(97%)",	// Loss 0.1
-	$white		: "brightness(0) saturate(100%) invert(99%) sepia(31%) saturate(2%) hue-rotate(203deg) brightness(112%) contrast(100%)",	// Loss 0.0
-	$grad-1		: "brightness(0) saturate(100%) invert(23%) sepia(33%) saturate(2843%) hue-rotate(169deg) brightness(96%) contrast(87%)",	// Loss 0.1
-	$grad-2		: "brightness(0) saturate(100%) invert(21%) sepia(55%) saturate(1464%) hue-rotate(173deg) brightness(88%) contrast(85%)",	// Loss 0.9
-	$grad-3		: "brightness(0) saturate(100%) invert(18%) sepia(18%) saturate(3884%) hue-rotate(181deg) brightness(91%) contrast(88%)",	// Loss 0.7
-	$grad-4		: "brightness(0) saturate(100%) invert(14%) sepia(74%) saturate(600%) hue-rotate(183deg) brightness(97%) contrast(94%)",	// Loss 0.0
-	$grad-g1	: "brightness(0) saturate(100%) invert(66%) sepia(11%) saturate(216%) hue-rotate(193deg) brightness(90%) contrast(89%)",	//Loss 0.1
-	$grad-g2	: "brightness(0) saturate(100%) invert(36%) sepia(6%) saturate(1239%) hue-rotate(194deg) brightness(90%) contrast(86%)",	//Loss 0.1
-	$success	: "brightness(0) saturate(100%) invert(25%) sepia(79%) saturate(2306%) hue-rotate(141deg) brightness(96%) contrast(80%)",	//Loss 0.2
-	$info		: "brightness(0) saturate(100%) invert(73%) sepia(97%) saturate(2477%) hue-rotate(146deg) brightness(95%) contrast(98%)",	// Loss 0.8
-	$warning	: "brightness(0) saturate(100%) invert(71%) sepia(97%) saturate(1001%) hue-rotate(354deg) brightness(101%) contrast(101%)",	//Loss 0.2
-	$danger		: "brightness(0) saturate(100%) invert(30%) sepia(56%) saturate(2995%) hue-rotate(335deg) brightness(89%) contrast(94%)",	// Loss 0.1
-	$magenta	: "brightness(0) saturate(100%) invert(19%) sepia(29%) saturate(6548%) hue-rotate(306deg) brightness(97%) contrast(89%)",	//Loss 0.1
-	$brown		: "brightness(0) saturate(100%) invert(63%) sepia(7%) saturate(411%) hue-rotate(334deg) brightness(89%) contrast(86%)",	// Loss 0.1
-	$grey		: "brightness(0) saturate(100%) invert(95%) sepia(9%) saturate(55%) hue-rotate(202deg) brightness(93%) contrast(97%)",	// Loss 0.8
-	$dark-grey	: "brightness(0) saturate(100%) invert(30%) sepia(8%) saturate(1297%) hue-rotate(193deg) brightness(99%) contrast(85%)",	//Loss 0.0
-	$blue		: "brightness(0) saturate(100%) invert(36%) sepia(46%) saturate(7498%) hue-rotate(210deg) brightness(102%) contrast(99%)",	// Loss 0.5
-	$indigo		: "brightness(0) saturate(100%) invert(12%) sepia(97%) saturate(5613%) hue-rotate(265deg) brightness(90%) contrast(113%)",	// Loss 0.9
-	$purple		: "brightness(0) saturate(100%) invert(32%) sepia(17%) saturate(4713%) hue-rotate(235deg) brightness(92%) contrast(99%)",	// Loss 0.7
-	$pink		: "brightness(0) saturate(100%) invert(30%) sepia(68%) saturate(2076%) hue-rotate(305deg) brightness(87%) contrast(91%)",	// Loss 0.4
-	$red		: "brightness(0) saturate(100%) invert(47%) sepia(9%) saturate(3353%) hue-rotate(313deg) brightness(91%) contrast(105%)",	// Loss 0.7
-	$orange		: "brightness(0) saturate(100%) invert(47%) sepia(83%) saturate(818%) hue-rotate(351deg) brightness(101%) contrast(98%)",	// Loss 0.3
-	$yellow		: "brightness(0) saturate(100%) invert(89%) sepia(32%) saturate(4135%) hue-rotate(354deg) brightness(107%) contrast(102%)",	// Loss 0.1
-	$green		: "brightness(0) saturate(100%) invert(55%) sepia(15%) saturate(2270%) hue-rotate(81deg) brightness(92%) contrast(80%)",	// Loss 0.3
-	$teal		: "brightness(0) saturate(100%) invert(62%) sepia(33%) saturate(880%) hue-rotate(111deg) brightness(97%) contrast(95%)",	// Loss 0.2
-	$cyan		: "brightness(0) saturate(100%) invert(45%) sepia(53%) saturate(1437%) hue-rotate(152deg) brightness(97%) contrast(82%)",	// Loss 0.2
-);
-@each $color-name, $color in $theme-colors {
-  $filter: map-get($filters, $color);
-  .filter-#{$color-name} {
-    filter: unquote($filter);
-  }
-}
-
-
-
-
-
-
-// Logo (svg-logo)
-@mixin svg-logo($width: 100px, $height: 100px) {
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwbW0iIGhlaWdodD0iMTAwbW0iIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDMuMzUxIC04Ny44OTEpIj4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIC0uMTE3ODgpIiBmaWxsPSIjMjZhMjY5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1vcGFjaXR5PSIuNDgyMzUiIHN0cm9rZS13aWR0aD0iLjAxIj4KICAgPHBhdGggZD0ibTEwNSAxMTMuMjQtMzUuMjU0IDM1LjI1NGEzNS4yNTggMzUuMjU4IDAgMCAwIDAgNGUtMyAzNS4yNTggMzUuMjU4IDAgMCAwIDM1LjI1OCAzNS4yNTggMzUuMjU4IDM1LjI1OCAwIDAgMCAzNS4yNTgtMzUuMjU4IDM1LjI1OCAzNS4yNTggMCAwIDAtMzUuMjU4LTM1LjI1OCAzNS4yNTggMzUuMjU4IDAgMCAwLTRlLTMgMHptMmUtMyAxMC41OTVoNS4yZS00YTI0LjY2MyAyNC42NjMgMCAwIDEgMmUtMyAwIDI0LjY2MyAyNC42NjMgMCAwIDEgMjQuNjY0IDI0LjY2MyAyNC42NjMgMjQuNjYzIDAgMCAxLTI0LjY2NCAyNC42NjQgMjQuNjYzIDI0LjY2MyAwIDAgMS0yNC42NjMtMjQuNjY0IDI0LjY2MyAyNC42NjMgMCAwIDEgMC0zZS0zeiIgc3R5bGU9InBhaW50LW9yZGVyOm1hcmtlcnMgc3Ryb2tlIGZpbGwiLz4KICAgPHBhdGggZD0ibTc4LjQ3IDEyOC44MS0xOS4xMDUgOC4zMzY4LTEyLjg1My0yLjQzMTYgOC4zMzY4LTguNjg0MnoiIHN0eWxlPSJwYWludC1vcmRlcjptYXJrZXJzIHN0cm9rZSBmaWxsIi8+CiAgIDxwYXRoIGQ9Im04Mi42MDggMTI1LjU1LTM0LjA4NS0xNi43ODEtMi4wNzg3LTE0LjYzMiAxNi40NjQgMi43NDkzeiIgc3R5bGU9InBhaW50LW9yZGVyOm1hcmtlcnMgc3Ryb2tlIGZpbGwiLz4KICAgPHBhdGggZD0ibTg3LjIxIDEyMi4yMi02LjU5NjQtMTkuNjk1IDMuMzM1NS0xMC4yNjcgNi44OTkyIDkuNjkzOXoiIHN0eWxlPSJwYWludC1vcmRlcjptYXJrZXJzIHN0cm9rZSBmaWxsIi8+CiAgPC9nPgogPC9nPgo8L3N2Zz4K);
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: $width;
-  height: $height;
-}
-.svg-logo {
-background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwbW0iIGhlaWdodD0iMTAwbW0iIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDMuMzUxIC04Ny44OTEpIj4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIC0uMTE3ODgpIiBmaWxsPSIjMjZhMjY5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1vcGFjaXR5PSIuNDgyMzUiIHN0cm9rZS13aWR0aD0iLjAxIj4KICAgPHBhdGggZD0ibTEwNSAxMTMuMjQtMzUuMjU0IDM1LjI1NGEzNS4yNTggMzUuMjU4IDAgMCAwIDAgNGUtMyAzNS4yNTggMzUuMjU4IDAgMCAwIDM1LjI1OCAzNS4yNTggMzUuMjU4IDM1LjI1OCAwIDAgMCAzNS4yNTgtMzUuMjU4IDM1LjI1OCAzNS4yNTggMCAwIDAtMzUuMjU4LTM1LjI1OCAzNS4yNTggMzUuMjU4IDAgMCAwLTRlLTMgMHptMmUtMyAxMC41OTVoNS4yZS00YTI0LjY2MyAyNC42NjMgMCAwIDEgMmUtMyAwIDI0LjY2MyAyNC42NjMgMCAwIDEgMjQuNjY0IDI0LjY2MyAyNC42NjMgMjQuNjYzIDAgMCAxLTI0LjY2NCAyNC42NjQgMjQuNjYzIDI0LjY2MyAwIDAgMS0yNC42NjMtMjQuNjY0IDI0LjY2MyAyNC42NjMgMCAwIDEgMC0zZS0zeiIgc3R5bGU9InBhaW50LW9yZGVyOm1hcmtlcnMgc3Ryb2tlIGZpbGwiLz4KICAgPHBhdGggZD0ibTc4LjQ3IDEyOC44MS0xOS4xMDUgOC4zMzY4LTEyLjg1My0yLjQzMTYgOC4zMzY4LTguNjg0MnoiIHN0eWxlPSJwYWludC1vcmRlcjptYXJrZXJzIHN0cm9rZSBmaWxsIi8+CiAgIDxwYXRoIGQ9Im04Mi42MDggMTI1LjU1LTM0LjA4NS0xNi43ODEtMi4wNzg3LTE0LjYzMiAxNi40NjQgMi43NDkzeiIgc3R5bGU9InBhaW50LW9yZGVyOm1hcmtlcnMgc3Ryb2tlIGZpbGwiLz4KICAgPHBhdGggZD0ibTg3LjIxIDEyMi4yMi02LjU5NjQtMTkuNjk1IDMuMzM1NS0xMC4yNjcgNi44OTkyIDkuNjkzOXoiIHN0eWxlPSJwYWludC1vcmRlcjptYXJrZXJzIHN0cm9rZSBmaWxsIi8+CiAgPC9nPgogPC9nPgo8L3N2Zz4K);
-background-repeat: no-repeat;
-background-size: contain;
-width: 30px;
-height: 30px;
-}
-
-
-
-
-
-
 // ********************************************
 
 
@@ -484,15 +495,3 @@ height: 30px;
 .accordion-button:not(.collapsed) {
   color: white !important; /* Change text color */
 }
-
-// @function hex-to-hue($color) {
-//   $hue: hue($color);
-//   @return $hue;
-// }
-
-// $myColor: #0011ff;
-// .filter-mycolor {
-//   filter: brightness(0) saturate(100%) invert(51%) sepia(66%) saturate(4588%) hue-rotate(hex-to-hue($myColor)) brightness(90%) contrast(77%);
-//   // filter: brightness(0) saturate(100%) invert(51%) sepia(66%) saturate(4588%) hue-rotate(333deg) brightness(90%) contrast(77%);
-// }
-
