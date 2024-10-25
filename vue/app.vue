@@ -36,12 +36,25 @@ createApp({
                 cyan        : '#17A2B8'
             
             },
+            fontFamilyMain: '',
+            fontFamilyBrand: '',
             variablesScssCode: '',
             bootstrapScssCode: '',
             isLoading: false,
-            svgDataUri: ''
+            svgLogoDataUri: '',
+            svgPatternDataUri: ''
         };
     },
+
+    watch: {
+        fontFamilyMain(newFont) {
+            this.updateFont('fontFamilyMainSample', newFont);
+        },
+        fontFamilyBrand(newFont) {
+            this.updateFont('fontFamilyBrandSample', newFont);
+        }
+    },
+
     methods: {
         hexToRgb(hex) {
             const bigint = parseInt(hex.replace('#', ''), 16);
@@ -50,6 +63,37 @@ createApp({
             const b = bigint & 255;
             return `${r}, ${g}, ${b}`;
         },
+
+        updateFont(elementId, fontName) {
+            if (!fontName) return;
+    
+            let fontUrl;
+            if (this.isGoogleFont(fontName)) {
+                fontUrl = `https://fonts.googleapis.com/css2?family=${fontName.replace(' ', '+')}:wght@400&display=swap`;
+            } else {
+                fontUrl = `https://use.typekit.net/your-adobe-font-kit-id.css`; // Replace with your Adobe Fonts kit ID
+            }
+    
+            const style = document.createElement('style');
+            style.innerHTML = `@import url('${fontUrl}');`;
+            document.head.appendChild(style);
+            document.getElementById(elementId).querySelector('h2').style.fontFamily = `"${fontName}", sans-serif`;
+        },
+
+        isGoogleFont(fontName) {
+            const googleFonts = ["Roboto", "Open Sans", "Nunito"]; // Add more Google Fonts here
+            return googleFonts.includes(fontName);
+        },
+
+        resetFontFamilyMain() {
+            this.fontFamilyMain = '';
+            document.getElementById('fontFamilyMainSample').querySelector('h2').style.fontFamily = '';
+        },
+        resetFontFamilyBrand() {
+            this.fontFamilyBrand = '';
+            document.getElementById('fontFamilyBrandSample').querySelector('h2').style.fontFamily = '';
+        },
+
         generateSCSS() {
             this.isLoading = true; // Start loading
 
@@ -259,41 +303,219 @@ createApp({
                 scss += `  }\n`;
                 scss += `}\n`;
 
-                scss += `// ********************************************\n`;
+                scss += `// ********************************************\n\n`;
+
+
+
+                scss += `\n// Fonts\n// \n`;
+                if (this.fontFamilyMain) {
+                    // scss += `\n// Font Family Main\n@import url('https://fonts.googleapis.com/css2?family=${this.fontFamilyMain.replace(' ', '+')}:wght@400&display=swap');\nbody { font-family: "${this.fontFamilyMain}", sans-serif; }\n`;
+                        
+                    if (this.isGoogleFont(this.fontFamilyMain)) {
+                        scss += `\n// Font Family Main\n@import url('https://fonts.googleapis.com/css2?family=${this.fontFamilyMain.replace(' ', '+')}:wght@400&display=swap');\nbody { font-family: "${this.fontFamilyMain}", sans-serif; }\n`;
+                    } else {
+                        scss += `\n// Font Family Main\n@import url('https://use.typekit.net/your-adobe-font-kit-id.css');\nbody { font-family: "${this.fontFamilyMain}", sans-serif; }\n`;
+                    }
                 
-                // Existing SCSS generation logic
-                if (this.svgDataUri) {
+                    // Generate CSS classes
+                    scss += `
+                    .font-family-main-thin {
+                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-weight: 100;
+                    font-style: normal;
+                    }
+                    .font-family-main-light {
+                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-weight: 300;
+                    font-style: normal;
+                    }
+                    .font-family-main-regular {
+                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-weight: 400;
+                    font-style: normal;
+                    }
+                    .font-family-main-medium {
+                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-weight: 500;
+                    font-style: normal;
+                    }
+                    .font-family-main-bold {
+                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-weight: 700;
+                    font-style: normal;
+                    }
+                    .font-family-main-black {
+                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-weight: 900;
+                    font-style: normal;
+                    }
+                    .font-family-main-thin-italic {
+                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-weight: 100;
+                    font-style: italic;
+                    }
+                    .font-family-main-light-italic {
+                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-weight: 300;
+                    font-style: italic;
+                    }
+                    .font-family-main-regular-italic {
+                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-weight: 400;
+                    font-style: italic;
+                    }
+                    .font-family-main-medium-italic {
+                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-weight: 500;
+                    font-style: italic;
+                    }
+                    .font-family-main-bold-italic {
+                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-weight: 700;
+                    font-style: italic;
+                    }
+                    .font-family-main-black-italic {
+                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-weight: 900;
+                    font-style: italic;
+                    }\n`;
+                               
+                
+                }
+
+                if (this.fontFamilyBrand) {
+                    // scss += `\n// Font Family Brand\n@import url('https://fonts.googleapis.com/css2?family=${this.fontFamilyBrand.replace(' ', '+')}:wght@400&display=swap');\n.brand { font-family: "${this.fontFamilyBrand}", sans-serif; }\n`;
+                    
+                    if (this.isGoogleFont(this.fontFamilyBrand)) {
+                        scss += `\n// Font Family Brand\n@import url('https://fonts.googleapis.com/css2?family=${this.fontFamilyBrand.replace(' ', '+')}:wght@400&display=swap');\nbody { font-family: "${this.fontFamilyBrand}", sans-serif; }\n`;
+                    } else {
+                        scss += `\n// Font Family Brand\n@import url('https://use.typekit.net/your-adobe-font-kit-id.css');\nbody { font-family: "${this.fontFamilyBrand}", sans-serif; }\n`;
+                    }
+
+                    // Generate CSS classes
+                    scss += `
+                    .font-family-brand-thin {
+                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-weight: 100;
+                    font-style: normal;
+                    }
+                    .font-family-brand-light {
+                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-weight: 300;
+                    font-style: normal;
+                    }
+                    .font-family-brand-regular {
+                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-weight: 400;
+                    font-style: normal;
+                    }
+                    .font-family-brand-medium {
+                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-weight: 500;
+                    font-style: normal;
+                    }
+                    .font-family-brand-bold {
+                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-weight: 700;
+                    font-style: normal;
+                    }
+                    .font-family-brand-black {
+                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-weight: 900;
+                    font-style: normal;
+                    }
+                    .font-family-brand-thin-italic {
+                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-weight: 100;
+                    font-style: italic;
+                    }
+                    .font-family-brand-light-italic {
+                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-weight: 300;
+                    font-style: italic;
+                    }
+                    .font-family-brand-regular-italic {
+                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-weight: 400;
+                    font-style: italic;
+                    }
+                    .font-family-brand-medium-italic {
+                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-weight: 500;
+                    font-style: italic;
+                    }
+                    .font-family-brand-bold-italic {
+                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-weight: 700;
+                    font-style: italic;
+                    }
+                    .font-family-brand-black-italic {
+                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-weight: 900;
+                    font-style: italic;
+                    }\n`;
+                           
+
+                }
+
+
+                scss += `// ********************************************\n\n`;
+
+                
+                // Existing SVG to URI conversion and SCSS generation logic
+                if (this.svgLogoDataUri || this.svgPatternDataUri) {
+
+                    console.log("Start SVG Logo to URI Conversion ");
+
                     setTimeout(() => {
-                        scss += `\n// Logo (svg-logo)\n`;
-                        scss += `@mixin svg-logo($width, $height) {
-                            background-image: url(${this.svgDataUri});
-                            background-repeat: no-repeat;
-                            background-size: contain;
-                            width: $width;
-                            height: $height;
+    
+                        // Existing SCSS generation logic for logo
+                        if (this.svgLogoDataUri) {
+                            
+                            scss += `\n// Logo (svg-logo)\n`;
+                            scss += `@mixin svg-logo($width, $height) {
+                                background-image: url(${this.svgLogoDataUri});
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                width: $width;
+                                height: $height;
                             }\n`;
+    
+                            scss += `.svg-logo\t\t{@include svg-logo(30px, 30px);}\n`;
+                            scss += `.svg-logo-25\t{@include svg-logo(25%, 25%);}\n`;
+                            scss += `.svg-logo-50\t{@include svg-logo(50%, 50%);}\n`;
+                            scss += `.svg-logo-75\t{@include svg-logo(75%, 75%);}\n`;
+                            scss += `.svg-logo-100\t{@include svg-logo(100%, 100%);}\n`;
+                        }
+    
+                        // New SCSS generation logic for pattern
+                        if (this.svgPatternDataUri) {
 
-
-
-                        scss += `.svg-logo\t\t{@include svg-logo(30px, 30px);}\n`;
-                            
-                        scss += `.svg-logo-25\t{@include svg-logo(25%, 25%);}\n`;
-                            
-                        scss += `.svg-logo-50\t{@include svg-logo(50%, 50%);}\n`;
-                            
-                        scss += `.svg-logo-75\t{@include svg-logo(75%, 75%);}\n`;
-                            
-                        scss += `.svg-logo-100\t{@include svg-logo(100%, 100%);}\n`;
-
-
-
+                            scss += `\n// Pattern (svg-pattern)\n`;
+                            scss += `@mixin svg-pattern($width, $height) {
+                                background-image: url(${this.svgPatternDataUri});
+                                background-repeat: repeat;
+                                background-size: 20px;
+                                width: $width;
+                                height: $height;
+                            }\n`;
+    
+                            scss += `.pattern\t\t{@include svg-pattern(100%, 60px);}\n`;
+                            scss += `.pattern-25\t{@include svg-pattern(25%, 60px);}\n`;
+                            scss += `.pattern-50\t{@include svg-pattern(50%, 60px);}\n`;
+                            scss += `.pattern-75\t{@include svg-pattern(75%, 60px);}\n`;
+                            scss += `.pattern-100\t{@include svg-pattern(100%, 60px);}\n`;
+                        }
+    
+                        scss += `// ********************************************\n\n`;
+    
                         this.bootstrapScssCode = scss;
                         this.isLoading = false; // Stop loading
-
+    
                         // Trigger modal display
                         const scssModal = new bootstrap.Modal(document.getElementById('scssModal'));
                         scssModal.show();
-                    }, 35000); // Adjust the delay as needed
+                    }, 35000); // Delay for logo or pattern conversion
                 } else {
                     
                         this.bootstrapScssCode = scss;
@@ -343,8 +565,8 @@ createApp({
             if (file && file.type === 'image/svg+xml') {
                 const reader = new FileReader();
                 reader.onload = (e) => {
-                    this.svgDataUri = e.target.result;
-                    this.displaySvgPreview(this.svgDataUri);
+                    this.svgLogoDataUri = e.target.result;
+                    this.displaySvgPreview(this.svgLogoDataUri);
                 };
                 reader.readAsDataURL(file);
             } else {
@@ -353,6 +575,30 @@ createApp({
         },
         displaySvgPreview(svgUri) {
             const previewsContainer = document.getElementById('imagePreviews');
+            previewsContainer.innerHTML = ''; // Clear previous previews
+            const preview = document.createElement('div');
+            preview.classList.add('col-md-4', 'mb-3');
+            preview.innerHTML = `<img src="${svgUri}" alt="SVG Preview" class="img-fluid rounded">
+                                <div class="text-center mt-2">
+                                <span class="badge bg-secondary">SVG Logo</span>
+                                </div>`;
+            previewsContainer.appendChild(preview);
+        },
+        importSvgPattern(event) {
+            const file = event.target.files[0];
+            if (file && file.type === 'image/svg+xml') {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    this.svgPatternDataUri = e.target.result;
+                    this.displaySvgPreviewPattern(this.svgPatternDataUri);
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert('Please upload a valid SVG file.');
+            }
+        },
+        displaySvgPreviewPattern(svgUri) {
+            const previewsContainer = document.getElementById('imagePreviewsPattern');
             previewsContainer.innerHTML = ''; // Clear previous previews
             const preview = document.createElement('div');
             preview.classList.add('col-md-4', 'mb-3');

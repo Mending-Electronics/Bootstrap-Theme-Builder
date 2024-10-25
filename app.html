@@ -6,14 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <link rel="icon" href="https://v2.fr.vuejs.org/images/logo.svg">
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/126720078?v=4">
 
 
-    <title>Color Picker</title>
+    <title>Bootstrap Theme Builder</title>
+
+    <!-- Bootstrap Default Theme local CSS -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.mending-electronics.min.css">
+
+    <!-- Bootstrap Icons local CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-icons.min.css">
   
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.2/yeti/bootstrap.min.css" integrity="sha512-iHA7zcOiFZ4ajvU4RMt3fDIRWPmkLawqZqG1xguHmFxbH4PQQk7t/I8NYL03eI9rrU2fi6l/Pi+/wuspMeX8CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Local CSS -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 
+  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-coy.min.css" integrity="sha512-XcB0I04SuOVkb6ewfVz0qMhU5QADIiFBFxPRRNWZUANF1W5onx8GlbHYYIivw3gXrTuZfu+1gAG8HvvKQG3oGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
@@ -24,124 +31,263 @@
 
 
 
+    <main id="app">
+
+
+        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <div class="svg-logo filter-white d-inline-block align-text-top me-3" style="width: 60px;" alt="logo"></div>
+                <h5 class="text-body d-inline-block m-b-lg m-t-lg me-5 mt-1 pt-1" style="font-family: 'Fredoka';">
+                    MENDING
+                <span class="text-primary-emphasis fs-5">ELECTRONICS</span>
+                </h5>
+                <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                <span class="navbar-toggler d-xl-none collapsed border-0" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <p class="hamburger mt-2 pt-1 text-light">☰</p>
+                </span>
+
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav me-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Themes</a>
+                        <div class="dropdown-menu shadow-primary">
+                        <a class="dropdown-item" target="_blank" href="code-picker-mending-electronics.html">Mending-Electronics Rounded</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" target="_blank" href="code-picker.html">Custom</a>
+                        </div>
+                    </li>
+                    </ul>
+                    <ul class="navbar-nav ms-md-auto">
+                        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+                            <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+                            <hr class="d-lg-none my-2 text-white-50">
+                        </li>
+                        <li class="nav-item dropdown" data-bs-theme="light">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme">
+                                <i class="bi bi-circle-half"></i>
+                                <span class="d-lg-none ms-2">Toggle theme</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                                        <i class="bi bi-sun-fill"></i><span class="ms-2">Light</span>
+                                    </button>
+                                    </li>
+                                    <li>
+                                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="true">
+                                        <i class="bi bi-moon-stars-fill"></i><span class="ms-2">Dark</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
 
 
-    <div id="app" class="container mt-5">
+        <div class="container mt-5">
 
 
 
-        <!-- Modal -->
-        <div class="modal fade" id="scssModal" tabindex="-1" aria-labelledby="scssModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="scssModalLabel">Generated SCSS Code</h5>
-                        <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <pre class="mt-3 language-scss" id="variablesScssCode" style="max-height: 100% !important"><code class="language-scss">{{ variablesScssCode }}</code></pre>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="copyButton1">Copy to Clipboard</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                    <div class="modal-body">
-                        <pre class="mt-3 language-scss" id="bootstrapScssCode" style="max-height: 100% !important"><code class="language-scss">{{ bootstrapScssCode }}</code></pre>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="copyButton2">Copy to Clipboard</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <!-- Modal -->
+            <div class="modal fade" id="scssModal" tabindex="-1" aria-labelledby="scssModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content bg-body">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-body" id="scssModalLabel">Generated SCSS Code</h5>
+                            <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <pre class="mt-3 language-scss" id="variablesScssCode" style="max-height: 100% !important"><code class="language-scss">{{ variablesScssCode }}</code></pre>
+                        </div>
+                        <div class="modal-footer border-top-0 pt-0 pb-3">
+                            <button type="button" class="btn btn-primary" id="copyButton1">Copy to Clipboard</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                        <div class="modal-body">
+                            <pre class="mt-3 language-scss" id="bootstrapScssCode" style="max-height: 100% !important"><code class="language-scss">{{ bootstrapScssCode }}</code></pre>
+                        </div>
+                        <div class="modal-footer border-top-0">
+                            <button type="button" class="btn btn-primary" id="copyButton2">Copy to Clipboard</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        
-        <h1 class="mb-3">Logo</h1>
-        
-        <input type="file" class="form-control visually-hidden" id="LogoFile" accept="image/*" @change="importSvgLogo">
-        <button class="btn btn-primary mt-3" type="button" onclick="document.getElementById('LogoFile').click()">Choose SVG Files</button>
-
-        <div class="mt-3">
-            <div class="row justify-content-center" id="imagePreviews"></div>
-        </div>
+            
+            
 
 
 
 
 
-        <div class="container my-5 mx-0 px-0">
-            <h1 class="mb-3">Gradient Color Picker</h1>
-
-            <div id="colorCards" class="color-row row mx-1 my-2"></div>
 
 
-            <form id="colorForm" onsubmit="event.preventDefault(); generateColors();">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="numVariants" class="form-label">Number of Variants</label>
-                            <input type="number" class="form-control" id="numVariants" placeholder="e.g. 7">
+
+
+
+
+            <div class="w-100 d-flex justify-content-center bg-primary rounded-3 mb-5" >
+                <h1 class="text-white"> Bootstrap 5 Theme Builder <span class="fs-4"> <i>(SCSS Generator)</i></span></h1>
+
+            </div>
+
+
+
+
+
+            <h1 class="mb-3">Logo</h1>
+            
+            <input type="file" class="form-control visually-hidden" id="LogoFile" accept="image/*" @change="importSvgLogo">
+            <button class="btn btn-primary mt-3" type="button" onclick="document.getElementById('LogoFile').click()">Choose SVG Files</button>
+
+            <div class="mt-3">
+                <div class="row justify-content-center" id="imagePreviews"></div>
+            </div>
+
+
+            <h1 class="mt-5 mb-3">Pattern</h1>
+            
+            <input type="file" class="form-control visually-hidden" id="PatternFile" accept="image/*" @change="importSvgPattern">
+            <button class="btn btn-primary mt-3" type="button" onclick="document.getElementById('PatternFile').click()">Choose SVG Files</button>
+
+            <div class="mt-3">
+                <div class="row justify-content-center" id="imagePreviewsPattern"></div>
+            </div>
+
+
+            <h1 class="mt-5 mb-3">Fonts</h1>
+            
+            <h4>font-family-main</h4><i>(used for the entire web page)</i>
+            <div class="input-group w-50">
+                <input class="form-select w-50" required type="text" placeholder="Enter Font name from Google Fonts" v-model="fontFamilyMain" list="fontFamilyMain-list" autocomplete="off" style="width: 165px;">
+                <datalist id="fontFamilyMain-list">
+                    <option value="Roboto">Roboto</option>
+                    <option value="Century Gothic">Century Gothic</option>
+                    <option value="Open Sans">Open Sans</option>
+                    <option value="Nunito">Nunito</option>
+                </datalist>
+                <button id="cleanFontFamilyMain" class="btn btn-danger btn-sm" @click="resetFontFamilyMain">
+                    <i class="bi bi-x p-0 fs-5"></i>
+                </button>
+            </div>
+
+    
+            <div id="fontFamilyMainSample" class="card border-1 mt-2">
+                <h2 class="p-3 pt-4">This is a sample of text: ABCDEFGHIJKLMNOPQRSTUVWXYZ-!?/0123456789</h2>
+            </div>
+    
+            <h4 class="mt-4">font-family-brand</h4><i>(used for your app brand name)</i>
+            <div class="input-group w-50">
+                <input class="form-select w-50" required type="text" placeholder="Enter Font name from Google Fonts" v-model="fontFamilyBrand" list="fontFamilyBrand-list" autocomplete="off" style="width: 165px;">
+                <datalist id="fontFamilyBrand-list">
+                    <option value="Roboto">Roboto</option>
+                    <option value="Century Gothic">Century Gothic</option>
+                    <option value="Open Sans">Open Sans</option>
+                    <option value="Nunito">Nunito</option>
+                </datalist>
+                <button id="cleanFontFamilyBrand" class="btn btn-danger btn-sm" @click="resetFontFamilyBrand">
+                    <i class="bi bi-x p-0 fs-5"></i>
+                </button>
+            </div>
+
+    
+            <div id="fontFamilyBrandSample" class="card border-1 mt-2">
+                <h2 class="p-3 pt-4">This is a sample of text: ABCDEFGHIJKLMNOPQRSTUVWXYZ-!?/0123456789</h2>
+            </div>
+    
+            <div class="mt-3">
+                <a class="btn btn-info" href="https://fonts.google.com/" target="_blank">Google Fonts</a>
+            </div>
+            
+
+
+
+
+            <div class="container my-5 mx-0 px-0">
+                <h1 class="mb-3">Gradient Color Picker</h1>
+
+                <div id="colorCards" class="color-row row mx-1 my-2"></div>
+
+
+                <form id="colorForm" onsubmit="event.preventDefault(); generateColors();">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="numVariants" class="form-label">Number of Variants</label>
+                                <input type="number" class="form-control" id="numVariants" placeholder="e.g. 7">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-3">
+                                <label for="startColor" class="form-label">Start Color (Hex)</label>
+                                <input type="color" class="form-control p-0 m-0 w-100" style="height: 38px; border: 0px" id="startColor" placeholder="e.g. #A7C511">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-3">
+                                <label for="endColor" class="form-label">End Color (Hex)</label>
+                                <input type="color" class="form-control p-0 m-0 w-100"style="height: 38px; border: 0px" id="endColor" placeholder="e.g. #21224B">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <div class="mb-3">
-                            <label for="startColor" class="form-label">Start Color (Hex)</label>
-                            <input type="color" class="form-control p-0 m-0 w-100" style="height: 38px; border: 0px" id="startColor" placeholder="e.g. #A7C511">
-                        </div>
+
+                    <button type="button" class="btn btn-primary" onclick="generateColors()">Generate Gradient Colors</button>
+                </form>
+
+            </div>
+
+
+
+
+
+
+
+            <h1 class="mb-3">Color Picker</h1>
+            <div class="row">
+                <div class="col-md-2 my-3" v-for="(color, key) in colors" :key="key">
+                    <div class="card">
+                        <input type="color" class="card-header border-0 form-control w-100 p-0 m-0" :id="key" :name="key" v-model="colors[key]">
+                        <label :for="key" class="form-label text-center d-flex align-items-center justify-content-center fs-4">
+                            {{   key.replace(/_/g, ' ')
+                                    .replace('grad1', 'grad-1')
+                                    .replace('grad2', 'grad-2')
+                                    .replace('grad3', 'grad-3')
+                                    .replace('grad4', 'grad-4')
+                                    .replace('gradG1', 'grad-g1')
+                                    .replace('gradG2', 'grad-g2')
+                                    .replace('darkGrey', 'dark-grey')
+                        }}
+                        </label>
                     </div>
-                    <div class="col-md-2">
-                        <div class="mb-3">
-                            <label for="endColor" class="form-label">End Color (Hex)</label>
-                            <input type="color" class="form-control p-0 m-0 w-100"style="height: 38px; border: 0px" id="endColor" placeholder="e.g. #21224B">
-                        </div>
-                    </div>
-                </div>
-
-                <button type="button" class="btn btn-primary" onclick="generateColors()">Generate Gradient Colors</button>
-            </form>
-
-        </div>
-
-
-
-
-
-
-
-        <h1 class="mb-3">Color Picker</h1>
-        <div class="row">
-            <div class="col-md-2 my-3" v-for="(color, key) in colors" :key="key">
-                <div class="card">
-                    <input type="color" class="card-header border-0 form-control w-100 p-0 m-0" :id="key" :name="key" v-model="colors[key]">
-                    <label :for="key" class="form-label text-center d-flex align-items-center justify-content-center fs-4">{{ key.replace(/_/g, ' ') }}</label>
                 </div>
             </div>
+
+            
+
+            <button class="btn btn-success mt-3" @click="saveToLocalStorage">Save Config to Local Storage</button>
+            <button class="btn btn-info mt-3 mx-2" @click="downloadJsonConfig">Download Config</button>
+            <input type="file" class="form-control visually-hidden" id="configFile" accept="*.json" multiple @change="importJsonConfig"> 
+            <button class="btn btn-dark mt-3" type="button" onclick="document.getElementById('configFile').click()"> Import Config </button>
+
+
+            <div class="w-100 d-flex justify-content-center my-5">
+                <button class="btn btn-primary fw-bold mt-3" type="button" @click="generateSCSS" :disabled="isLoading">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" v-if="isLoading"></span>
+                    <span v-if="isLoading" class="ms-2">Loading...</span>
+                    <span v-else>Generate SCSS</span>
+                </button>
+            </div>
+
+
+
         </div>
 
-         
-
-        <button class="btn btn-success mt-3" @click="saveToLocalStorage">Save Config to Local Storage</button>
-        <button class="btn btn-info mt-3" @click="downloadJsonConfig">Download Config</button>
-        <input type="file" class="form-control visually-hidden" id="configFile" accept="*.json" multiple @change="importJsonConfig"> 
-        <button class="btn btn-dark mt-3" type="button" onclick="document.getElementById('configFile').click()"> Import Config </button>
 
 
-        <div class="w-100 d-flex justify-content-center my-5">
-            <button class="btn btn-primary fw-bold mt-3" type="button" @click="generateSCSS" :disabled="isLoading">
-                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" v-if="isLoading"></span>
-                <span v-if="isLoading" class="ms-2">Loading...</span>
-                <span v-else>Generate SCSS</span>
-            </button>
-        </div>
-
-
-
-    </div>
-
-
-
+    </main>
 
 
 
@@ -160,6 +306,8 @@
     <script src="js/colorGradient.js"></script>
 
     <script src="vue/app.vue"></script>
+
+    <script src="js/custom.js"></script>
    
 
 
