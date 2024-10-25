@@ -9,7 +9,7 @@
    id="svg1"
    xml:space="preserve"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
-   sodipodi:docname="sample-pattern-circle.svg"
+   sodipodi:docname="sample-pattern-square.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +24,7 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="32"
-     inkscape:cx="-0.515625"
+     inkscape:cx="-6.015625"
      inkscape:cy="8.3125"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
@@ -44,9 +44,11 @@
        height="4.5351768"
        x="-35.264961"
        y="23.404022"
-       ry="0.027922284" /><circle
-       style="fill:#c64600;stroke-width:0.0105882;stroke-linecap:round;stroke-opacity:0.482353;paint-order:markers stroke fill"
-       id="path359"
-       cx="-32.997459"
-       cy="25.67161"
-       r="0.50514406" /></g></svg>
+       ry="0.027922284" /><rect
+       style="fill:#c061cb;stroke-width:0;stroke-linecap:round;paint-order:markers stroke fill"
+       id="rect410"
+       width="1"
+       height="1"
+       x="-33.497459"
+       y="25.17161"
+       ry="0" /></g></svg>

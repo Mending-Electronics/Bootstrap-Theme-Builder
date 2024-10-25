@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Search</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+
+
+
+<style>
+
+@import url('https://fonts.cdnfonts.com/css/arial');
+
+body {
+    font-family: 'arial', sans-serif;
+}
+.font-family-main {
+    font-family: 'arial', sans-serif;
+}
+            
+@import url('https://fonts.cdnfonts.com/css/century-gothic');
+
+body {
+    font-family: 'Century Gothic', sans-serif;
+}
+.font-family-main {
+    font-family: 'Century Gothic', sans-serif;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.cdnfonts.com/css/fredoka-one');
+
+body {
+    font-family: 'Fredoka One', sans-serif;
+}
+.font-family-main {
+    font-family: 'Fredoka One', sans-serif;
+}
+         
+
+</style>
+
+
+<body>
+    <div class="container">
+        <h1>Font Search</h1>
+        <form id="fontForm" onsubmit="event.preventDefault(); searchFonts();">
+            <input type="text" id="fontName" placeholder="Enter Font Name">
+            <button type="submit">Search</button>
+        </form>
+        <pre id="scssOutput"></pre>
+    </div>
+    <script>
+        async function searchFonts() {
+            const fontName = document.getElementById('fontName').value;
+            const fontUrls = [];
+
+            // Define URLs to search
+            const googleFontUrl = `https://fonts.googleapis.com/css2?family=${fontName.replace(' ', '+')}&display=swap`;
+            const cdnFontsUrl = `https://fonts.cdnfonts.com/css/${fontName.toLowerCase().replace(' ', '-')}`;
+            const urlsToCheck = [googleFontUrl, cdnFontsUrl];
+
+            for (const url of urlsToCheck) {
+
+                console.log(url);
+                try {
+                    const response = await axios.get(url);
+                    if (response.data.includes('@font-face')) {
+                        fontUrls.push(`@import url('${url}');`);
+                    }
+                } catch (error) {
+                    console.error(`Error fetching ${url}:`, error);
+                }
+            }
+
+            if (fontUrls.length === 0) {
+                alert('The font was not found');
+                return;
+            }
+
+            // Generate SCSS output
+            const scssContent = generateSCSS(fontName, fontUrls);
+            document.getElementById('scssOutput').textContent = scssContent;
+        }
+
+        function generateSCSS(fontName, fontUrls) {
+            let scss = '';
+            fontUrls.forEach(url => {
+                scss += `${url}\n`;
+            });
+            scss += `
+body {
+    font-family: '${fontName}', sans-serif;
+}
+.font-family-main {
+    font-family: '${fontName}', sans-serif;
+}
+            `;
+            return scss;
+        }
+    </script>
+</body>
+</html>

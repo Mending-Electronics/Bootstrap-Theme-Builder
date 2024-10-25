@@ -37,7 +37,9 @@ createApp({
             
             },
             fontFamilyMain: '',
+            fontFamilyMainUrls: [],
             fontFamilyBrand: '',
+            fontFamilyBrandUrls: [],
             variablesScssCode: '',
             bootstrapScssCode: '',
             isLoading: false,
@@ -64,14 +66,112 @@ createApp({
             return `${r}, ${g}, ${b}`;
         },
 
+        // updateFont(elementId, fontName) {
+        //     if (!fontName) return;
+        //     let fontUrl;
+        //     const style = document.createElement('style');
+        //     style.innerHTML = `@import url('${fontUrl}');`;
+        //     document.head.appendChild(style);
+        //     document.getElementById(elementId).querySelector('h2').style.fontFamily = `"${fontName}", sans-serif`;
+        // },
+
+        // resetFontFamilyMain() {
+        //     this.fontFamilyMain = '';
+        //     document.getElementById('fontFamilyMainSample').querySelector('h2').style.fontFamily = '';
+        // },
+        // resetFontFamilyBrand() {
+        //     this.fontFamilyBrand = '';
+        //     document.getElementById('fontFamilyBrandSample').querySelector('h2').style.fontFamily = '';
+        // },
+
+        async searchFontFamilyMain() {
+            const fontName = this.fontFamilyMain;
+            const fontUrls = [];
+            const googleFontUrl = `https://fonts.googleapis.com/css2?family=${fontName.replace(' ', '+')}&display=swap`;
+            const cdnFontsUrl = `https://fonts.cdnfonts.com/css/${fontName.toLowerCase().replace(' ', '-')}`;
+
+            const urlsToCheck = [googleFontUrl, cdnFontsUrl];
+
+            for (const url of urlsToCheck) {
+                try {
+                    const response = await axios.get(url);
+                    if (response.data.includes('@font-face')) {
+                        fontUrls.push(url);
+                    }
+                } catch (error) {
+                    console.error(`Error fetching ${url}:`, error);
+                }
+            }
+
+            if (fontUrls.length === 0) {
+                alert('The font was not found');
+                return;
+            }
+
+            this.fontFamilyMainUrls = fontUrls;
+            this.updateFont('fontFamilyMainSample', fontName);
+
+            
+            // Show modal with links
+            this.showFontModal(fontUrls);
+        },
+
+        async searchFontFamilyBrand() {
+            const fontName = this.fontFamilyBrand;
+            const fontUrls = [];
+            const googleFontUrl = `https://fonts.googleapis.com/css2?family=${fontName.replace(' ', '+')}&display=swap`;
+            const cdnFontsUrl = `https://fonts.cdnfonts.com/css/${fontName.toLowerCase().replace(' ', '-')}`;
+            const urlsToCheck = [googleFontUrl, cdnFontsUrl];
+    
+            for (const url of urlsToCheck) {
+                try {
+                    const response = await axios.get(url);
+                    if (response.data.includes('@font-face')) {
+                        fontUrls.push(url);
+                    }
+                } catch (error) {
+                    console.error(`Error fetching ${url}:`, error);
+                }
+            }
+    
+            if (fontUrls.length === 0) {
+                alert('The font was not found');
+                return;
+            }
+    
+            this.fontFamilyBrandUrls = fontUrls;
+            this.updateFont('fontFamilyBrandSample', fontName);
+
+             // Show modal with links
+            this.showFontModal(fontUrls);
+        },
+
+        
+        showFontModal(fontUrls) {
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = ''; // Clear previous content
+
+            fontUrls.forEach(url => {
+                const link = document.createElement('a');
+                link.href = url;
+                link.target = "_blank";
+                link.innerHTML = url;
+                modalBody.appendChild(link);
+                modalBody.appendChild(document.createElement('br'));
+            });
+
+            const fontModal = new bootstrap.Modal(document.getElementById('fontModal'));
+            fontModal.show();
+        },
+    
         updateFont(elementId, fontName) {
             if (!fontName) return;
     
             let fontUrl;
-            if (this.isGoogleFont(fontName)) {
-                fontUrl = `https://fonts.googleapis.com/css2?family=${fontName.replace(' ', '+')}:wght@400&display=swap`;
-            } else {
-                fontUrl = `https://use.typekit.net/your-adobe-font-kit-id.css`; // Replace with your Adobe Fonts kit ID
+            if (elementId === 'fontFamilyMainSample') {
+                fontUrl = this.fontFamilyMainUrls[0];
+            } else if (elementId === 'fontFamilyBrandSample') {
+                fontUrl = this.fontFamilyBrandUrls[0];
             }
     
             const style = document.createElement('style');
@@ -79,30 +179,59 @@ createApp({
             document.head.appendChild(style);
             document.getElementById(elementId).querySelector('h2').style.fontFamily = `"${fontName}", sans-serif`;
         },
-
-        isGoogleFont(fontName) {
-            const googleFonts = ["Roboto", "Open Sans", "Nunito"]; // Add more Google Fonts here
-            return googleFonts.includes(fontName);
-        },
-
+    
         resetFontFamilyMain() {
             this.fontFamilyMain = '';
             document.getElementById('fontFamilyMainSample').querySelector('h2').style.fontFamily = '';
         },
+    
         resetFontFamilyBrand() {
             this.fontFamilyBrand = '';
             document.getElementById('fontFamilyBrandSample').querySelector('h2').style.fontFamily = '';
         },
+    
+        generateFontSCSS() {
+            let scss = '';
+    
+            if (this.fontFamilyMainUrls.length) {
+                this.fontFamilyMainUrls.forEach(url => {
+                    scss += `@import url('${url}');\n`;
+                });
+                scss += `
+    body {
+        font-family: '${this.fontFamilyMain}', sans-serif;
+    }
+    .font-family-main {
+        font-family: '${this.fontFamilyMain}', sans-serif;
+    }
+                `;
+            }
+    
+            if (this.fontFamilyBrandUrls.length) {
+                this.fontFamilyBrandUrls.forEach(url => {
+                    scss += `@import url('${url}');\n`;
+                });
+                scss += `
+    .font-family-brand {
+        font-family: '${this.fontFamilyBrand}', sans-serif;
+    }
+                `;
+            }
+    
+            console.log(scss);
+            return scss;
+        },
+
+
+
 
         generateSCSS() {
             this.isLoading = true; // Start loading
 
             setTimeout(() => {
 
-                let scss = `// Place this parts of the code into _variables.scss\n// ********************************************\n`;
+                let scss = ``;
 
-
-                scss += `\n// COLOR\n// ********************************************\n`;
 
                 // Main Colors HEX
                 scss += `\n// Main Colors HEX\n`;
@@ -178,9 +307,46 @@ createApp({
                 scss += `$gray-900: #212529 !default;\n`;
                 scss += `$black:    #000 !default;\n`;
 
+
+
+
+                // Emphasis HEX Colors (for filter process)
+                scss += `\n// Emphasis Colors\n`;
+                for (const [key, value] of Object.entries(this.colors)) {
+                    if (key != 'white') {
+                        let formattedKey = key.replace('grad1', 'grad-1')
+                                              .replace('grad2', 'grad-2')
+                                              .replace('grad3', 'grad-3')
+                                              .replace('grad4', 'grad-4')
+                                              .replace('gradG1', 'grad-g1')
+                                              .replace('gradG2', 'grad-g2')
+                                              .replace('darkGrey', 'dark-grey');
+
+                        let emphasisKey = `${formattedKey}-emphasis`;
+
+                        // mix the color with the white color
+                        let mixedColor = mixTwoColor(value, '#ffffff', .40);
+                                        
+                        if (formattedKey.length <= 5) {
+                            scss += `$${formattedKey}-emphasis\t\t\t\t: ${mixedColor} !default;\n`;
+                        } else if (formattedKey.length <= 7) {
+                            scss += `$${formattedKey}-emphasis\t\t\t: ${mixedColor} !default;\n`;
+                        } else {
+                            scss += `$${formattedKey}-emphasis\t\t\t: ${mixedColor} !default;\n`;
+                        }
+                    }
+
+                }
+
+
+
+
+
                 // Theme Colors List
                 scss += `\n// Theme Colors List\n`;
                 scss += `$theme-colors: (\n`;
+
+                // Std HEX Colors
                 for (const [key, value] of Object.entries(this.colors)) {
                     let formattedKey = key.replace('grad1', 'grad-1')
                                         .replace('grad2', 'grad-2')
@@ -196,6 +362,34 @@ createApp({
                         scss += `\t'${formattedKey}'\t: ${value},\n`;
                     }
                 }
+
+                // Emphasis HEX Colors (for filter process)
+                for (const [key, value] of Object.entries(this.colors)) {
+                    if (key != 'white') {
+                        let formattedKey = key.replace('grad1', 'grad-1')
+                                            .replace('grad2', 'grad-2')
+                                            .replace('grad3', 'grad-3')
+                                            .replace('grad4', 'grad-4')
+                                            .replace('gradG1', 'grad-g1')
+                                            .replace('gradG2', 'grad-g2')
+                                            .replace('darkGrey', 'dark-grey');
+
+                        let emphasisKey = `${formattedKey}-emphasis`;
+
+                        // mix the color with the white color
+                        let mixedColor = mixTwoColor(value, '#ffffff', .40);
+                                        
+                        if (formattedKey.length <= 4) {
+                            scss += `\t'${formattedKey}-emphasis'\t\t\t: ${mixedColor},\n`;
+                        } else if (formattedKey.length <= 7) {
+                            scss += `\t'${formattedKey}-emphasis'\t\t: ${mixedColor},\n`;
+                        } else {
+                            scss += `\t'${formattedKey}-emphasis'\t: ${mixedColor},\n`;
+                        }
+                    }
+                }
+
+
                 scss += `);\n`;
 
                 this.variablesScssCode = scss;
@@ -204,7 +398,10 @@ createApp({
 
 
 
-                scss += `\n\n// Place this parts of the code into bootstrap.scss\n// ********************************************\n`;
+                // Import Bootstrap Icons
+                scss += `\n// Import Bootstrap Icons\n`;
+                scss += `@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");\n`;
+                
 
                 // Generate emphasis Text and Background colors
                 scss += `\n// Generate emphasis Text and Background colors\n`;
@@ -259,11 +456,11 @@ createApp({
 
 
 
-
-
                 // Generate Filters
                 scss += `\n// Generate Filters (ex : use filter-primary to change svg fill color) \n`;
                 scss += `$filters: (\n`;
+
+                // Generate Std Color Filters
                 for (const [key, value] of Object.entries(this.colors)) {
                     let formattedKey = key.replace('grad1', 'grad-1')
                                         .replace('grad2', 'grad-2')
@@ -294,6 +491,46 @@ createApp({
                         scss += `\t$${formattedKey}\t: "${filterResult}",\t//Loss ${lossResult}\n`;
                     }
                 }
+
+
+                // Generate Emphasis Filters (apply the mix function)
+                for (const [key, value] of Object.entries(this.colors)) {
+                    if (key != 'white') {
+                        let formattedKey = key.replace('grad1', 'grad-1')
+                                            .replace('grad2', 'grad-2')
+                                            .replace('grad3', 'grad-3')
+                                            .replace('grad4', 'grad-4')
+                                            .replace('gradG1', 'grad-g1')
+                                            .replace('gradG2', 'grad-g2')
+                                            .replace('darkGrey', 'dark-grey');
+
+                        let emphasisKey = `${formattedKey}-emphasis`;
+
+                        // mix the color with the white color
+                        let mixedColor = mixTwoColor(value, '#ffffff', .40);
+
+                        let filterResult;
+                        let lossResult;
+
+                        do {
+                            const result = generateFilter(mixedColor);
+                            if (!result) {
+                            break; // Exit if the result is invalid
+                            }
+                            filterResult = result.filter;
+                            lossResult = result.loss;
+                        } while (lossResult > 1);
+
+                        if (formattedKey.length <= 6) {
+                            scss += `\t$${formattedKey}-emphasis\t\t: "${filterResult}",\t// Loss ${lossResult}\n`;
+                        } else {
+                            scss += `\t$${formattedKey}-emphasis\t: "${filterResult}",\t//Loss ${lossResult}\n`;
+                        }
+                    }
+                }
+
+
+
                 scss += `);\n`;
 
                 scss += `@each $color-name, $color in $theme-colors {\n`;
@@ -303,11 +540,12 @@ createApp({
                 scss += `  }\n`;
                 scss += `}\n`;
 
-                scss += `// ********************************************\n\n`;
 
 
 
-                scss += `\n// Fonts\n// \n`;
+
+
+                scss += `\n\n// Fonts\n`;
                 if (this.fontFamilyMain) {
                     // scss += `\n// Font Family Main\n@import url('https://fonts.googleapis.com/css2?family=${this.fontFamilyMain.replace(' ', '+')}:wght@400&display=swap');\nbody { font-family: "${this.fontFamilyMain}", sans-serif; }\n`;
                         
@@ -381,6 +619,8 @@ createApp({
                     }\n`;
                                
                 
+                } else {
+                    scss += `//=> no Font Family Main\n`
                 }
 
                 if (this.fontFamilyBrand) {
@@ -456,10 +696,12 @@ createApp({
                     }\n`;
                            
 
+                } else {
+                    scss += `//=> no Font Family Brand\n`
                 }
 
 
-                scss += `// ********************************************\n\n`;
+                scss += `\n\n// Logo and Pattern\n`;
 
                 
                 // Existing SVG to URI conversion and SCSS generation logic
@@ -477,6 +719,7 @@ createApp({
                                 background-image: url(${this.svgLogoDataUri});
                                 background-repeat: no-repeat;
                                 background-size: contain;
+                                background-position: center;
                                 width: $width;
                                 height: $height;
                             }\n`;
@@ -486,6 +729,8 @@ createApp({
                             scss += `.svg-logo-50\t{@include svg-logo(50%, 50%);}\n`;
                             scss += `.svg-logo-75\t{@include svg-logo(75%, 75%);}\n`;
                             scss += `.svg-logo-100\t{@include svg-logo(100%, 100%);}\n`;
+                        }  else {
+                            scss += `//=> no SVG Logo\n`
                         }
     
                         // New SCSS generation logic for pattern
@@ -501,13 +746,15 @@ createApp({
                             }\n`;
     
                             scss += `.pattern\t\t{@include svg-pattern(100%, 60px);}\n`;
-                            scss += `.pattern-25\t{@include svg-pattern(25%, 60px);}\n`;
-                            scss += `.pattern-50\t{@include svg-pattern(50%, 60px);}\n`;
-                            scss += `.pattern-75\t{@include svg-pattern(75%, 60px);}\n`;
+                            scss += `.pattern-25\t\t{@include svg-pattern(25%, 60px);}\n`;
+                            scss += `.pattern-50\t\t{@include svg-pattern(50%, 60px);}\n`;
+                            scss += `.pattern-75\t\t{@include svg-pattern(75%, 60px);}\n`;
                             scss += `.pattern-100\t{@include svg-pattern(100%, 60px);}\n`;
+                        } else {
+                            scss += `//=> no SVG Pattern\n`
                         }
     
-                        scss += `// ********************************************\n\n`;
+    
     
                         this.bootstrapScssCode = scss;
                         this.isLoading = false; // Stop loading
@@ -517,18 +764,24 @@ createApp({
                         scssModal.show();
                     }, 35000); // Delay for logo or pattern conversion
                 } else {
-                    
-                        this.bootstrapScssCode = scss;
-                        this.isLoading = false; // Stop loading
 
-                        // Trigger modal display
-                        const scssModal = new bootstrap.Modal(document.getElementById('scssModal'));
-                        scssModal.show();
+                    scss += `//=> no SVG Logo\n`
+                    scss += `//=> no SVG Pattern\n`
+
+
+                    this.bootstrapScssCode = scss;
+                    this.isLoading = false; // Stop loading
+
+                    // Trigger modal display
+                    const scssModal = new bootstrap.Modal(document.getElementById('scssModal'));
+                    scssModal.show();
                     
                 }
-            }, 2000); // Adjust the delay as needed
+
+            }, 4000); // Adjust the delay as needed
         
         },
+
         saveToLocalStorage() {
             localStorage.setItem('colorsConfig', JSON.stringify(this.colors));
             alert('Colors configuration saved to local storage.');
@@ -577,7 +830,7 @@ createApp({
             const previewsContainer = document.getElementById('imagePreviews');
             previewsContainer.innerHTML = ''; // Clear previous previews
             const preview = document.createElement('div');
-            preview.classList.add('col-md-4', 'mb-3');
+            preview.classList.add('col-md-4', 'mb-3', 'text-center');
             preview.innerHTML = `<img src="${svgUri}" alt="SVG Preview" class="img-fluid rounded">
                                 <div class="text-center mt-2">
                                 <span class="badge bg-secondary">SVG Logo</span>
@@ -601,8 +854,8 @@ createApp({
             const previewsContainer = document.getElementById('imagePreviewsPattern');
             previewsContainer.innerHTML = ''; // Clear previous previews
             const preview = document.createElement('div');
-            preview.classList.add('col-md-4', 'mb-3');
-            preview.innerHTML = `<img src="${svgUri}" alt="SVG Preview" class="img-fluid rounded">
+            preview.classList.add('col-md-4', 'mb-3', 'text-center');
+            preview.innerHTML = `<img src="${svgUri}" alt="SVG Preview" class="img-fluid rounded" style="height: 70px;">
                                 <div class="text-center mt-2">
                                 <span class="badge bg-secondary">SVG Logo</span>
                                 </div>`;

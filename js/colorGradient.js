@@ -44,7 +44,7 @@ function displayColors(colors) {
         const card = document.createElement('div');
         card.className = 'card color-card col-md-2';
         card.style.backgroundColor = color;
-        card.innerHTML = `<div class="card-body text-white"><h5 class="card-title">${color}</h5></div>`;
+        card.innerHTML = `<div class="card-body text-white"><h5 class="card-title mb-0">${color}</h5></div>`;
         colorCards.appendChild(card);
     });
 }

@@ -10,14 +10,9 @@ $theme: "default" !default;
 
 // Place the part of the custom code here
 // ********************************************
-// Place this parts of the code into _variables.scss
-// ********************************************
-
-// COLOR
-// ********************************************
 
 // Main Colors HEX
-$primary    :#0D6986 !default;
+$primary    :#0d6986 !default;
 $secondary  :#546e7a !default;
 $third      :#0b203c !default;
 
@@ -33,37 +28,37 @@ $third-rgba    : rgba(11, 32, 60, 0.35);
 $success   : #5bc460 !default;
 $info      : #60a3bc !default;
 $warning   : #fa983a !default;
-$danger    : #e55039 !default;
+$danger    : #DC3545 !default;
 
 // Theme Colors
-$dark      : #212529 !default;
-$light     : #dee2e6 !default;
+$dark      : #343A40 !default;
+$light     : #F8F9FA !default;
 
 // Gradient Colors
 $grad-1     : #0d5a77 !default;
 $grad-2     : #0c4c68 !default;
 $grad-3     : #0c3d5a !default;
 $grad-4     : #0b2f4b !default;
-$grad-g1    : #66747a !default;
-$grad-g2    : #4b5458 !default;
+$grad-g1    : #9698A2 !default;
+$grad-g2    : #575A6B !default;
 
 // Grey Colors
 $grey      : #e4e4e8 !default;
 $dark-grey : #515569 !default;
 
 // Others
-$blue      : #0080ff !default;
+$blue      : #0D6EFD !default;
 $indigo    : #6610F2 !default;
 $purple    : #6F42C1 !default;
-$pink      : #e83e8c !default;
+$pink      : #D63384 !default;
 $magenta   : #ae2573 !default;
 $brown     : #978c87 !default;
 $red       : #D9534F !default;
-$orange    : #df6919 !default;
-$yellow    : #f2c12e !default;
-$green     : #5cb85c !default;
+$orange    : #FD7E14 !default;
+$yellow    : #FFd505 !default;
+$green     : #28A745 !default;
 $teal      : #20C997 !default;
-$cyan      : #5bc0de !default;
+$cyan      : #17A2B8 !default;
 $white     : #FFFFFF !default;
 
 // Grey Gradient Colors
@@ -79,38 +74,98 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black:    #000 !default;
 
+// Emphasis Colors
+$primary-emphasis			: #6ea5b6 !default;
+$secondary-emphasis			: #98a8af !default;
+$third-emphasis				: #6d798a !default;
+$dark-emphasis				: #85898c !default;
+$light-emphasis				: #fbfbfc !default;
+$grad-1-emphasis			: #6e9cad !default;
+$grad-2-emphasis			: #6d94a4 !default;
+$grad-3-emphasis			: #6d8b9c !default;
+$grad-4-emphasis			: #6d8293 !default;
+$grad-g1-emphasis			: #c0c1c7 !default;
+$grad-g2-emphasis			: #9a9ca6 !default;
+$success-emphasis			: #9ddca0 !default;
+$info-emphasis				: #a0c8d7 !default;
+$warning-emphasis			: #fcc189 !default;
+$danger-emphasis			: #ea868f !default;
+$magenta-emphasis			: #ce7cab !default;
+$brown-emphasis				: #c1bab7 !default;
+$grey-emphasis				: #efeff1 !default;
+$dark-grey-emphasis			: #9799a5 !default;
+$blue-emphasis				: #6ea8fe !default;
+$indigo-emphasis			: #a370f7 !default;
+$purple-emphasis			: #a98eda !default;
+$pink-emphasis				: #e685b5 !default;
+$red-emphasis				: #e89895 !default;
+$orange-emphasis			: #feb272 !default;
+$yellow-emphasis			: #ffe669 !default;
+$green-emphasis				: #7eca8f !default;
+$teal-emphasis				: #79dfc1 !default;
+$cyan-emphasis				: #74c7d4 !default;
+
 // Theme Colors List
 $theme-colors: (
-	'primary'	: #0D6986,
+	'primary'	: #0d6986,
 	'secondary'	: #546e7a,
 	'third'		: #0b203c,
-	'dark'		: #212529,
-	'light'		: #dee2e6,
+	'dark'		: #343A40,
+	'light'		: #F8F9FA,
 	'white'		: #FFFFFF,
 	'grad-1'	: #0d5a77,
 	'grad-2'	: #0c4c68,
 	'grad-3'	: #0c3d5a,
 	'grad-4'	: #0b2f4b,
-	'grad-g1'	: #66747a,
-	'grad-g2'	: #4b5458,
+	'grad-g1'	: #9698A2,
+	'grad-g2'	: #575A6B,
 	'success'	: #5bc460,
 	'info'		: #60a3bc,
 	'warning'	: #fa983a,
-	'danger'	: #e55039,
+	'danger'	: #DC3545,
 	'magenta'	: #ae2573,
 	'brown'		: #978c87,
 	'grey'		: #e4e4e8,
 	'dark-grey'	: #515569,
-	'blue'		: #0080ff,
+	'blue'		: #0D6EFD,
 	'indigo'	: #6610F2,
 	'purple'	: #6F42C1,
-	'pink'		: #e83e8c,
+	'pink'		: #D63384,
 	'red'		: #D9534F,
-	'orange'	: #df6919,
-	'yellow'	: #f2c12e,
-	'green'		: #5cb85c,
+	'orange'	: #FD7E14,
+	'yellow'	: #FFd505,
+	'green'		: #28A745,
 	'teal'		: #20C997,
-	'cyan'		: #5bc0de,
+	'cyan'		: #17A2B8,
+	'primary-emphasis'		: #6ea5b6,
+	'secondary-emphasis'	: #98a8af,
+	'third-emphasis'		: #6d798a,
+	'dark-emphasis'			: #85898c,
+	'light-emphasis'		: #fbfbfc,
+	'grad-1-emphasis'		: #6e9cad,
+	'grad-2-emphasis'		: #6d94a4,
+	'grad-3-emphasis'		: #6d8b9c,
+	'grad-4-emphasis'		: #6d8293,
+	'grad-g1-emphasis'		: #c0c1c7,
+	'grad-g2-emphasis'		: #9a9ca6,
+	'success-emphasis'		: #9ddca0,
+	'info-emphasis'			: #a0c8d7,
+	'warning-emphasis'		: #fcc189,
+	'danger-emphasis'		: #ea868f,
+	'magenta-emphasis'		: #ce7cab,
+	'brown-emphasis'		: #c1bab7,
+	'grey-emphasis'			: #efeff1,
+	'dark-grey-emphasis'	: #9799a5,
+	'blue-emphasis'			: #6ea8fe,
+	'indigo-emphasis'		: #a370f7,
+	'purple-emphasis'		: #a98eda,
+	'pink-emphasis'			: #e685b5,
+	'red-emphasis'			: #e89895,
+	'orange-emphasis'		: #feb272,
+	'yellow-emphasis'		: #ffe669,
+	'green-emphasis'		: #7eca8f,
+	'teal-emphasis'			: #79dfc1,
+	'cyan-emphasis'			: #74c7d4,
 );
 // ********************************************
 
