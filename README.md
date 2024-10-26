@@ -96,9 +96,15 @@ cd Bootstrap-Theme-Builder
    - Copy/paste or replace your previously generated code into the "bootstrap.scss" file (A comment in the file says 'Place the code here').
    - Start SASS Watch and view the result on "code-picker.html".
 
-My Bootstrap 5.3 Code Picket output example based on Bootswatch's code picker project 🙂  : 
+My Bootstrap 5.3 Code Picket output example based on Bootswatch's code picker project 🙂 
 
 [Bootstrap Theme Sample](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Mending-Electronics/Bootstrap-Theme-Builder/refs/heads/main/code-picker-mending-electronics.html)
+
+
+Video tutorial :
+
+[Video](https://youtu.be/iopyB2RYo24)
+
 
 
 Built with 💻 and ☕ by Mending Electronics.
