@@ -66,26 +66,9 @@ createApp({
             return `${r}, ${g}, ${b}`;
         },
 
-        // updateFont(elementId, fontName) {
-        //     if (!fontName) return;
-        //     let fontUrl;
-        //     const style = document.createElement('style');
-        //     style.innerHTML = `@import url('${fontUrl}');`;
-        //     document.head.appendChild(style);
-        //     document.getElementById(elementId).querySelector('h2').style.fontFamily = `"${fontName}", sans-serif`;
-        // },
-
-        // resetFontFamilyMain() {
-        //     this.fontFamilyMain = '';
-        //     document.getElementById('fontFamilyMainSample').querySelector('h2').style.fontFamily = '';
-        // },
-        // resetFontFamilyBrand() {
-        //     this.fontFamilyBrand = '';
-        //     document.getElementById('fontFamilyBrandSample').querySelector('h2').style.fontFamily = '';
-        // },
-
         async searchFontFamilyMain() {
             const fontName = this.fontFamilyMain;
+            this.fontFamilyMainUrls = [];
             const fontUrls = [];
             const googleFontUrl = `https://fonts.googleapis.com/css2?family=${fontName.replace(' ', '+')}&display=swap`;
             const cdnFontsUrl = `https://fonts.cdnfonts.com/css/${fontName.toLowerCase().replace(' ', '-')}`;
@@ -104,20 +87,19 @@ createApp({
             }
 
             if (fontUrls.length === 0) {
-                alert('The font was not found');
-                return;
+                // alert('The font was not found');
+                return this.fontFamilyMainUrls;
             }
 
             this.fontFamilyMainUrls = fontUrls;
             this.updateFont('fontFamilyMainSample', fontName);
-
-            
             // Show modal with links
-            this.showFontModal(fontUrls);
+            // this.showFontModal(fontUrls);
         },
 
         async searchFontFamilyBrand() {
             const fontName = this.fontFamilyBrand;
+            this.fontFamilyBrandUrls = [];
             const fontUrls = [];
             const googleFontUrl = `https://fonts.googleapis.com/css2?family=${fontName.replace(' ', '+')}&display=swap`;
             const cdnFontsUrl = `https://fonts.cdnfonts.com/css/${fontName.toLowerCase().replace(' ', '-')}`;
@@ -135,15 +117,15 @@ createApp({
             }
     
             if (fontUrls.length === 0) {
-                alert('The font was not found');
-                return;
+                // alert('The font was not found');
+                return this.fontFamilyBrandUrls;
             }
     
             this.fontFamilyBrandUrls = fontUrls;
             this.updateFont('fontFamilyBrandSample', fontName);
 
-             // Show modal with links
-            this.showFontModal(fontUrls);
+            // Show modal with links
+            // this.showFontModal(fontUrls);
         },
 
         
@@ -190,45 +172,21 @@ createApp({
             document.getElementById('fontFamilyBrandSample').querySelector('h2').style.fontFamily = '';
         },
     
-        generateFontSCSS() {
-            let scss = '';
-    
-            if (this.fontFamilyMainUrls.length) {
-                this.fontFamilyMainUrls.forEach(url => {
-                    scss += `@import url('${url}');\n`;
-                });
-                scss += `
-    body {
-        font-family: '${this.fontFamilyMain}', sans-serif;
-    }
-    .font-family-main {
-        font-family: '${this.fontFamilyMain}', sans-serif;
-    }
-                `;
-            }
-    
-            if (this.fontFamilyBrandUrls.length) {
-                this.fontFamilyBrandUrls.forEach(url => {
-                    scss += `@import url('${url}');\n`;
-                });
-                scss += `
-    .font-family-brand {
-        font-family: '${this.fontFamilyBrand}', sans-serif;
-    }
-                `;
-            }
-    
-            console.log(scss);
-            return scss;
-        },
-
-
-
 
         generateSCSS() {
             this.isLoading = true; // Start loading
 
+            if (this.fontFamilyMainUrls.length == "0" ) {
+                this.searchFontFamilyMain();
+            }
+            
+            if (this.fontFamilyBrandUrls.length == "0" ) {
+                this.searchFontFamilyBrand();
+            }
+
             setTimeout(() => {
+
+
 
                 let scss = ``;
 
@@ -397,12 +355,6 @@ createApp({
                 scss = '';
 
 
-
-                // Import Bootstrap Icons
-                scss += `\n// Import Bootstrap Icons\n`;
-                scss += `@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");\n`;
-                
-
                 // Generate emphasis Text and Background colors
                 scss += `\n// Generate emphasis Text and Background colors\n`;
                 scss += `@function tint($color, $percentage) {\n`;
@@ -546,151 +498,171 @@ createApp({
 
 
                 scss += `\n\n// Fonts\n`;
-                if (this.fontFamilyMain) {
-                    // scss += `\n// Font Family Main\n@import url('https://fonts.googleapis.com/css2?family=${this.fontFamilyMain.replace(' ', '+')}:wght@400&display=swap');\nbody { font-family: "${this.fontFamilyMain}", sans-serif; }\n`;
-                        
-                    if (this.isGoogleFont(this.fontFamilyMain)) {
-                        scss += `\n// Font Family Main\n@import url('https://fonts.googleapis.com/css2?family=${this.fontFamilyMain.replace(' ', '+')}:wght@400&display=swap');\nbody { font-family: "${this.fontFamilyMain}", sans-serif; }\n`;
-                    } else {
-                        scss += `\n// Font Family Main\n@import url('https://use.typekit.net/your-adobe-font-kit-id.css');\nbody { font-family: "${this.fontFamilyMain}", sans-serif; }\n`;
-                    }
+               
+
+                // Import Bootstrap Icons Font
+                scss += `\n// Import Bootstrap Icons\n`;
+                scss += `@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");\n`;
+                
+
+                // Import Arial Font as default
+                scss += `\n// Import Arial Font as default\n`;
+                scss += `@import url('https://fonts.cdnfonts.com/css/arial');
+                body {
+                    font-family: 'arial', sans-serif;
+                }
+                `;
+                
+
+                if (this.fontFamilyMainUrls.length) {
+                    scss += `\n// Font Family Main (as default)\n`;
+                    this.fontFamilyMainUrls.forEach(url => {
+                        scss += `@import url('${url}');\n`;
+                    });
+                    scss += `body {\n`;
+                    scss += `    font-family: '${this.fontFamilyMain}', 'arial', sans-serif;\n`;
+                    scss += `}\n`;
+                    scss += `.font-family-main {\n`;
+                    scss += `    font-family: '${this.fontFamilyMain}', 'arial', sans-serif;\n`;
+                    scss += `}\n`;
                 
                     // Generate CSS classes
                     scss += `
                     .font-family-main-thin {
-                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-family: "${this.fontFamilyMain}", 'arial', sans-serif;
                     font-weight: 100;
                     font-style: normal;
                     }
                     .font-family-main-light {
-                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-family: "${this.fontFamilyMain}", 'arial', sans-serif;
                     font-weight: 300;
                     font-style: normal;
                     }
                     .font-family-main-regular {
-                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-family: "${this.fontFamilyMain}", 'arial', sans-serif;
                     font-weight: 400;
                     font-style: normal;
                     }
                     .font-family-main-medium {
-                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-family: "${this.fontFamilyMain}", 'arial', sans-serif;
                     font-weight: 500;
                     font-style: normal;
                     }
                     .font-family-main-bold {
-                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-family: "${this.fontFamilyMain}", 'arial', sans-serif;
                     font-weight: 700;
                     font-style: normal;
                     }
                     .font-family-main-black {
-                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-family: "${this.fontFamilyMain}", 'arial', sans-serif;
                     font-weight: 900;
                     font-style: normal;
                     }
                     .font-family-main-thin-italic {
-                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-family: "${this.fontFamilyMain}", 'arial', sans-serif;
                     font-weight: 100;
                     font-style: italic;
                     }
                     .font-family-main-light-italic {
-                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-family: "${this.fontFamilyMain}", 'arial', sans-serif;
                     font-weight: 300;
                     font-style: italic;
                     }
                     .font-family-main-regular-italic {
-                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-family: "${this.fontFamilyMain}", 'arial', sans-serif;
                     font-weight: 400;
                     font-style: italic;
                     }
                     .font-family-main-medium-italic {
-                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-family: "${this.fontFamilyMain}", 'arial', sans-serif;
                     font-weight: 500;
                     font-style: italic;
                     }
                     .font-family-main-bold-italic {
-                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-family: "${this.fontFamilyMain}", 'arial', sans-serif;
                     font-weight: 700;
                     font-style: italic;
                     }
                     .font-family-main-black-italic {
-                    font-family: "${this.fontFamilyMain}", sans-serif;
+                    font-family: "${this.fontFamilyMain}", 'arial', sans-serif;
                     font-weight: 900;
                     font-style: italic;
                     }\n`;
                                
                 
                 } else {
-                    scss += `//=> no Font Family Main\n`
+                    scss += `\n//=> no Font Family Main\n`
                 }
+        
 
-                if (this.fontFamilyBrand) {
-                    // scss += `\n// Font Family Brand\n@import url('https://fonts.googleapis.com/css2?family=${this.fontFamilyBrand.replace(' ', '+')}:wght@400&display=swap');\n.brand { font-family: "${this.fontFamilyBrand}", sans-serif; }\n`;
-                    
-                    if (this.isGoogleFont(this.fontFamilyBrand)) {
-                        scss += `\n// Font Family Brand\n@import url('https://fonts.googleapis.com/css2?family=${this.fontFamilyBrand.replace(' ', '+')}:wght@400&display=swap');\nbody { font-family: "${this.fontFamilyBrand}", sans-serif; }\n`;
-                    } else {
-                        scss += `\n// Font Family Brand\n@import url('https://use.typekit.net/your-adobe-font-kit-id.css');\nbody { font-family: "${this.fontFamilyBrand}", sans-serif; }\n`;
-                    }
-
+                if (this.fontFamilyBrandUrls.length) {
+                    scss += `\n// Font Family Brand (for your Brand Text)\n`;
+                    this.fontFamilyBrandUrls.forEach(url => {
+                        scss += `@import url('${url}');\n`;
+                    });
+                    scss += `.font-family-brand {\n`;
+                    scss += `    font-family: '${this.fontFamilyBrand}', 'arial', sans-serif;\n`;
+                    scss += `}\n`;
+             
                     // Generate CSS classes
                     scss += `
                     .font-family-brand-thin {
-                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-family: "${this.fontFamilyBrand}", 'arial', sans-serif;
                     font-weight: 100;
                     font-style: normal;
                     }
                     .font-family-brand-light {
-                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-family: "${this.fontFamilyBrand}", 'arial', sans-serif;
                     font-weight: 300;
                     font-style: normal;
                     }
                     .font-family-brand-regular {
-                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-family: "${this.fontFamilyBrand}", 'arial', sans-serif;
                     font-weight: 400;
                     font-style: normal;
                     }
                     .font-family-brand-medium {
-                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-family: "${this.fontFamilyBrand}", 'arial', sans-serif;
                     font-weight: 500;
                     font-style: normal;
                     }
                     .font-family-brand-bold {
-                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-family: "${this.fontFamilyBrand}", 'arial', sans-serif;
                     font-weight: 700;
                     font-style: normal;
                     }
                     .font-family-brand-black {
-                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-family: "${this.fontFamilyBrand}", 'arial', sans-serif;
                     font-weight: 900;
                     font-style: normal;
                     }
                     .font-family-brand-thin-italic {
-                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-family: "${this.fontFamilyBrand}", 'arial', sans-serif;
                     font-weight: 100;
                     font-style: italic;
                     }
                     .font-family-brand-light-italic {
-                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-family: "${this.fontFamilyBrand}", 'arial', sans-serif;
                     font-weight: 300;
                     font-style: italic;
                     }
                     .font-family-brand-regular-italic {
-                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-family: "${this.fontFamilyBrand}", 'arial', sans-serif;
                     font-weight: 400;
                     font-style: italic;
                     }
                     .font-family-brand-medium-italic {
-                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-family: "${this.fontFamilyBrand}", 'arial', sans-serif;
                     font-weight: 500;
                     font-style: italic;
                     }
                     .font-family-brand-bold-italic {
-                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-family: "${this.fontFamilyBrand}", 'arial', sans-serif;
                     font-weight: 700;
                     font-style: italic;
                     }
                     .font-family-brand-black-italic {
-                    font-family: "${this.fontFamilyBrand}", sans-serif;
+                    font-family: "${this.fontFamilyBrand}", 'arial', sans-serif;
                     font-weight: 900;
                     font-style: italic;
                     }\n`;
@@ -699,6 +671,23 @@ createApp({
                 } else {
                     scss += `//=> no Font Family Brand\n`
                 }
+        
+
+
+                // Generate Blur
+                scss += `\n\n// Blur\n`;
+                scss += `@mixin blur($value) {\n`;
+                scss += `    -webkit-filter: blur($value);\n`;
+                scss += `    filter: blur($value);\n`;
+                scss += `}\n`;
+                scss += `.blur		  {@include blur(1px);}\n`;
+                scss += `.blur-25	{@include blur(2.5px);}\n`;
+                scss += `.blur-50	{@include blur(5px);}\n`;
+                scss += `.blur-75	{@include blur(7.5px);}\n`;
+                scss += `.blur-100	{@include blur(10px);}\n`;
+                
+               
+
 
 
                 scss += `\n\n// Logo and Pattern\n`;

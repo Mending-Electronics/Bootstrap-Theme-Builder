@@ -28,11 +28,6 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
-    <style>
-        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-    </style>
-
-
 </head>
 <body>
 
@@ -44,7 +39,7 @@
         <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
             <div class="container-fluid">
                 <div class="svg-logo filter-white d-inline-block align-text-top me-3" style="width: 60px;" alt="logo"></div>
-                <h5 class="text-body d-inline-block m-b-lg m-t-lg me-5 mt-1 pt-1" style="font-family: 'Fredoka';">
+                <h5 class="text-body d-inline-block m-b-lg m-t-lg me-5 mt-1 pt-1 font-family-brand">
                     MENDING
                 <span class="text-primary-emphasis fs-5">ELECTRONICS</span>
                 </h5>
@@ -145,8 +140,7 @@
                   </div>
                 </div>
               </div>
-              <button class="source-button btn btn-primary btn-xs" type="button" tabindex="0"><i class="bi bi-code"></i></button>
-
+             
 
 
 
@@ -191,6 +185,8 @@
             </div>
 
 
+
+
             <h1 class="mt-5 mb-3">Pattern</h1>
             
             <input type="file" class="form-control visually-hidden" id="PatternFile" accept=".svg" @change="importSvgPattern">
@@ -200,13 +196,21 @@
                 <div class="row justify-content-center" id="imagePreviewsPattern"></div>
             </div>
 
+
+
+
             <h1 class="mt-5 mb-3">Fonts</h1>
             <h4>font-family-main</h4><i>(used for the entire web page)</i>
             <div class="input-group w-50">
                 <button id="foundFontFamilyMain" class="btn btn-primary btn-sm" @click="searchFontFamilyMain">
                     <i class="bi bi-search p-0 fs-5"></i>
                 </button>
-                <input class="form-select w-50" required type="text" placeholder="Enter the Font name" v-model="fontFamilyMain" list="fontFamilyMain-list" autocomplete="off" style="width: 165px;">
+                <input class="form-select w-50" required type="text" placeholder="Enter the Font name" list="fontFamilyMain-list" autocomplete="off" style="width: 165px;"
+                v-model="fontFamilyMain"
+                :class="{
+                    'is-valid': fontFamilyMainUrls.length !== 0, 
+                    'is-invalid': fontFamilyMainUrls.length === 0
+                }">
                 <datalist id="fontFamilyMain-list">
                     <option value="Roboto">Roboto</option>
                     <option value="Century Gothic">Century Gothic</option>
@@ -218,16 +222,30 @@
                 <button id="cleanFontFamilyMain" class="btn btn-danger btn-sm" @click="resetFontFamilyMain">
                     <i class="bi bi-x p-0 fs-5"></i>
                 </button>
+                <div class="valid-feedback" v-if="fontFamilyMainUrls.length !== 0">
+                    Super! Some CDNs were found for this font: <br> {{ fontFamilyMainUrls }}
+                </div>
+                <div class="invalid-feedback" v-else>
+                    Sorry, no CDNs found for this font
+                </div>
+    
             </div>
             <div id="fontFamilyMainSample" class="card border-1 mt-2">
                 <h2 class="p-3 pt-4">This is a sample of text: ABCDEFGHIJKLMNOPQRSTUVWXYZ-!?/0123456789</h2>
             </div>
+
+
             <h4 class="mt-4">font-family-brand</h4><i>(used for your app brand name)</i>
             <div class="input-group w-50">
                 <button id="foundFontFamilyBrand" class="btn btn-primary btn-sm" @click="searchFontFamilyBrand">
                     <i class="bi bi-search p-0 fs-5"></i>
                 </button>
-                <input class="form-select w-50" required type="text" placeholder="Enter the Font name" v-model="fontFamilyBrand" list="fontFamilyBrand-list" autocomplete="off" style="width: 165px;">
+                <input class="form-select w-50" required type="text" placeholder="Enter the Font name"  list="fontFamilyBrand-list" autocomplete="off" style="width: 165px;"
+                v-model="fontFamilyBrand"
+                :class="{
+                    'is-valid': fontFamilyBrandUrls.length !== 0, 
+                    'is-invalid': fontFamilyBrandUrls.length === 0
+                }">
                 <datalist id="fontFamilyBrand-list">
                     <option value="Roboto">Roboto</option>
                     <option value="Century Gothic">Century Gothic</option>
@@ -238,7 +256,16 @@
                 <button id="cleanFontFamilyBrand" class="btn btn-danger btn-sm" @click="resetFontFamilyBrand">
                     <i class="bi bi-x p-0 fs-5"></i>
                 </button>
+
+                <div class="valid-feedback" v-if="this.fontFamilyBrandUrls.length !== 0">
+                    Super! Some CDNs were found for this font: <br> {{ this.fontFamilyBrandUrls }}
+                </div>
+                <div class="invalid-feedback" v-else>
+                    Sorry, no CDNs found for this font
+                </div>
             </div>
+
+
             <div id="fontFamilyBrandSample" class="card border-1 mt-2">
                 <h2 class="p-3 pt-4">This is a sample of text: ABCDEFGHIJKLMNOPQRSTUVWXYZ-!?/0123456789</h2>
             </div>
