@@ -18,6 +18,11 @@ Bootstrap Theme Builder allows developers and designers to create, modify, and p
 
 ## Getting Started
 
+**Video tutorial:**
+
+[Video](https://youtu.be/iopyB2RYo24)
+
+
 ### Prerequisites
 
 - SASS Preprocessor tool
@@ -96,14 +101,12 @@ cd Bootstrap-Theme-Builder
    - Copy/paste or replace your previously generated code into the "bootstrap.scss" file (A comment in the file says 'Place the code here').
    - Start SASS Watch and view the result on "code-picker.html".
 
-My Bootstrap 5.3 Code Picket output example based on Bootswatch's code picker project 🙂 
+Bootstrap 5.3 Code Picket output example based on Bootswatch's code picker project 🙂 
 
-[Bootstrap Theme Sample](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Mending-Electronics/Bootstrap-Theme-Builder/refs/heads/main/code-picker-mending-electronics.html)
+[My Mending Electronics Bootstrap Theme Sample](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Mending-Electronics/Bootstrap-Theme-Builder/refs/heads/main/code-picker-mending-electronics.html)
 
+[Custom Bootstrap Theme Sample](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Mending-Electronics/Bootstrap-Theme-Builder/refs/heads/main/code-picker.html)
 
-Video tutorial :
-
-[Video](https://youtu.be/iopyB2RYo24)
 
 
 
