@@ -87,65 +87,65 @@ $dark-text-emphasis:           $gray-300 !default;
 
 // Generate Filters (ex : use filter-primary to change svg fill color) 
 $filters: (
-	$primary	: "brightness(0) saturate(100%) invert(19%) sepia(43%) saturate(6038%) hue-rotate(179deg) brightness(92%) contrast(90%)",	//Loss 0.2
-	$secondary	: "brightness(0) saturate(100%) invert(42%) sepia(8%) saturate(1218%) hue-rotate(154deg) brightness(93%) contrast(87%)",	//Loss 0.1
-	$third		: "brightness(0) saturate(100%) invert(9%) sepia(16%) saturate(6864%) hue-rotate(198deg) brightness(94%) contrast(95%)",	// Loss 0.2
-	$dark		: "brightness(0) saturate(100%) invert(12%) sepia(5%) saturate(1350%) hue-rotate(168deg) brightness(96%) contrast(93%)",	// Loss 0.2
-	$light		: "brightness(0) saturate(100%) invert(85%) sepia(9%) saturate(105%) hue-rotate(169deg) brightness(110%) contrast(85%)",	// Loss 0.2
-	$white		: "brightness(0) saturate(100%) invert(93%) sepia(7%) saturate(0%) hue-rotate(83deg) brightness(106%) contrast(108%)",	// Loss 0.0
-	$grad-1		: "brightness(0) saturate(100%) invert(12%) sepia(90%) saturate(4073%) hue-rotate(184deg) brightness(101%) contrast(90%)",	// Loss 0.9
-	$grad-2		: "brightness(0) saturate(100%) invert(21%) sepia(72%) saturate(650%) hue-rotate(155deg) brightness(95%) contrast(95%)",	// Loss 0.7
-	$grad-3		: "brightness(0) saturate(100%) invert(20%) sepia(26%) saturate(1828%) hue-rotate(163deg) brightness(90%) contrast(96%)",	// Loss 0.1
-	$grad-4		: "brightness(0) saturate(100%) invert(13%) sepia(31%) saturate(2578%) hue-rotate(179deg) brightness(93%) contrast(94%)",	// Loss 0.6
-	$grad-g1	: "brightness(0) saturate(100%) invert(49%) sepia(2%) saturate(2329%) hue-rotate(153deg) brightness(90%) contrast(88%)",	//Loss 0.3
-	$grad-g2	: "brightness(0) saturate(100%) invert(29%) sepia(20%) saturate(244%) hue-rotate(153deg) brightness(98%) contrast(86%)",	//Loss 0.1
-	$success	: "brightness(0) saturate(100%) invert(72%) sepia(15%) saturate(1481%) hue-rotate(73deg) brightness(90%) contrast(91%)",	//Loss 0.6
-	$info		: "brightness(0) saturate(100%) invert(66%) sepia(11%) saturate(1523%) hue-rotate(151deg) brightness(90%) contrast(85%)",	// Loss 0.2
-	$warning	: "brightness(0) saturate(100%) invert(74%) sepia(14%) saturate(5010%) hue-rotate(333deg) brightness(102%) contrast(96%)",	//Loss 0.5
-	$danger		: "brightness(0) saturate(100%) invert(35%) sepia(70%) saturate(1476%) hue-rotate(339deg) brightness(96%) contrast(87%)",	// Loss 0.3
-	$magenta	: "brightness(0) saturate(100%) invert(18%) sepia(99%) saturate(2078%) hue-rotate(305deg) brightness(90%) contrast(90%)",	//Loss 0.2
-	$brown		: "brightness(0) saturate(100%) invert(60%) sepia(3%) saturate(999%) hue-rotate(334deg) brightness(93%) contrast(90%)",	// Loss 0.1
-	$grey		: "brightness(0) saturate(100%) invert(91%) sepia(4%) saturate(135%) hue-rotate(202deg) brightness(99%) contrast(96%)",	// Loss 0.3
-	$dark-grey	: "brightness(0) saturate(100%) invert(30%) sepia(9%) saturate(1002%) hue-rotate(193deg) brightness(101%) contrast(89%)",	//Loss 0.1
-	$blue		: "brightness(0) saturate(100%) invert(36%) sepia(53%) saturate(3380%) hue-rotate(194deg) brightness(98%) contrast(112%)",	// Loss 0.0
-	$indigo		: "brightness(0) saturate(100%) invert(29%) sepia(74%) saturate(7491%) hue-rotate(260deg) brightness(85%) contrast(127%)",	// Loss 0.7
-	$purple		: "brightness(0) saturate(100%) invert(29%) sepia(29%) saturate(4072%) hue-rotate(244deg) brightness(87%) contrast(90%)",	// Loss 0.9
-	$pink		: "brightness(0) saturate(100%) invert(37%) sepia(98%) saturate(3153%) hue-rotate(311deg) brightness(97%) contrast(87%)",	// Loss 0.1
-	$red		: "brightness(0) saturate(100%) invert(33%) sepia(7%) saturate(6345%) hue-rotate(316deg) brightness(126%) contrast(89%)",	// Loss 0.9
-	$orange		: "brightness(0) saturate(100%) invert(52%) sepia(91%) saturate(2578%) hue-rotate(353deg) brightness(91%) contrast(91%)",	// Loss 0.5
-	$yellow		: "brightness(0) saturate(100%) invert(79%) sepia(88%) saturate(530%) hue-rotate(331deg) brightness(97%) contrast(95%)",	// Loss 0.3
-	$green		: "brightness(0) saturate(100%) invert(60%) sepia(59%) saturate(413%) hue-rotate(71deg) brightness(94%) contrast(85%)",	// Loss 0.7
-	$teal		: "brightness(0) saturate(100%) invert(82%) sepia(29%) saturate(6694%) hue-rotate(110deg) brightness(96%) contrast(75%)",	// Loss 0.0
-	$cyan		: "brightness(0) saturate(100%) invert(75%) sepia(16%) saturate(1531%) hue-rotate(157deg) brightness(92%) contrast(88%)",	// Loss 0.2
-	$primary-emphasis	: "brightness(0) saturate(100%) invert(67%) sepia(39%) saturate(365%) hue-rotate(148deg) brightness(87%) contrast(79%)",	//Loss 0.3
-	$secondary-emphasis	: "brightness(0) saturate(100%) invert(78%) sepia(14%) saturate(265%) hue-rotate(153deg) brightness(85%) contrast(82%)",	//Loss 0.1
-	$third-emphasis		: "brightness(0) saturate(100%) invert(47%) sepia(11%) saturate(559%) hue-rotate(176deg) brightness(97%) contrast(92%)",	// Loss 0.1
-	$dark-emphasis		: "brightness(0) saturate(100%) invert(57%) sepia(2%) saturate(492%) hue-rotate(177deg) brightness(84%) contrast(85%)",	// Loss 0.1
-	$light-emphasis		: "brightness(0) saturate(100%) invert(92%) sepia(2%) saturate(252%) hue-rotate(161deg) brightness(96%) contrast(111%)",	// Loss 1.0
-	$grad-1-emphasis		: "brightness(0) saturate(100%) invert(60%) sepia(6%) saturate(1824%) hue-rotate(151deg) brightness(96%) contrast(90%)",	// Loss 0.4
-	$grad-2-emphasis		: "brightness(0) saturate(100%) invert(60%) sepia(26%) saturate(422%) hue-rotate(152deg) brightness(89%) contrast(84%)",	// Loss 0.2
-	$grad-3-emphasis		: "brightness(0) saturate(100%) invert(58%) sepia(50%) saturate(187%) hue-rotate(158deg) brightness(82%) contrast(94%)",	// Loss 0.7
-	$grad-4-emphasis		: "brightness(0) saturate(100%) invert(55%) sepia(10%) saturate(810%) hue-rotate(165deg) brightness(88%) contrast(86%)",	// Loss 0.2
-	$grad-g1-emphasis	: "brightness(0) saturate(100%) invert(75%) sepia(14%) saturate(130%) hue-rotate(149deg) brightness(88%) contrast(95%)",	//Loss 0.2
-	$grad-g2-emphasis	: "brightness(0) saturate(100%) invert(65%) sepia(8%) saturate(173%) hue-rotate(159deg) brightness(91%) contrast(93%)",	//Loss 0.1
-	$success-emphasis	: "brightness(0) saturate(100%) invert(92%) sepia(11%) saturate(1124%) hue-rotate(62deg) brightness(90%) contrast(90%)",	//Loss 0.1
-	$info-emphasis		: "brightness(0) saturate(100%) invert(84%) sepia(35%) saturate(349%) hue-rotate(164deg) brightness(90%) contrast(87%)",	// Loss 0.2
-	$warning-emphasis	: "brightness(0) saturate(100%) invert(73%) sepia(72%) saturate(310%) hue-rotate(330deg) brightness(101%) contrast(98%)",	//Loss 0.2
-	$danger-emphasis		: "brightness(0) saturate(100%) invert(65%) sepia(27%) saturate(684%) hue-rotate(320deg) brightness(100%) contrast(88%)",	// Loss 0.8
-	$magenta-emphasis	: "brightness(0) saturate(100%) invert(61%) sepia(64%) saturate(329%) hue-rotate(278deg) brightness(85%) contrast(87%)",	//Loss 0.1
-	$brown-emphasis		: "brightness(0) saturate(100%) invert(83%) sepia(8%) saturate(180%) hue-rotate(333deg) brightness(91%) contrast(85%)",	// Loss 0.0
-	$grey-emphasis		: "brightness(0) saturate(100%) invert(87%) sepia(9%) saturate(26%) hue-rotate(201deg) brightness(107%) contrast(96%)",	// Loss 0.9
-	$dark-grey-emphasis	: "brightness(0) saturate(100%) invert(68%) sepia(7%) saturate(388%) hue-rotate(194deg) brightness(88%) contrast(91%)",	//Loss 0.2
-	$blue-emphasis		: "brightness(0) saturate(100%) invert(74%) sepia(22%) saturate(5706%) hue-rotate(183deg) brightness(100%) contrast(102%)",	// Loss 0.1
-	$indigo-emphasis		: "brightness(0) saturate(100%) invert(48%) sepia(66%) saturate(2204%) hue-rotate(229deg) brightness(99%) contrast(96%)",	// Loss 0.2
-	$purple-emphasis		: "brightness(0) saturate(100%) invert(61%) sepia(20%) saturate(837%) hue-rotate(220deg) brightness(97%) contrast(84%)",	// Loss 0.1
-	$pink-emphasis		: "brightness(0) saturate(100%) invert(78%) sepia(33%) saturate(1561%) hue-rotate(289deg) brightness(102%) contrast(89%)",	// Loss 0.3
-	$red-emphasis		: "brightness(0) saturate(100%) invert(69%) sepia(19%) saturate(780%) hue-rotate(314deg) brightness(95%) contrast(91%)",	// Loss 0.9
-	$orange-emphasis		: "brightness(0) saturate(100%) invert(72%) sepia(31%) saturate(707%) hue-rotate(334deg) brightness(97%) contrast(90%)",	// Loss 0.1
-	$yellow-emphasis		: "brightness(0) saturate(100%) invert(98%) sepia(97%) saturate(897%) hue-rotate(320deg) brightness(101%) contrast(94%)",	// Loss 0.8
-	$green-emphasis		: "brightness(0) saturate(100%) invert(92%) sepia(13%) saturate(927%) hue-rotate(60deg) brightness(88%) contrast(87%)",	// Loss 0.4
-	$teal-emphasis		: "brightness(0) saturate(100%) invert(83%) sepia(19%) saturate(852%) hue-rotate(107deg) brightness(101%) contrast(77%)",	// Loss 0.2
-	$cyan-emphasis		: "brightness(0) saturate(100%) invert(80%) sepia(22%) saturate(494%) hue-rotate(151deg) brightness(103%) contrast(84%)",	// Loss 0.1
+	$primary	: "brightness(0) saturate(100%) invert(11%) sepia(78%) saturate(5666%) hue-rotate(260deg) brightness(91%) contrast(105%)",	//Loss 0.5
+	$secondary	: "brightness(0) saturate(100%) invert(42%) sepia(20%) saturate(539%) hue-rotate(154deg) brightness(90%) contrast(85%)",	//Loss 0.0
+	$third		: "brightness(0) saturate(100%) invert(7%) sepia(97%) saturate(6180%) hue-rotate(262deg) brightness(67%) contrast(100%)",	// Loss 0.5
+	$dark		: "brightness(0) saturate(100%) invert(10%) sepia(10%) saturate(865%) hue-rotate(169deg) brightness(96%) contrast(89%)",	// Loss 0.1
+	$light		: "brightness(0) saturate(100%) invert(99%) sepia(1%) saturate(1685%) hue-rotate(177deg) brightness(89%) contrast(103%)",	// Loss 1.0
+	$white		: "brightness(0) saturate(100%) invert(99%) sepia(1%) saturate(347%) hue-rotate(50deg) brightness(115%) contrast(100%)",	// Loss 0.0
+	$grad-1		: "brightness(0) saturate(100%) invert(23%) sepia(54%) saturate(4074%) hue-rotate(251deg) brightness(68%) contrast(122%)",	// Loss 0.3
+	$grad-2		: "brightness(0) saturate(100%) invert(10%) sepia(54%) saturate(5347%) hue-rotate(256deg) brightness(117%) contrast(112%)",	// Loss 0.4
+	$grad-3		: "brightness(0) saturate(100%) invert(10%) sepia(61%) saturate(5958%) hue-rotate(258deg) brightness(95%) contrast(106%)",	// Loss 0.4
+	$grad-4		: "brightness(0) saturate(100%) invert(10%) sepia(97%) saturate(3022%) hue-rotate(255deg) brightness(95%) contrast(110%)",	// Loss 0.2
+	$grad-g1	: "brightness(0) saturate(100%) invert(47%) sepia(8%) saturate(575%) hue-rotate(153deg) brightness(92%) contrast(91%)",	//Loss 0.1
+	$grad-g2	: "brightness(0) saturate(100%) invert(30%) sepia(5%) saturate(972%) hue-rotate(154deg) brightness(97%) contrast(88%)",	//Loss 0.1
+	$success	: "brightness(0) saturate(100%) invert(69%) sepia(7%) saturate(3430%) hue-rotate(73deg) brightness(101%) contrast(75%)",	//Loss 0.8
+	$info		: "brightness(0) saturate(100%) invert(63%) sepia(32%) saturate(514%) hue-rotate(150deg) brightness(89%) contrast(92%)",	// Loss 0.5
+	$warning	: "brightness(0) saturate(100%) invert(68%) sepia(47%) saturate(1080%) hue-rotate(332deg) brightness(101%) contrast(96%)",	//Loss 0.4
+	$danger		: "brightness(0) saturate(100%) invert(52%) sepia(79%) saturate(5426%) hue-rotate(344deg) brightness(98%) contrast(84%)",	// Loss 0.4
+	$magenta	: "brightness(0) saturate(100%) invert(24%) sepia(34%) saturate(3872%) hue-rotate(299deg) brightness(92%) contrast(97%)",	//Loss 0.3
+	$brown		: "brightness(0) saturate(100%) invert(67%) sepia(10%) saturate(308%) hue-rotate(334deg) brightness(84%) contrast(80%)",	// Loss 0.2
+	$grey		: "brightness(0) saturate(100%) invert(95%) sepia(6%) saturate(82%) hue-rotate(202deg) brightness(92%) contrast(102%)",	// Loss 0.6
+	$dark-grey	: "brightness(0) saturate(100%) invert(34%) sepia(19%) saturate(479%) hue-rotate(193deg) brightness(90%) contrast(91%)",	//Loss 0.1
+	$blue		: "brightness(0) saturate(100%) invert(36%) sepia(57%) saturate(4468%) hue-rotate(197deg) brightness(102%) contrast(103%)",	// Loss 0.6
+	$indigo		: "brightness(0) saturate(100%) invert(18%) sepia(91%) saturate(7301%) hue-rotate(265deg) brightness(90%) contrast(113%)",	// Loss 0.7
+	$purple		: "brightness(0) saturate(100%) invert(26%) sepia(48%) saturate(2784%) hue-rotate(245deg) brightness(92%) contrast(88%)",	// Loss 0.8
+	$pink		: "brightness(0) saturate(100%) invert(37%) sepia(75%) saturate(2385%) hue-rotate(309deg) brightness(93%) contrast(94%)",	// Loss 0.1
+	$red		: "brightness(0) saturate(100%) invert(70%) sepia(94%) saturate(5028%) hue-rotate(329deg) brightness(89%) contrast(90%)",	// Loss 1.0
+	$orange		: "brightness(0) saturate(100%) invert(61%) sepia(43%) saturate(6471%) hue-rotate(354deg) brightness(92%) contrast(89%)",	// Loss 0.6
+	$yellow		: "brightness(0) saturate(100%) invert(88%) sepia(18%) saturate(3292%) hue-rotate(337deg) brightness(105%) contrast(90%)",	// Loss 0.3
+	$green		: "brightness(0) saturate(100%) invert(59%) sepia(14%) saturate(1543%) hue-rotate(71deg) brightness(104%) contrast(86%)",	// Loss 0.7
+	$teal		: "brightness(0) saturate(100%) invert(67%) sepia(14%) saturate(2814%) hue-rotate(111deg) brightness(97%) contrast(75%)",	// Loss 0.1
+	$cyan		: "brightness(0) saturate(100%) invert(66%) sepia(80%) saturate(346%) hue-rotate(157deg) brightness(94%) contrast(85%)",	// Loss 0.3
+	$primary-emphasis	: "brightness(0) saturate(100%) invert(72%) sepia(45%) saturate(6113%) hue-rotate(218deg) brightness(89%) contrast(96%)",	//Loss 0.8
+	$secondary-emphasis	: "brightness(0) saturate(100%) invert(79%) sepia(7%) saturate(508%) hue-rotate(153deg) brightness(84%) contrast(85%)",	//Loss 0.1
+	$third-emphasis		: "brightness(0) saturate(100%) invert(46%) sepia(35%) saturate(553%) hue-rotate(217deg) brightness(93%) contrast(82%)",	// Loss 0.0
+	$dark-emphasis		: "brightness(0) saturate(100%) invert(50%) sepia(6%) saturate(206%) hue-rotate(177deg) brightness(95%) contrast(84%)",	// Loss 0.1
+	$light-emphasis		: "brightness(0) saturate(100%) invert(97%) sepia(14%) saturate(233%) hue-rotate(172deg) brightness(95%) contrast(99%)",	// Loss 0.7
+	$grad-1-emphasis		: "brightness(0) saturate(100%) invert(51%) sepia(90%) saturate(1303%) hue-rotate(219deg) brightness(88%) contrast(88%)",	// Loss 0.7
+	$grad-2-emphasis		: "brightness(0) saturate(100%) invert(52%) sepia(27%) saturate(892%) hue-rotate(216deg) brightness(90%) contrast(88%)",	// Loss 0.3
+	$grad-3-emphasis		: "brightness(0) saturate(100%) invert(56%) sepia(7%) saturate(3977%) hue-rotate(215deg) brightness(85%) contrast(72%)",	// Loss 0.6
+	$grad-4-emphasis		: "brightness(0) saturate(100%) invert(50%) sepia(15%) saturate(1182%) hue-rotate(217deg) brightness(93%) contrast(92%)",	// Loss 0.0
+	$grad-g1-emphasis	: "brightness(0) saturate(100%) invert(77%) sepia(9%) saturate(202%) hue-rotate(149deg) brightness(86%) contrast(92%)",	//Loss 0.1
+	$grad-g2-emphasis	: "brightness(0) saturate(100%) invert(70%) sepia(8%) saturate(157%) hue-rotate(159deg) brightness(84%) contrast(93%)",	//Loss 0.1
+	$success-emphasis	: "brightness(0) saturate(100%) invert(93%) sepia(4%) saturate(2855%) hue-rotate(62deg) brightness(87%) contrast(97%)",	//Loss 0.4
+	$info-emphasis		: "brightness(0) saturate(100%) invert(87%) sepia(10%) saturate(870%) hue-rotate(159deg) brightness(89%) contrast(88%)",	// Loss 0.9
+	$warning-emphasis	: "brightness(0) saturate(100%) invert(72%) sepia(78%) saturate(280%) hue-rotate(332deg) brightness(101%) contrast(98%)",	//Loss 0.5
+	$danger-emphasis		: "brightness(0) saturate(100%) invert(86%) sepia(25%) saturate(1520%) hue-rotate(300deg) brightness(96%) contrast(96%)",	// Loss 0.7
+	$magenta-emphasis	: "brightness(0) saturate(100%) invert(88%) sepia(10%) saturate(6459%) hue-rotate(283deg) brightness(87%) contrast(84%)",	//Loss 0.2
+	$brown-emphasis		: "brightness(0) saturate(100%) invert(83%) sepia(1%) saturate(1351%) hue-rotate(333deg) brightness(88%) contrast(99%)",	// Loss 1.0
+	$grey-emphasis		: "brightness(0) saturate(100%) invert(92%) sepia(2%) saturate(159%) hue-rotate(202deg) brightness(106%) contrast(92%)",	// Loss 0.1
+	$dark-grey-emphasis	: "brightness(0) saturate(100%) invert(67%) sepia(7%) saturate(378%) hue-rotate(194deg) brightness(91%) contrast(90%)",	//Loss 0.1
+	$blue-emphasis		: "brightness(0) saturate(100%) invert(68%) sepia(10%) saturate(5571%) hue-rotate(184deg) brightness(100%) contrast(105%)",	// Loss 0.2
+	$indigo-emphasis		: "brightness(0) saturate(100%) invert(49%) sepia(98%) saturate(2073%) hue-rotate(228deg) brightness(99%) contrast(96%)",	// Loss 0.4
+	$purple-emphasis		: "brightness(0) saturate(100%) invert(59%) sepia(68%) saturate(354%) hue-rotate(215deg) brightness(92%) contrast(84%)",	// Loss 0.3
+	$pink-emphasis		: "brightness(0) saturate(100%) invert(87%) sepia(16%) saturate(3257%) hue-rotate(286deg) brightness(95%) contrast(99%)",	// Loss 0.2
+	$red-emphasis		: "brightness(0) saturate(100%) invert(71%) sepia(11%) saturate(1297%) hue-rotate(314deg) brightness(94%) contrast(92%)",	// Loss 1.0
+	$orange-emphasis		: "brightness(0) saturate(100%) invert(89%) sepia(22%) saturate(3677%) hue-rotate(311deg) brightness(106%) contrast(85%)",	// Loss 0.4
+	$yellow-emphasis		: "brightness(0) saturate(100%) invert(85%) sepia(24%) saturate(757%) hue-rotate(348deg) brightness(104%) contrast(94%)",	// Loss 0.1
+	$green-emphasis		: "brightness(0) saturate(100%) invert(93%) sepia(4%) saturate(3026%) hue-rotate(60deg) brightness(95%) contrast(74%)",	// Loss 0.3
+	$teal-emphasis		: "brightness(0) saturate(100%) invert(90%) sepia(15%) saturate(1080%) hue-rotate(98deg) brightness(92%) contrast(89%)",	// Loss 0.1
+	$cyan-emphasis		: "brightness(0) saturate(100%) invert(82%) sepia(37%) saturate(358%) hue-rotate(159deg) brightness(95%) contrast(95%)",	// Loss 0.4
 );
 @each $color-name, $color in $theme-colors {
   $filter: map-get($filters, $color);

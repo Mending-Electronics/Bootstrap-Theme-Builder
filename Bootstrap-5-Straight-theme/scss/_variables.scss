@@ -11,18 +11,19 @@ $theme: "straight" !default;
 // Place the part of the custom code here
 // ********************************************
 
+
 // Main Colors HEX
-$primary    :#0D6986 !default;
+$primary    :#4d18c9 !default;
 $secondary  :#546e7a !default;
-$third      :#0b203c !default;
+$third      :#2c0e71 !default;
 
 // Main Colors RGB
-$primary-rgb   : rgb(13, 105, 134);
-$primary-rgba  : rgba(13, 105, 134, 0.35);
+$primary-rgb   : rgb(77, 24, 201);
+$primary-rgba  : rgba(77, 24, 201, 0.35);
 $secondary-rgb : rgb(84, 110, 122);
 $secondary-rgba: rgba(84, 110, 122, 0.35);
-$third-rgb     : rgb(11, 32, 60);
-$third-rgba    : rgba(11, 32, 60, 0.35);
+$third-rgb     : rgb(44, 14, 113);
+$third-rgba    : rgba(44, 14, 113, 0.35);
 
 // States Colors
 $success   : #5bc460 !default;
@@ -35,10 +36,10 @@ $dark      : #212529 !default;
 $light     : #dee2e6 !default;
 
 // Gradient Colors
-$grad-1     : #0d5a77 !default;
-$grad-2     : #0c4c68 !default;
-$grad-3     : #0c3d5a !default;
-$grad-4     : #0b2f4b !default;
+$grad-1     : #4616b7 !default;
+$grad-2     : #4014a6 !default;
+$grad-3     : #391294 !default;
+$grad-4     : #331083 !default;
 $grad-g1    : #66747a !default;
 $grad-g2    : #4b5458 !default;
 
@@ -75,15 +76,15 @@ $gray-900: #212529 !default;
 $black:    #000 !default;
 
 // Emphasis Colors
-$primary-emphasis			: #6ea5b6 !default;
+$primary-emphasis			: #9474df !default;
 $secondary-emphasis			: #98a8af !default;
-$third-emphasis				: #6d798a !default;
+$third-emphasis				: #806eaa !default;
 $dark-emphasis				: #7a7c7f !default;
 $light-emphasis				: #ebeef0 !default;
-$grad-1-emphasis			: #6e9cad !default;
-$grad-2-emphasis			: #6d94a4 !default;
-$grad-3-emphasis			: #6d8b9c !default;
-$grad-4-emphasis			: #6d8293 !default;
+$grad-1-emphasis			: #9073d4 !default;
+$grad-2-emphasis			: #8c72ca !default;
+$grad-3-emphasis			: #8871bf !default;
+$grad-4-emphasis			: #8570b5 !default;
 $grad-g1-emphasis			: #a3acaf !default;
 $grad-g2-emphasis			: #93989b !default;
 $success-emphasis			: #9ddca0 !default;
@@ -107,16 +108,16 @@ $cyan-emphasis				: #9dd9eb !default;
 
 // Theme Colors List
 $theme-colors: (
-	'primary'	: #0D6986,
+	'primary'	: #4d18c9,
 	'secondary'	: #546e7a,
-	'third'		: #0b203c,
+	'third'		: #2c0e71,
 	'dark'		: #212529,
 	'light'		: #dee2e6,
 	'white'		: #FFFFFF,
-	'grad-1'	: #0d5a77,
-	'grad-2'	: #0c4c68,
-	'grad-3'	: #0c3d5a,
-	'grad-4'	: #0b2f4b,
+	'grad-1'	: #4616b7,
+	'grad-2'	: #4014a6,
+	'grad-3'	: #391294,
+	'grad-4'	: #331083,
 	'grad-g1'	: #66747a,
 	'grad-g2'	: #4b5458,
 	'success'	: #5bc460,
@@ -137,15 +138,15 @@ $theme-colors: (
 	'green'		: #5cb85c,
 	'teal'		: #20C997,
 	'cyan'		: #5bc0de,
-	'primary-emphasis'		: #6ea5b6,
+	'primary-emphasis'		: #9474df,
 	'secondary-emphasis'	: #98a8af,
-	'third-emphasis'		: #6d798a,
+	'third-emphasis'		: #806eaa,
 	'dark-emphasis'			: #7a7c7f,
 	'light-emphasis'		: #ebeef0,
-	'grad-1-emphasis'		: #6e9cad,
-	'grad-2-emphasis'		: #6d94a4,
-	'grad-3-emphasis'		: #6d8b9c,
-	'grad-4-emphasis'		: #6d8293,
+	'grad-1-emphasis'		: #9073d4,
+	'grad-2-emphasis'		: #8c72ca,
+	'grad-3-emphasis'		: #8871bf,
+	'grad-4-emphasis'		: #8570b5,
 	'grad-g1-emphasis'		: #a3acaf,
 	'grad-g2-emphasis'		: #93989b,
 	'success-emphasis'		: #9ddca0,

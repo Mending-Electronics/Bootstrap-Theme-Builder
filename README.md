@@ -105,11 +105,15 @@ cd Bootstrap-Theme-Builder
 
 Bootstrap 5.3 Code Picker output example based on Bootswatch's code picker project 🙂 
 
-[My Mending Electronics Bootstrap Theme Sample](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Mending-Electronics/Bootstrap-Theme-Builder/refs/heads/main/code-picker-mending-electronics.html)
+Bootstrap-5-Rounded-theme :
 
-[Custom Bootstrap Theme Sample](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Mending-Electronics/Bootstrap-Theme-Builder/refs/heads/main/code-picker.html)
+[My Mending Electronics Bootstrap Theme Sample](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Mending-Electronics/Bootstrap-Theme-Builder/Bootstrap-5-Rounded-theme/refs/heads/main/code-picker-mending-electronics.html)
+
+[Custom Bootstrap Theme Sample](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Mending-Electronics/Bootstrap-Theme-Builder/Bootstrap-5-Rounded-theme/refs/heads/main/code-picker.html)
 
 
+Bootstrap-5-Straight-theme :
 
+[Custom Bootstrap Theme Sample](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Mending-Electronics/Bootstrap-Theme-Builder/Bootstrap-5-Straight-theme/refs/heads/main/code-picker.html)
 
 Built with 💻 and ☕ by Mending Electronics.
