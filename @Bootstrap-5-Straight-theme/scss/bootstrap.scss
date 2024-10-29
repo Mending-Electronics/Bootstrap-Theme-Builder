@@ -1,0 +1,687 @@
+// Straight custom
+// Bootstrap 5.3.3
+
+
+// include custom theme variables
+@import "_variables.scss";
+
+
+// include all original Bootstrap class
+@import "../bootstrap/scss/bootstrap.scss";
+
+
+
+// Place custom code here
+// ********************************************
+
+
+// Generate emphasis Text and Background colors
+@function tint($color, $percentage) {
+	@return mix(white, $color, $percentage);
+}
+
+.text-primary-emphasis			{color: tint($primary, 40%) !important};
+.text-secondary-emphasis		{color: tint($secondary, 40%) !important};
+.text-third-emphasis			{color: tint($third, 40%) !important};
+.text-dark-emphasis				{color: tint($dark, 40%) !important};
+.text-light-emphasis			{color: tint($light, 40%) !important};
+.text-white-emphasis			{color: tint($white, 40%) !important};
+.text-grad-1-emphasis			{color: tint($grad-1, 40%) !important};
+.text-grad-2-emphasis			{color: tint($grad-2, 40%) !important};
+.text-grad-3-emphasis			{color: tint($grad-3, 40%) !important};
+.text-grad-4-emphasis			{color: tint($grad-4, 40%) !important};
+.text-grad-g1-emphasis			{color: tint($grad-g1, 40%) !important};
+.text-grad-g2-emphasis			{color: tint($grad-g2, 40%) !important};
+.text-success-emphasis			{color: tint($success, 40%) !important};
+.text-info-emphasis				{color: tint($info, 40%) !important};
+.text-warning-emphasis			{color: tint($warning, 40%) !important};
+.text-danger-emphasis			{color: tint($danger, 40%) !important};
+.text-magenta-emphasis			{color: tint($magenta, 40%) !important};
+.text-brown-emphasis			{color: tint($brown, 40%) !important};
+.text-grey-emphasis				{color: tint($grey, 40%) !important};
+.text-dark-grey-emphasis		{color: tint($dark-grey, 40%) !important};
+.text-blue-emphasis				{color: tint($blue, 40%) !important};
+.text-indigo-emphasis			{color: tint($indigo, 40%) !important};
+.text-purple-emphasis			{color: tint($purple, 40%) !important};
+.text-pink-emphasis				{color: tint($pink, 40%) !important};
+.text-red-emphasis				{color: tint($red, 40%) !important};
+.text-orange-emphasis			{color: tint($orange, 40%) !important};
+.text-yellow-emphasis			{color: tint($yellow, 40%) !important};
+.text-green-emphasis			{color: tint($green, 40%) !important};
+.text-teal-emphasis				{color: tint($teal, 40%) !important};
+.text-cyan-emphasis				{color: tint($cyan, 40%) !important};
+
+$light-text-emphasis:          $gray-100 !default;
+$dark-text-emphasis:           $gray-300 !default;
+
+.bg-primary-emphasis			{background-color: tint($primary, 40%) !important; color: white};
+.bg-secondary-emphasis			{background-color: tint($secondary, 40%) !important; color: white};
+.bg-third-emphasis				{background-color: tint($third, 40%) !important; color: white};
+.bg-dark-emphasis				{background-color: tint($dark, 40%) !important; color: white};
+.bg-light-emphasis				{background-color: tint($light, 40%) !important; color: white};
+.bg-white-emphasis				{background-color: tint($white, 40%) !important; color: white};
+.bg-grad-1-emphasis				{background-color: tint($grad-1, 40%) !important; color: white};
+.bg-grad-2-emphasis				{background-color: tint($grad-2, 40%) !important; color: white};
+.bg-grad-3-emphasis				{background-color: tint($grad-3, 40%) !important; color: white};
+.bg-grad-4-emphasis				{background-color: tint($grad-4, 40%) !important; color: white};
+.bg-grad-g1-emphasis			{background-color: tint($grad-g1, 40%) !important; color: white};
+.bg-grad-g2-emphasis			{background-color: tint($grad-g2, 40%) !important; color: white};
+.bg-success-emphasis			{background-color: tint($success, 40%) !important; color: white};
+.bg-info-emphasis				{background-color: tint($info, 40%) !important; color: white};
+.bg-warning-emphasis			{background-color: tint($warning, 40%) !important; color: white};
+.bg-danger-emphasis				{background-color: tint($danger, 40%) !important; color: white};
+.bg-magenta-emphasis			{background-color: tint($magenta, 40%) !important; color: white};
+.bg-brown-emphasis				{background-color: tint($brown, 40%) !important; color: white};
+.bg-grey-emphasis				{background-color: tint($grey, 40%) !important; color: white};
+.bg-dark-grey-emphasis			{background-color: tint($dark-grey, 40%) !important; color: white};
+.bg-blue-emphasis				{background-color: tint($blue, 40%) !important; color: white};
+.bg-indigo-emphasis				{background-color: tint($indigo, 40%) !important; color: white};
+.bg-purple-emphasis				{background-color: tint($purple, 40%) !important; color: white};
+.bg-pink-emphasis				{background-color: tint($pink, 40%) !important; color: white};
+.bg-red-emphasis				{background-color: tint($red, 40%) !important; color: white};
+.bg-orange-emphasis				{background-color: tint($orange, 40%) !important; color: white};
+.bg-yellow-emphasis				{background-color: tint($yellow, 40%) !important; color: white};
+.bg-green-emphasis				{background-color: tint($green, 40%) !important; color: white};
+.bg-teal-emphasis				{background-color: tint($teal, 40%) !important; color: white};
+.bg-cyan-emphasis				{background-color: tint($cyan, 40%) !important; color: white};
+
+// Generate Filters (ex : use filter-primary to change svg fill color) 
+$filters: (
+	$primary	: "brightness(0) saturate(100%) invert(19%) sepia(43%) saturate(6038%) hue-rotate(179deg) brightness(92%) contrast(90%)",	//Loss 0.2
+	$secondary	: "brightness(0) saturate(100%) invert(42%) sepia(8%) saturate(1218%) hue-rotate(154deg) brightness(93%) contrast(87%)",	//Loss 0.1
+	$third		: "brightness(0) saturate(100%) invert(9%) sepia(16%) saturate(6864%) hue-rotate(198deg) brightness(94%) contrast(95%)",	// Loss 0.2
+	$dark		: "brightness(0) saturate(100%) invert(12%) sepia(5%) saturate(1350%) hue-rotate(168deg) brightness(96%) contrast(93%)",	// Loss 0.2
+	$light		: "brightness(0) saturate(100%) invert(85%) sepia(9%) saturate(105%) hue-rotate(169deg) brightness(110%) contrast(85%)",	// Loss 0.2
+	$white		: "brightness(0) saturate(100%) invert(93%) sepia(7%) saturate(0%) hue-rotate(83deg) brightness(106%) contrast(108%)",	// Loss 0.0
+	$grad-1		: "brightness(0) saturate(100%) invert(12%) sepia(90%) saturate(4073%) hue-rotate(184deg) brightness(101%) contrast(90%)",	// Loss 0.9
+	$grad-2		: "brightness(0) saturate(100%) invert(21%) sepia(72%) saturate(650%) hue-rotate(155deg) brightness(95%) contrast(95%)",	// Loss 0.7
+	$grad-3		: "brightness(0) saturate(100%) invert(20%) sepia(26%) saturate(1828%) hue-rotate(163deg) brightness(90%) contrast(96%)",	// Loss 0.1
+	$grad-4		: "brightness(0) saturate(100%) invert(13%) sepia(31%) saturate(2578%) hue-rotate(179deg) brightness(93%) contrast(94%)",	// Loss 0.6
+	$grad-g1	: "brightness(0) saturate(100%) invert(49%) sepia(2%) saturate(2329%) hue-rotate(153deg) brightness(90%) contrast(88%)",	//Loss 0.3
+	$grad-g2	: "brightness(0) saturate(100%) invert(29%) sepia(20%) saturate(244%) hue-rotate(153deg) brightness(98%) contrast(86%)",	//Loss 0.1
+	$success	: "brightness(0) saturate(100%) invert(72%) sepia(15%) saturate(1481%) hue-rotate(73deg) brightness(90%) contrast(91%)",	//Loss 0.6
+	$info		: "brightness(0) saturate(100%) invert(66%) sepia(11%) saturate(1523%) hue-rotate(151deg) brightness(90%) contrast(85%)",	// Loss 0.2
+	$warning	: "brightness(0) saturate(100%) invert(74%) sepia(14%) saturate(5010%) hue-rotate(333deg) brightness(102%) contrast(96%)",	//Loss 0.5
+	$danger		: "brightness(0) saturate(100%) invert(35%) sepia(70%) saturate(1476%) hue-rotate(339deg) brightness(96%) contrast(87%)",	// Loss 0.3
+	$magenta	: "brightness(0) saturate(100%) invert(18%) sepia(99%) saturate(2078%) hue-rotate(305deg) brightness(90%) contrast(90%)",	//Loss 0.2
+	$brown		: "brightness(0) saturate(100%) invert(60%) sepia(3%) saturate(999%) hue-rotate(334deg) brightness(93%) contrast(90%)",	// Loss 0.1
+	$grey		: "brightness(0) saturate(100%) invert(91%) sepia(4%) saturate(135%) hue-rotate(202deg) brightness(99%) contrast(96%)",	// Loss 0.3
+	$dark-grey	: "brightness(0) saturate(100%) invert(30%) sepia(9%) saturate(1002%) hue-rotate(193deg) brightness(101%) contrast(89%)",	//Loss 0.1
+	$blue		: "brightness(0) saturate(100%) invert(36%) sepia(53%) saturate(3380%) hue-rotate(194deg) brightness(98%) contrast(112%)",	// Loss 0.0
+	$indigo		: "brightness(0) saturate(100%) invert(29%) sepia(74%) saturate(7491%) hue-rotate(260deg) brightness(85%) contrast(127%)",	// Loss 0.7
+	$purple		: "brightness(0) saturate(100%) invert(29%) sepia(29%) saturate(4072%) hue-rotate(244deg) brightness(87%) contrast(90%)",	// Loss 0.9
+	$pink		: "brightness(0) saturate(100%) invert(37%) sepia(98%) saturate(3153%) hue-rotate(311deg) brightness(97%) contrast(87%)",	// Loss 0.1
+	$red		: "brightness(0) saturate(100%) invert(33%) sepia(7%) saturate(6345%) hue-rotate(316deg) brightness(126%) contrast(89%)",	// Loss 0.9
+	$orange		: "brightness(0) saturate(100%) invert(52%) sepia(91%) saturate(2578%) hue-rotate(353deg) brightness(91%) contrast(91%)",	// Loss 0.5
+	$yellow		: "brightness(0) saturate(100%) invert(79%) sepia(88%) saturate(530%) hue-rotate(331deg) brightness(97%) contrast(95%)",	// Loss 0.3
+	$green		: "brightness(0) saturate(100%) invert(60%) sepia(59%) saturate(413%) hue-rotate(71deg) brightness(94%) contrast(85%)",	// Loss 0.7
+	$teal		: "brightness(0) saturate(100%) invert(82%) sepia(29%) saturate(6694%) hue-rotate(110deg) brightness(96%) contrast(75%)",	// Loss 0.0
+	$cyan		: "brightness(0) saturate(100%) invert(75%) sepia(16%) saturate(1531%) hue-rotate(157deg) brightness(92%) contrast(88%)",	// Loss 0.2
+	$primary-emphasis	: "brightness(0) saturate(100%) invert(67%) sepia(39%) saturate(365%) hue-rotate(148deg) brightness(87%) contrast(79%)",	//Loss 0.3
+	$secondary-emphasis	: "brightness(0) saturate(100%) invert(78%) sepia(14%) saturate(265%) hue-rotate(153deg) brightness(85%) contrast(82%)",	//Loss 0.1
+	$third-emphasis		: "brightness(0) saturate(100%) invert(47%) sepia(11%) saturate(559%) hue-rotate(176deg) brightness(97%) contrast(92%)",	// Loss 0.1
+	$dark-emphasis		: "brightness(0) saturate(100%) invert(57%) sepia(2%) saturate(492%) hue-rotate(177deg) brightness(84%) contrast(85%)",	// Loss 0.1
+	$light-emphasis		: "brightness(0) saturate(100%) invert(92%) sepia(2%) saturate(252%) hue-rotate(161deg) brightness(96%) contrast(111%)",	// Loss 1.0
+	$grad-1-emphasis		: "brightness(0) saturate(100%) invert(60%) sepia(6%) saturate(1824%) hue-rotate(151deg) brightness(96%) contrast(90%)",	// Loss 0.4
+	$grad-2-emphasis		: "brightness(0) saturate(100%) invert(60%) sepia(26%) saturate(422%) hue-rotate(152deg) brightness(89%) contrast(84%)",	// Loss 0.2
+	$grad-3-emphasis		: "brightness(0) saturate(100%) invert(58%) sepia(50%) saturate(187%) hue-rotate(158deg) brightness(82%) contrast(94%)",	// Loss 0.7
+	$grad-4-emphasis		: "brightness(0) saturate(100%) invert(55%) sepia(10%) saturate(810%) hue-rotate(165deg) brightness(88%) contrast(86%)",	// Loss 0.2
+	$grad-g1-emphasis	: "brightness(0) saturate(100%) invert(75%) sepia(14%) saturate(130%) hue-rotate(149deg) brightness(88%) contrast(95%)",	//Loss 0.2
+	$grad-g2-emphasis	: "brightness(0) saturate(100%) invert(65%) sepia(8%) saturate(173%) hue-rotate(159deg) brightness(91%) contrast(93%)",	//Loss 0.1
+	$success-emphasis	: "brightness(0) saturate(100%) invert(92%) sepia(11%) saturate(1124%) hue-rotate(62deg) brightness(90%) contrast(90%)",	//Loss 0.1
+	$info-emphasis		: "brightness(0) saturate(100%) invert(84%) sepia(35%) saturate(349%) hue-rotate(164deg) brightness(90%) contrast(87%)",	// Loss 0.2
+	$warning-emphasis	: "brightness(0) saturate(100%) invert(73%) sepia(72%) saturate(310%) hue-rotate(330deg) brightness(101%) contrast(98%)",	//Loss 0.2
+	$danger-emphasis		: "brightness(0) saturate(100%) invert(65%) sepia(27%) saturate(684%) hue-rotate(320deg) brightness(100%) contrast(88%)",	// Loss 0.8
+	$magenta-emphasis	: "brightness(0) saturate(100%) invert(61%) sepia(64%) saturate(329%) hue-rotate(278deg) brightness(85%) contrast(87%)",	//Loss 0.1
+	$brown-emphasis		: "brightness(0) saturate(100%) invert(83%) sepia(8%) saturate(180%) hue-rotate(333deg) brightness(91%) contrast(85%)",	// Loss 0.0
+	$grey-emphasis		: "brightness(0) saturate(100%) invert(87%) sepia(9%) saturate(26%) hue-rotate(201deg) brightness(107%) contrast(96%)",	// Loss 0.9
+	$dark-grey-emphasis	: "brightness(0) saturate(100%) invert(68%) sepia(7%) saturate(388%) hue-rotate(194deg) brightness(88%) contrast(91%)",	//Loss 0.2
+	$blue-emphasis		: "brightness(0) saturate(100%) invert(74%) sepia(22%) saturate(5706%) hue-rotate(183deg) brightness(100%) contrast(102%)",	// Loss 0.1
+	$indigo-emphasis		: "brightness(0) saturate(100%) invert(48%) sepia(66%) saturate(2204%) hue-rotate(229deg) brightness(99%) contrast(96%)",	// Loss 0.2
+	$purple-emphasis		: "brightness(0) saturate(100%) invert(61%) sepia(20%) saturate(837%) hue-rotate(220deg) brightness(97%) contrast(84%)",	// Loss 0.1
+	$pink-emphasis		: "brightness(0) saturate(100%) invert(78%) sepia(33%) saturate(1561%) hue-rotate(289deg) brightness(102%) contrast(89%)",	// Loss 0.3
+	$red-emphasis		: "brightness(0) saturate(100%) invert(69%) sepia(19%) saturate(780%) hue-rotate(314deg) brightness(95%) contrast(91%)",	// Loss 0.9
+	$orange-emphasis		: "brightness(0) saturate(100%) invert(72%) sepia(31%) saturate(707%) hue-rotate(334deg) brightness(97%) contrast(90%)",	// Loss 0.1
+	$yellow-emphasis		: "brightness(0) saturate(100%) invert(98%) sepia(97%) saturate(897%) hue-rotate(320deg) brightness(101%) contrast(94%)",	// Loss 0.8
+	$green-emphasis		: "brightness(0) saturate(100%) invert(92%) sepia(13%) saturate(927%) hue-rotate(60deg) brightness(88%) contrast(87%)",	// Loss 0.4
+	$teal-emphasis		: "brightness(0) saturate(100%) invert(83%) sepia(19%) saturate(852%) hue-rotate(107deg) brightness(101%) contrast(77%)",	// Loss 0.2
+	$cyan-emphasis		: "brightness(0) saturate(100%) invert(80%) sepia(22%) saturate(494%) hue-rotate(151deg) brightness(103%) contrast(84%)",	// Loss 0.1
+);
+@each $color-name, $color in $theme-colors {
+  $filter: map-get($filters, $color);
+  .filter-#{$color-name} {
+    filter: unquote($filter);
+  }
+}
+
+
+// Fonts
+
+// Import Bootstrap Icons
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+// Import Arial Font as default
+@import url('https://fonts.cdnfonts.com/css/arial');
+                body {
+                    font-family: 'arial', sans-serif;
+                }
+                
+// Font Family Main (as default)
+@import url('https://fonts.googleapis.com/css2?family=Century+Gothic&display=swap');
+@import url('https://fonts.cdnfonts.com/css/century-gothic');
+body {
+    font-family: 'Century Gothic', 'arial', sans-serif;
+}
+.font-family-main {
+    font-family: 'Century Gothic', 'arial', sans-serif;
+}
+
+                    .font-family-main-thin {
+                    font-family: "Century Gothic", 'arial', sans-serif;
+                    font-weight: 100;
+                    font-style: normal;
+                    }
+                    .font-family-main-light {
+                    font-family: "Century Gothic", 'arial', sans-serif;
+                    font-weight: 300;
+                    font-style: normal;
+                    }
+                    .font-family-main-regular {
+                    font-family: "Century Gothic", 'arial', sans-serif;
+                    font-weight: 400;
+                    font-style: normal;
+                    }
+                    .font-family-main-medium {
+                    font-family: "Century Gothic", 'arial', sans-serif;
+                    font-weight: 500;
+                    font-style: normal;
+                    }
+                    .font-family-main-bold {
+                    font-family: "Century Gothic", 'arial', sans-serif;
+                    font-weight: 700;
+                    font-style: normal;
+                    }
+                    .font-family-main-black {
+                    font-family: "Century Gothic", 'arial', sans-serif;
+                    font-weight: 900;
+                    font-style: normal;
+                    }
+                    .font-family-main-thin-italic {
+                    font-family: "Century Gothic", 'arial', sans-serif;
+                    font-weight: 100;
+                    font-style: italic;
+                    }
+                    .font-family-main-light-italic {
+                    font-family: "Century Gothic", 'arial', sans-serif;
+                    font-weight: 300;
+                    font-style: italic;
+                    }
+                    .font-family-main-regular-italic {
+                    font-family: "Century Gothic", 'arial', sans-serif;
+                    font-weight: 400;
+                    font-style: italic;
+                    }
+                    .font-family-main-medium-italic {
+                    font-family: "Century Gothic", 'arial', sans-serif;
+                    font-weight: 500;
+                    font-style: italic;
+                    }
+                    .font-family-main-bold-italic {
+                    font-family: "Century Gothic", 'arial', sans-serif;
+                    font-weight: 700;
+                    font-style: italic;
+                    }
+                    .font-family-main-black-italic {
+                    font-family: "Century Gothic", 'arial', sans-serif;
+                    font-weight: 900;
+                    font-style: italic;
+                    }
+
+// Font Family Brand (for your Brand Text)
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.cdnfonts.com/css/fredoka-one');
+.font-family-brand {
+    font-family: 'Fredoka One', 'arial', sans-serif;
+}
+
+                    .font-family-brand-thin {
+                    font-family: "Fredoka One", 'arial', sans-serif;
+                    font-weight: 100;
+                    font-style: normal;
+                    }
+                    .font-family-brand-light {
+                    font-family: "Fredoka One", 'arial', sans-serif;
+                    font-weight: 300;
+                    font-style: normal;
+                    }
+                    .font-family-brand-regular {
+                    font-family: "Fredoka One", 'arial', sans-serif;
+                    font-weight: 400;
+                    font-style: normal;
+                    }
+                    .font-family-brand-medium {
+                    font-family: "Fredoka One", 'arial', sans-serif;
+                    font-weight: 500;
+                    font-style: normal;
+                    }
+                    .font-family-brand-bold {
+                    font-family: "Fredoka One", 'arial', sans-serif;
+                    font-weight: 700;
+                    font-style: normal;
+                    }
+                    .font-family-brand-black {
+                    font-family: "Fredoka One", 'arial', sans-serif;
+                    font-weight: 900;
+                    font-style: normal;
+                    }
+                    .font-family-brand-thin-italic {
+                    font-family: "Fredoka One", 'arial', sans-serif;
+                    font-weight: 100;
+                    font-style: italic;
+                    }
+                    .font-family-brand-light-italic {
+                    font-family: "Fredoka One", 'arial', sans-serif;
+                    font-weight: 300;
+                    font-style: italic;
+                    }
+                    .font-family-brand-regular-italic {
+                    font-family: "Fredoka One", 'arial', sans-serif;
+                    font-weight: 400;
+                    font-style: italic;
+                    }
+                    .font-family-brand-medium-italic {
+                    font-family: "Fredoka One", 'arial', sans-serif;
+                    font-weight: 500;
+                    font-style: italic;
+                    }
+                    .font-family-brand-bold-italic {
+                    font-family: "Fredoka One", 'arial', sans-serif;
+                    font-weight: 700;
+                    font-style: italic;
+                    }
+                    .font-family-brand-black-italic {
+                    font-family: "Fredoka One", 'arial', sans-serif;
+                    font-weight: 900;
+                    font-style: italic;
+                    }
+
+
+// Blur
+@mixin blur($value) {
+    -webkit-filter: blur($value);
+    filter: blur($value);
+}
+.blur		  {@include blur(1px);}
+.blur-25	{@include blur(2.5px);}
+.blur-50	{@include blur(5px);}
+.blur-75	{@include blur(7.5px);}
+.blur-100	{@include blur(10px);}
+
+
+// Logo and Pattern
+
+// Logo (svg-logo)
+@mixin svg-logo($width, $height) {
+                                background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB3aWR0aD0iNjEuMDQ0bW0iCiAgIGhlaWdodD0iNjEuMDQ1bW0iCiAgIHZlcnNpb249IjEuMSIKICAgdmlld0JveD0iMCAwIDYxLjA0NCA2MS4wNDUiCiAgIGlkPSJzdmcxIgogICBzb2RpcG9kaTpkb2NuYW1lPSJkZXNzaW4tMi5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMy4yICgwOTFlMjBlLCAyMDIzLTExLTI1LCBjdXN0b20pIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxkZWZzCiAgICAgaWQ9ImRlZnMxIiAvPgogIDxzb2RpcG9kaTpuYW1lZHZpZXcKICAgICBpZD0ibmFtZWR2aWV3MSIKICAgICBwYWdlY29sb3I9IiM1MDUwNTAiCiAgICAgYm9yZGVyY29sb3I9IiNlZWVlZWUiCiAgICAgYm9yZGVyb3BhY2l0eT0iMSIKICAgICBpbmtzY2FwZTpzaG93cGFnZXNoYWRvdz0iMCIKICAgICBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMCIKICAgICBpbmtzY2FwZTpwYWdlY2hlY2tlcmJvYXJkPSIwIgogICAgIGlua3NjYXBlOmRlc2tjb2xvcj0iI2QxZDFkMSIKICAgICBpbmtzY2FwZTpkb2N1bWVudC11bml0cz0ibW0iCiAgICAgaW5rc2NhcGU6em9vbT0iMC41NjQ2OTI0OSIKICAgICBpbmtzY2FwZTpjeD0iMTQ5LjYzODk3IgogICAgIGlua3NjYXBlOmN5PSIzNzIuNzY5MjYiCiAgICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjEwMDkiCiAgICAgaW5rc2NhcGU6d2luZG93LXg9Ii04IgogICAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9InN2ZzEiIC8+CiAgPGcKICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNTcuODg1IC03NC44MzQpIgogICAgIGlkPSJnMSI+CiAgICA8cGF0aAogICAgICAgdHJhbnNmb3JtPSJyb3RhdGUoNDUpIgogICAgICAgZD0ibTExNS40My05LjU5NzNjLTIuMDE4NiAyLjAxODYtMy4yNjM1IDQuODEwNi0zLjI2MzUgNy45MDQxdjMuMzg2NmwtMi4zOTQ5IDIuMzk0OWMtNC4zNzQ4IDQuMzc0OS00LjM3NDggMTEuNDE5IDAgMTUuNzk0bDIuMzk0OSAyLjM5NDl2My4zODY2YzAgNi4xODcgNC45ODEgMTEuMTY4IDExLjE2OCAxMS4xNjhoMy4zODY2bDIuMzk0OSAyLjM5NDljMi4yMzg3IDIuMjM4NyA1LjE3NjIgMy4zMjM2IDguMDk3NCAzLjI3MTF2LTUuNTg1NmMtMS4zMjE1IDAuMDU0MTY5LTIuNjYwMi0wLjQxOTQ5LTMuNjczNC0xLjQzMjhsLTQuNDI1OC00LjQyNThoLTYuMjU4N2MtMi43MjA4LTNlLTYgLTQuOTExMS0yLjE5MDMtNC45MTExLTQuOTExMXYtNi4yNTg3bC00LjQyNTQtNC40MjU1Yy0xLjkyMzktMS45MjM5LTEuOTIzOS01LjAyMTggMC02Ljk0NTdsNC40MjU0LTQuNDI1NXYtNi4yNTg3YzAtMS4zNjA0IDAuNTQ3NjMtMi41ODgxIDEuNDM1My0zLjQ3NTggMC44ODc2OS0wLjg4NzY5IDIuMTE1NC0xLjQzNTMgMy40NzU4LTEuNDM1M2g2LjI1ODdsNC40MjU4LTQuNDI1OGMxLjAxMzItMS4wMTMyIDIuMzUyLTEuNDg2OSAzLjY3MzQtMS40MzI4di01LjU4NjRjLTIuOTIxMS0wLjA1MjQwNy01Ljg1ODggMS4wMzMyLTguMDk3NCAzLjI3MTlsLTIuMzk0OSAyLjM5NDloLTMuMzg2NmMtMy4wOTM1IDAtNS44ODU5IDEuMjQ1Mi03LjkwNDUgMy4yNjM4eiIKICAgICAgIGZpbGw9IiMxNmJjOGIiCiAgICAgICBzdHlsZT0icGFpbnQtb3JkZXI6c3Ryb2tlIGZpbGwgbWFya2VycyIKICAgICAgIGlkPSJwYXRoMSIgLz4KICA8L2c+CiAgPGcKICAgICB0cmFuc2Zvcm09InJvdGF0ZSgxODAsNTkuNTc3MTUsNjguMDUyMTIzKSIKICAgICBpZD0iZzIiPgogICAgPHBhdGgKICAgICAgIHRyYW5zZm9ybT0icm90YXRlKDQ1KSIKICAgICAgIGQ9Im0gMTE1LjQzLC05LjU5NzMgYyAtMi4wMTg2LDIuMDE4NiAtMy4yNjM1LDQuODEwNiAtMy4yNjM1LDcuOTA0MSB2IDMuMzg2NiBsIC0yLjM5NDksMi4zOTQ5IGMgLTQuMzc0OCw0LjM3NDkgLTQuMzc0OCwxMS40MTkgMCwxNS43OTQgbCAyLjM5NDksMi4zOTQ5IHYgMy4zODY2IGMgMCw2LjE4NyA0Ljk4MSwxMS4xNjggMTEuMTY4LDExLjE2OCBoIDMuMzg2NiBsIDIuMzk0OSwyLjM5NDkgYyAyLjIzODcsMi4yMzg3IDUuMTc2MiwzLjMyMzYgOC4wOTc0LDMuMjcxMSB2IC01LjU4NTYgYyAtMS4zMjE1LDAuMDU0MTcgLTIuNjYwMiwtMC40MTk0OSAtMy42NzM0LC0xLjQzMjggbCAtNC40MjU4LC00LjQyNTggaCAtNi4yNTg3IGMgLTIuNzIwOCwtM2UtNiAtNC45MTExLC0yLjE5MDMgLTQuOTExMSwtNC45MTExIHYgLTYuMjU4NyBsIC00LjQyNTQsLTQuNDI1NSBjIC0xLjkyMzksLTEuOTIzOSAtMS45MjM5LC01LjAyMTggMCwtNi45NDU3IGwgNC40MjU0LC00LjQyNTUgdiAtNi4yNTg3IGMgMCwtMS4zNjA0IDAuNTQ3NjMsLTIuNTg4MSAxLjQzNTMsLTMuNDc1OCAwLjg4NzY5LC0wLjg4NzY5IDIuMTE1NCwtMS40MzUzIDMuNDc1OCwtMS40MzUzIGggNi4yNTg3IGwgNC40MjU4LC00LjQyNTggYyAxLjAxMzIsLTEuMDEzMiAyLjM1MiwtMS40ODY5IDMuNjczNCwtMS40MzI4IHYgLTUuNTg2NCBjIC0yLjkyMTEsLTAuMDUyNDEgLTUuODU4OCwxLjAzMzIgLTguMDk3NCwzLjI3MTkgbCAtMi4zOTQ5LDIuMzk0OSBoIC0zLjM4NjYgYyAtMy4wOTM1LDAgLTUuODg1OSwxLjI0NTIgLTcuOTA0NSwzLjI2MzggeiIKICAgICAgIGZpbGw9IiMxNmJjOGIiCiAgICAgICBzdHlsZT0icGFpbnQtb3JkZXI6c3Ryb2tlIGZpbGwgbWFya2VycyIKICAgICAgIGlkPSJwYXRoMiIgLz4KICA8L2c+Cjwvc3ZnPgo=);
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                background-position: center;
+                                width: $width;
+                                height: $height;
+                            }
+.svg-logo		{@include svg-logo(30px, 30px);}
+.svg-logo-25	{@include svg-logo(25%, 25%);}
+.svg-logo-50	{@include svg-logo(50%, 50%);}
+.svg-logo-75	{@include svg-logo(75%, 75%);}
+.svg-logo-100	{@include svg-logo(100%, 100%);}
+
+// Pattern (svg-pattern)
+@mixin svg-pattern($width, $height) {
+                                background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB3aWR0aD0iNC41MzQ5OTk4bW0iCiAgIGhlaWdodD0iNC41MzUxNzY4bW0iCiAgIHZpZXdCb3g9IjAgMCA0LjUzNDk5OTkgNC41MzUxNzY3IgogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmcxIgogICB4bWw6c3BhY2U9InByZXNlcnZlIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIxLjIuMiAoNzMyYTAxZGE2MywgMjAyMi0xMi0wOSkiCiAgIHNvZGlwb2RpOmRvY25hbWU9InNhbXBsZS1wYXR0ZXJuLWNpcmNsZS5zdmciCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICAgIGlkPSJuYW1lZHZpZXcxIgogICAgIHBhZ2Vjb2xvcj0iIzUwNTA1MCIKICAgICBib3JkZXJjb2xvcj0iI2VlZWVlZSIKICAgICBib3JkZXJvcGFjaXR5PSIxIgogICAgIGlua3NjYXBlOnNob3dwYWdlc2hhZG93PSIwIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwIgogICAgIGlua3NjYXBlOnBhZ2VjaGVja2VyYm9hcmQ9IjAiCiAgICAgaW5rc2NhcGU6ZGVza2NvbG9yPSIjZDFkMWQxIgogICAgIGlua3NjYXBlOmRvY3VtZW50LXVuaXRzPSJtbSIKICAgICBpbmtzY2FwZTp6b29tPSIzMiIKICAgICBpbmtzY2FwZTpjeD0iLTAuNTE1NjI1IgogICAgIGlua3NjYXBlOmN5PSI4LjMxMjUiCiAgICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjEwMDkiCiAgICAgaW5rc2NhcGU6d2luZG93LXg9Ii04IgogICAgIGlua3NjYXBlOndpbmRvdy15PSI1ODUiCiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJsYXllcjEiCiAgICAgc2hvd2dyaWQ9ImZhbHNlIiAvPjxkZWZzCiAgICAgaWQ9ImRlZnMxIiAvPjxnCiAgICAgaW5rc2NhcGU6bGFiZWw9IkNhbHF1ZSAxIgogICAgIGlua3NjYXBlOmdyb3VwbW9kZT0ibGF5ZXIiCiAgICAgaWQ9ImxheWVyMSIKICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNS4yNjQ5NjEsLTIzLjQwNDAyMikiPjxyZWN0CiAgICAgICBzdHlsZT0iZGlzcGxheTpub25lO2ZpbGw6bm9uZTtmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjE7cGFpbnQtb3JkZXI6c3Ryb2tlIGZpbGwgbWFya2VycyIKICAgICAgIGlkPSJyZWN0MSIKICAgICAgIHdpZHRoPSI0LjUzNDk5OTgiCiAgICAgICBoZWlnaHQ9IjQuNTM1MTc2OCIKICAgICAgIHg9Ii0zNS4yNjQ5NjEiCiAgICAgICB5PSIyMy40MDQwMjIiCiAgICAgICByeT0iMC4wMjc5MjIyODQiIC8+PGNpcmNsZQogICAgICAgc3R5bGU9ImZpbGw6I2M2NDYwMDtzdHJva2Utd2lkdGg6MC4wMTA1ODgyO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1vcGFjaXR5OjAuNDgyMzUzO3BhaW50LW9yZGVyOm1hcmtlcnMgc3Ryb2tlIGZpbGwiCiAgICAgICBpZD0icGF0aDM1OSIKICAgICAgIGN4PSItMzIuOTk3NDU5IgogICAgICAgY3k9IjI1LjY3MTYxIgogICAgICAgcj0iMC41MDUxNDQwNiIgLz48L2c+PC9zdmc+Cg==);
+                                background-repeat: repeat;
+                                background-size: 20px;
+                                width: $width;
+                                height: $height;
+                            }
+.pattern		{@include svg-pattern(100%, 60px);}
+.pattern-25		{@include svg-pattern(25%, 60px);}
+.pattern-50		{@include svg-pattern(50%, 60px);}
+.pattern-75		{@include svg-pattern(75%, 60px);}
+.pattern-100	{@include svg-pattern(100%, 60px);}
+
+// ********************************************
+
+
+
+
+// Justify all text contents
+p {
+  text-align: justify;
+}
+.accordion-body {
+  text-align: justify;
+}
+
+
+
+
+// Hamburger menu icon style
+.hamburger {
+  background:none;
+  position:absolute;
+  top:0;
+  right:0;
+  line-height:22px;
+  padding:2px 15px 0px 15px;
+  color:#999;
+  border:0;
+  font-size:1.2em;
+  font-weight:bold;
+  cursor:pointer;
+  outline:none;
+  z-index:10000000000000;
+  border: none;
+  
+}
+
+
+
+
+/* Create a zoom animation class */
+.hover-zoom-in {
+  transition: transform .1s;
+}
+.hover-zoom-in:hover {
+  transform: scale(1.02,1.02);
+}
+
+
+.shadow-primary {
+  box-shadow: 0px 0px 20px 3px rgba(93, 191, 212, 0.09);
+  -webkit-box-shadow: 0px 0px 20px 3px rgba(93, 191, 212,0.35);
+  -moz-box-shadow: 0px 0px 20px 3px rgba(93, 191, 212,0.35);
+}
+
+.shadow-third {
+  box-shadow: 0px 0px 20px 3px rgba(36, 42, 117, 0.09);
+  -webkit-box-shadow: 0px 0px 20px 3px rgba(36, 42, 117,0.35);
+  -moz-box-shadow: 0px 0px 20px 3px rgba(36, 42, 117,0.35);
+}
+
+
+.hover-shadow:hover {
+  box-shadow: 4px 6px 23px -5px rgba(0,0,0,0.51);
+  -webkit-box-shadow: 4px 6px 23px -5px rgba(0,0,0,0.51);
+  -moz-box-shadow: 4px 6px 23px -5px rgba(0,0,0,0.51);
+}
+
+/* Create border animation class */
+.hover-border-primary {
+  transition: transform .1s;
+  color: $primary !important;
+}
+.hover-border-primary:hover {
+  border-bottom: 3px $primary solid;
+  color: $primary !important;
+}
+
+/* Create a border animation class */
+.hover-border-third {
+  transition: transform .1s;
+  color: $third !important;
+}
+.hover-border-third:hover {
+  border-bottom: 3px $third solid;
+  color: $primary !important;
+}
+
+
+ul.list-primary {
+
+  li {
+    list-style-type: none;
+    color: $secondary !important;
+  }
+
+  li a:hover {
+    color: $primary !important; /* Hover effect color */
+  }
+
+
+  li > a {
+    margin-left: -1em !important;
+  }
+
+  li a::before {
+    content: "•"; /* Custom bullet character */
+    color: transparent; /* Change the color as desired */
+    display: inline-block;
+    width: 1em; /* Adjust the width if needed */
+  }
+
+  li a:hover::before {
+    display: inline-block;
+    color: $primary; /* Hover effect color */
+  }
+
+  a {
+    /* Apply the same style to anchor elements within ul.list-primary */
+    color: var(--bg-body); /* Change the color as desired */
+    text-decoration: none; /* Remove underline */
+    left: -1em;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+// STRAIGHT THEME CUSTOM ********************
+
+
+// Buttons
+
+.btn {
+  @each $color, $value in $theme-colors {
+    &-#{$color} {
+      @if $enable-gradients {
+        background: $value linear-gradient(180deg, mix($white, $value, 15%), $value) repeat-x;
+      } @else {
+        background-color: $value;
+      }
+    }
+  }
+}
+
+// Typography
+
+.dropdown-menu {
+  font-size: $font-size-sm;
+}
+
+.dropdown-header {
+  font-size: $font-size-sm;
+}
+
+.blockquote-footer {
+  color: $body-color;
+}
+
+// Tables
+
+.table {
+  font-size: $font-size-sm;
+
+  .thead-dark th {
+    color: $white;
+  }
+
+  a:not(.btn) {
+    color: $white;
+    text-decoration: underline;
+  }
+
+  .dropdown-menu a {
+    text-decoration: none;
+  }
+
+  .text-muted {
+    color: $text-muted;
+  }
+}
+
+// Forms
+
+label,
+.radio label,
+.checkbox label,
+.help-block {
+  font-size: $font-size-sm;
+}
+
+.form-floating {
+  > label,
+  > .form-control:focus ~ label,
+  > .form-control:not(:placeholder-shown) ~ label {
+    color: $input-placeholder-color;
+  }
+}
+
+// Navs
+
+.nav-tabs,
+.nav-pills {
+  .nav-link,
+  .nav-link:hover {
+    color: $body-color;
+  }
+
+  .nav-link.disabled {
+    color: $nav-link-disabled-color;
+  }
+}
+
+.page-link:hover,
+.page-link:focus {
+  color: $white;
+  text-decoration: none;
+}
+
+// Indicators
+
+.alert {
+  color: $white;
+  border: none;
+
+  a,
+  .alert-link {
+    color: $white;
+    text-decoration: underline;
+  }
+
+  @each $color, $value in $theme-colors {
+    &-#{$color} {
+      @if $enable-gradients {
+        background: $value linear-gradient(180deg, mix($white, $value, 15%), $value) repeat-x;
+      } @else {
+        background-color: $value;
+      }
+    }
+  }
+}
+
+.badge {
+  &-warning,
+  &-info {
+    color: $white;
+  }
+}
+
+.tooltip {
+  --bs-tooltip-bg: var(--bs-tertiary-bg);
+  --bs-tooltip-color: var(--bs-emphasis-color);
+}
+
+// Popovers
+
+.popover-header {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+// Containers
+
+.modal {
+  &-header {
+    background-color: $table-hover-bg;
+  }
+}
+
+.modal {
+  &-footer {
+    background-color: $gray-600;
+  }
+}
+
+
+// Generate emphasis colors
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+.text-primary-emphasis      {        color: tint($primary, 40%) !important};
+.text-secondary-emphasis    {        color: tint($secondary, 40%) !important}; 
+.text-success-emphasis      {        color: tint($success, 40%) !important}; 
+.text-info-emphasis         {        color: tint($info, 40%) !important}; 
+.text-warning-emphasis      {        color: tint($warning, 40%) !important}; 
+.text-danger-emphasis       {        color: tint($danger, 40%) !important}; 
+$light-text-emphasis:          $gray-100 !default;
+$dark-text-emphasis:           $gray-300 !default;
+
+.bg-primary-emphasis      {        background-color: tint($primary, 40%) !important; color: white};
+.bg-secondary-emphasis    {        background-color: tint($secondary, 40%) !important; color: white};
+.bg-success-emphasis      {        background-color: tint($success, 40%) !important; color: white};
+.bg-info-emphasis         {        background-color: tint($info, 40%) !important; color: white};
+.bg-warning-emphasis      {        background-color: tint($warning, 40%) !important; color: white};
+.bg-danger-emphasis       {        background-color: tint($danger, 40%) !important; color: white};
+
+
+
+.list-group-dark {
+  border: 1px, $primary; /* No border */
+}
+
+/* Default style for list items */
+.list-group-dark .list-group-item {
+  background-color: $gray-600; /* Dark background color */
+  color: white; /* White text color */
+  border: none; /* No border */
+  padding: 10px; /* Padding for spacing */
+}
+
+/* Hover effect */
+.list-group-dark .list-group-item:hover {
+  background-color: $third; /* Slightly lighter background on hover */
+  color: #fff; /* White text color remains */
+}
+
+/* Active (selected) item */
+.list-group-dark .list-group-item.active {
+  background-color: $primary; /* Blue background for active item */
+  color: #fff; /* White text color */
+  border: none; /* No border */
+}
+
+/* Inactive (desactivated) item */
+.list-group-dark .list-group-item.disabled {
+  background-color: $gray-400; /* Gray background for inactive item */
+  color: $gray-200; /* Light gray text color */
+  border: none; /* No border */
+}

@@ -1,0 +1,316 @@
+// Default 5.3.3
+// Bootstrap
+
+
+// include custom theme variables
+@import "_variables.scss";
+
+
+// include all original Bootstrap class
+@import "../bootstrap/scss/bootstrap.scss";
+
+
+
+// Place custom code here
+// ********************************************
+
+
+
+// ********************************************
+
+// Justify all text contents
+p {
+  text-align: justify;
+}
+.accordion-body {
+  text-align: justify;
+}
+
+
+
+
+// Hamburger menu icon style
+.hamburger {
+  background:none;
+  position:absolute;
+  top:0;
+  right:0;
+  line-height:22px;
+  padding:2px 15px 0px 15px;
+  color:#999;
+  border:0;
+  font-size:1.2em;
+  font-weight:bold;
+  cursor:pointer;
+  outline:none;
+  z-index:10000000000000;
+  border: none;
+  
+}
+
+
+
+
+/* Create a zoom animation class */
+.hover-zoom-in {
+  transition: transform .1s;
+}
+.hover-zoom-in:hover {
+  transform: scale(1.02,1.02);
+}
+
+
+.shadow-primary {
+  box-shadow: 0px 0px 20px 3px $primary-rgba;
+  -webkit-box-shadow: 0px 0px 20px 3px $primary-rgba;
+  -moz-box-shadow: 0px 0px 20px 3px $primary-rgba;
+}
+
+.shadow-third {
+  box-shadow: 0px 0px 20px 3px $secondary-rgba;
+  -webkit-box-shadow: 0px 0px 20px 3px $secondary-rgba;
+  -moz-box-shadow: 0px 0px 20px 3px $secondary-rgba;
+}
+
+
+.hover-shadow:hover {
+  box-shadow: 4px 6px 23px -5px rgba(0,0,0,0.51);
+  -webkit-box-shadow: 4px 6px 23px -5px rgba(0,0,0,0.51);
+  -moz-box-shadow: 4px 6px 23px -5px rgba(0,0,0,0.51);
+
+}
+
+/* Create border animation class */
+.hover-border-primary {
+  transition: transform .1s;
+  color: $primary !important
+}
+.hover-border-primary:hover {
+  border-bottom: 3px $primary solid;
+  color: $primary !important
+}
+
+/* Create a border animation class */
+.hover-border-third {
+  transition: transform .1s;
+  color: $primary !important
+}
+.hover-border-third:hover {
+  border-bottom: 3px $third solid;
+  color: $primary !important
+}
+
+
+ul.list-primary {
+
+  li {
+    list-style-type: none;
+    color: $secondary !important;
+  }
+
+  li a:hover {
+    color: $primary !important; /* Hover effect color */
+  }
+
+
+  li > a {
+    margin-left: -1em !important;
+  }
+
+  li a::before {
+    content: "•"; /* Custom bullet character */
+    color: transparent; /* Change the color as desired */
+    display: inline-block;
+    width: 1em; /* Adjust the width if needed */
+  }
+
+  li a:hover::before {
+    display: inline-block;
+    color: $primary; /* Hover effect color */
+  }
+
+  a {
+    /* Apply the same style to anchor elements within ul.list-primary */
+    color: var(--bg-body); /* Change the color as desired */
+    text-decoration: none; /* Remove underline */
+    left: -1em;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+// DEFAULT THEME CUSTOM ********************
+
+
+
+// Buttons
+
+.btn {
+  @each $color, $value in $theme-colors {
+    &-#{$color} {
+      @if $enable-gradients {
+        background: $value linear-gradient(180deg, mix($white, $value, 15%), $value) repeat-x;
+        color: white;
+      } @else {
+        background-color: $value;
+        color: white;
+      }
+    }
+  }
+}
+
+.btn:hover {
+  color: white;
+}
+
+.btn .disabled {
+color: white;
+}
+
+
+.btn-group {
+  .btn-check:checked + .btn-outline-primary {
+    color: white; // Replace #your-color with the color you want
+  }
+}
+
+
+// Indicators
+
+.alert {
+  color: $white;
+  border: none;
+
+  a,
+  .alert-link {
+    color: $white;
+    text-decoration: underline;
+  }
+
+  @each $color, $value in $theme-colors {
+    &-#{$color} {
+      @if $enable-gradients {
+        background: $value linear-gradient(180deg, mix($white, $value, 15%), $value) repeat-x;
+      } @else {
+        background-color: $value;
+      }
+    }
+  }
+
+  &-light {
+    &,
+    a:not(.btn),
+    .alert-link {
+      color: $body-bg;
+    }
+  }
+}
+
+.badge {
+  &.bg-light {
+    color: $dark;
+  }
+}
+
+.tooltip {
+  --bs-tooltip-bg: var(--bs-tertiary-bg);
+  --bs-tooltip-color: var(--bs-emphasis-color);
+}
+
+
+
+
+
+// ********************************************
+
+
+.list-group-dark {
+  border: 1px, $primary; /* No border */
+}
+
+/* Default style for list items */
+.list-group-dark .list-group-item {
+  background-color: $gray-600; /* Dark background color */
+  color: white; /* White text color */
+  border: none; /* No border */
+  padding: 10px; /* Padding for spacing */
+}
+
+/* Hover effect */
+.list-group-dark .list-group-item:hover {
+  background-color: $third; /* Slightly lighter background on hover */
+  color: #fff; /* White text color remains */
+}
+
+/* Active (selected) item */
+.list-group-dark .list-group-item.active {
+  background-color: $primary; /* Blue background for active item */
+  color: #fff; /* White text color */
+  border: none; /* No border */
+}
+
+/* Inactive (desactivated) item */
+.list-group-dark .list-group-item.disabled {
+  background-color: $gray-400; /* Gray background for inactive item */
+  color: $gray-200; /* Light gray text color */
+  border: none; /* No border */
+}
+
+
+
+
+
+
+// custom toogle dark-theme button dropdown color 
+.btn-bd-primary {
+  --bd-primary-bg: $primary;
+  --bd-primary-rgb: $primary-rgb;
+
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bd-primary-bg);
+  --bs-btn-border-color: var(--bd-primary-bg);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: $primary;
+  --bs-btn-hover-border-color: $primary;
+  --bs-btn-focus-shadow-rgb: var(--bd-primary-rgb);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: $third;
+  --bs-btn-active-border-color: $third;
+}
+
+// custom table colors
+.table-success th,
+.table-success td,
+.table-success tr
+ {
+  color: white;
+}
+
+.table-warning th,
+.table-warning td,
+.table-warning tr
+ {
+  color: white;
+}
+
+.table-light th,
+.table-light td,
+.table-light tr
+ {
+  color: white;
+}
+
+
+// custom accordion header color
+.accordion-button:not(.collapsed) {
+  color: white !important; /* Change text color */
+}
