@@ -2,6 +2,8 @@
 
 Welcome to the Bootstrap Theme Builder, a customizable solution to create unique Bootstrap themes effortlessly.
 
+![banner](https://github.com/Mending-Electronics/Bootstrap-Theme-Builder/blob/main/.illustration/dessin.png?raw=true "banner")
+
 ## Overview
 
 Bootstrap Theme Builder allows developers and designers to create, modify, and preview Bootstrap themes directly in the browser. With built-in support for popular fonts and custom color schemes, you can create stunning web themes that match your brand's identity.
@@ -66,24 +68,24 @@ cd Bootstrap-Theme-Builder
 **Bootstrap Theme Builder**: "App.html"
 
 1. **Select your brand logo as SVG** to embed it as a URI into a CSS class.
-   - ✅ Eliminate eternal dependency on the brand logo image file.
+   - ✅ Eliminate external dependency on the brand logo image file.
    - ✅ Easily call it with the simple class 'svg-logo'.
    - ✅ Use filter classes to change the logo color (filter-primary, filter-secondary, filter-white, etc.).
 
 2. **Select a small SVG illustration** to embed it as a URI into a CSS class and use it as a pattern.
-   - ✅ Eliminate eternal dependency on a pattern image file.
+   - ✅ Eliminate external dependency on a pattern image file.
    - ✅ Easily call it with the simple class 'pattern'.
    - ✅ Use filter classes to change the pattern color (filter-primary, filter-primary-emphasis, filter-secondary, filter-white, etc.).
 
 3. **Select a main font** to apply it to your entire website, creating stunning web themes that match your brand's identity.
    - Select a font from the select menu, or type the name of the font and click the search button to obtain the font CDN URL from common CDN platforms if the font is available.
-   - ✅ Eliminate eternal dependencies on *.ttf or *.woff font files.
+   - ✅ Eliminate external dependencies on *.ttf or *.woff font files.
    - ✅ The font @import url function and each font class will be generated as SCSS, easily callable by class (font-family-main, font-family-main-regular, font-family-main-medium, font-family-main-bold).
 
 4. **Select a brand font** to apply it to your brand text name, creating stunning web themes that match your brand's identity.
    - Select a font from the select menu, or type the name of the font and click the search button to obtain the font CDN URL from common CDN platforms if the font is available.
-   - ✅ Eliminate eternal dependencies on *.ttf or *.woff font files.
-   - ✅ The font @import url function and each font class will be generated as SCSS, easily callable by class (font-family-main, font-family-main-regular, font-family-main-medium, font-family-main-bold).
+   - ✅ Eliminate external dependencies on *.ttf or *.woff font files.
+   - ✅ The font @import url function and each font class will be generated as SCSS, easily callable by class (font-family-brand, font-family-brand-regular, font-family-brand-medium, font-family-brand-bold).
 
 5. **Select colors** to create stunning web themes that match your brand's identity.
    - Click on colored cards and use the picker to get the color of your or your customer's graphic chart.
@@ -101,7 +103,7 @@ cd Bootstrap-Theme-Builder
    - Copy/paste or replace your previously generated code into the "bootstrap.scss" file (A comment in the file says 'Place the code here').
    - Start SASS Watch and view the result on "code-picker.html".
 
-Bootstrap 5.3 Code Picket output example based on Bootswatch's code picker project 🙂 
+Bootstrap 5.3 Code Picker output example based on Bootswatch's code picker project 🙂 
 
 [My Mending Electronics Bootstrap Theme Sample](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Mending-Electronics/Bootstrap-Theme-Builder/refs/heads/main/code-picker-mending-electronics.html)
 
