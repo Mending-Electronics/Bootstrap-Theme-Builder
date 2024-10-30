@@ -37,7 +37,7 @@ p {
   right:0;
   line-height:22px;
   padding:2px 15px 0px 15px;
-  color:#999;
+  color: $light;
   border:0;
   font-size:1.2em;
   font-weight:bold;
@@ -77,7 +77,6 @@ p {
   box-shadow: 4px 6px 23px -5px rgba(0,0,0,0.51);
   -webkit-box-shadow: 4px 6px 23px -5px rgba(0,0,0,0.51);
   -moz-box-shadow: 4px 6px 23px -5px rgba(0,0,0,0.51);
-
 }
 
 /* Create border animation class */
@@ -183,6 +182,29 @@ color: white;
 }
 
 
+// Tables
+
+// custom table colors
+@mixin table-color($color) {
+  .table-#{$color} th,
+  .table-#{$color} td,
+  .table-#{$color} tr {
+    color: white;
+  }
+}
+
+@include table-color(success);
+@include table-color(warning);
+@include table-color(info);
+@include table-color(danger);
+@include table-color(primary);
+@include table-color(secondary);
+@include table-color(third);
+// @include table-color(light);
+
+
+
+
 // Indicators
 
 .alert {
@@ -224,12 +246,6 @@ color: white;
   --bs-tooltip-bg: var(--bs-tertiary-bg);
   --bs-tooltip-color: var(--bs-emphasis-color);
 }
-
-
-
-
-
-// ********************************************
 
 
 .list-group-dark {
@@ -287,30 +303,40 @@ color: white;
   --bs-btn-active-border-color: $third;
 }
 
-// custom table colors
-.table-success th,
-.table-success td,
-.table-success tr
- {
-  color: white;
+
+
+// custom breadcrumb-item color
+.breadcrumb-item a {
+  color: $light !important; /* Change text color */
+
 }
 
-.table-warning th,
-.table-warning td,
-.table-warning tr
- {
-  color: white;
+// custom nav-link active color
+.nav-link:active {
+  color: $light !important; /* Change text color */
 }
-
-.table-light th,
-.table-light td,
-.table-light tr
- {
-  color: white;
-}
-
 
 // custom accordion header color
 .accordion-button:not(.collapsed) {
   color: white !important; /* Change text color */
+}
+
+
+
+@mixin option-style($background-color, $color) {
+  background-color: $background-color;
+  color: $color;
+}
+
+option:checked {
+  @include option-style($primary-emphasis, $white);
+}
+option:hover {
+  @include option-style($primary-emphasis, $white);
+}
+option:focus {
+  @include option-style($primary-emphasis, $white);
+}
+select::selection {
+  @include option-style($primary-emphasis, $white);
 }
