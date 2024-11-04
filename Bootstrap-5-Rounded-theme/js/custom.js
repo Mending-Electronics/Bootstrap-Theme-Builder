@@ -100,11 +100,7 @@
         // Set the CSS rules based on the theme
         if (theme == "light") {
           styleElement.textContent = `
-            audio::-webkit-media-controls-play-button,
-            audio::-webkit-media-controls-panel {
-              background-color: #0f2537;
-              color: white;
-            }
+
           `;
           // Get all elements with the name "tileLogo"
           let tileLogoElements = document.getElementsByName("tileLogo");
@@ -117,11 +113,6 @@
 
         } else if (theme == "dark") {
           styleElement.textContent = `
-            audio::-webkit-media-controls-play-button,
-            audio::-webkit-media-controls-panel {
-              background-color: white;
-              color: white;
-            }
 
           `;
 
