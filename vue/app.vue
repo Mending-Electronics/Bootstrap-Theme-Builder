@@ -44,7 +44,11 @@ createApp({
             bootstrapScssCode: '',
             isLoading: false,
             svgLogoDataUri: '',
-            svgPatternDataUri: ''
+            svgLogoWidth: 0, 
+            svgLogoHeight: 0,
+            svgPatternDataUri: '',
+            FontFamilyMainInitialized: false, // Add a flag to track initialization
+            FontFamilyBrandInitialized: false, // Add a flag to track initialization
         };
     },
 
@@ -58,6 +62,14 @@ createApp({
     },
 
     methods: {
+
+        InitializationFontFamilyMain() { 
+            this.FontFamilyMainInitialized = true; 
+        },
+        InitializationFontFamilyBrand() { 
+            this.FontFamilyBrandInitialized = true; 
+        },
+
         hexToRgb(hex) {
             const bigint = parseInt(hex.replace('#', ''), 16);
             const r = (bigint >> 16) & 255;
@@ -93,6 +105,7 @@ createApp({
 
             this.fontFamilyMainUrls = fontUrls;
             this.updateFont('fontFamilyMainSample', fontName);
+            this.InitializationFontFamilyMain(); 
             // Show modal with links
             // this.showFontModal(fontUrls);
         },
@@ -123,6 +136,7 @@ createApp({
     
             this.fontFamilyBrandUrls = fontUrls;
             this.updateFont('fontFamilyBrandSample', fontName);
+            this.InitializationFontFamilyBrand(); 
 
             // Show modal with links
             // this.showFontModal(fontUrls);
@@ -155,6 +169,7 @@ createApp({
             } else if (elementId === 'fontFamilyBrandSample') {
                 fontUrl = this.fontFamilyBrandUrls[0];
             }
+
     
             const style = document.createElement('style');
             style.innerHTML = `@import url('${fontUrl}');`;
@@ -703,6 +718,12 @@ createApp({
                         // Existing SCSS generation logic for logo
                         if (this.svgLogoDataUri) {
                             
+                            const height = 25; // Set height to 30px 
+                            const width = (this.svgLogoWidth / this.svgLogoHeight) * height;
+                            
+                            const emWidth = (width / 16).toFixed(4); // Convert to em units 
+                            const emHeight = (height / 16).toFixed(4); // Convert to em units 
+
                             scss += `\n// Logo (svg-logo)\n`;
                             scss += `@mixin svg-logo($width, $height) {
                                 background-image: url(${this.svgLogoDataUri});
@@ -712,12 +733,19 @@ createApp({
                                 width: $width;
                                 height: $height;
                             }\n`;
-    
-                            scss += `.svg-logo\t\t{@include svg-logo(30px, 30px);}\n`;
+
+                            scss += `.svg-logo\t\t{@include svg-logo(${width}px, ${height}px);}\n`; 
+                           
+                            // scss += `.svg-logo-25\t{@include svg-logo(${width * 0.25}px, ${height * 0.25}px);}\n`; 
+                            // scss += `.svg-logo-50\t{@include svg-logo(${width * 0.5}px, ${height * 0.5}px);}\n`; 
+                            // scss += `.svg-logo-75\t{@include svg-logo(${width * 0.75}px, ${height * 0.75}px);}\n`; 
+                            // scss += `.svg-logo-100\t{@include svg-logo(${width}px, ${height}px);}\n`;
+                         
                             scss += `.svg-logo-25\t{@include svg-logo(25%, 25%);}\n`;
                             scss += `.svg-logo-50\t{@include svg-logo(50%, 50%);}\n`;
                             scss += `.svg-logo-75\t{@include svg-logo(75%, 75%);}\n`;
                             scss += `.svg-logo-100\t{@include svg-logo(100%, 100%);}\n`;
+                        
                         }  else {
                             scss += `//=> no SVG Logo\n`
                         }
@@ -740,10 +768,27 @@ createApp({
                             scss += `.pattern-75\t\t{@include svg-pattern(75%, 60px);}\n`;
                             scss += `.pattern-100\t{@include svg-pattern(100%, 60px);}\n`;
                         } else {
-                            scss += `//=> no SVG Pattern\n`
+                            scss += `//=> no SVG Pattern\n`;
+
+                            let svgPatternBase64 = `data:image/svg+xml;base64,${btoa( `<?xml version="1.0" encoding="UTF-8" standalone="no"?> <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"> <svg width="4.53499998mm" height="4.5351768mm" viewBox="0 0 4.53499998 4.5351768" version="1.1" id="svg1" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"> <defs id="defs1" /> <g id="layer1" transform="translate(35.264961,-23.404022)"> <rect id="rect1" width="4.53499998" height="4.5351768" x="-35.264961" y="23.404022" ry="0.0279222284" style="fill:none;fill-opacity:1;stroke:none;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" /> <circle id="path359" cx="-32.9997459" cy="25.67161" r="0.50514406" style="fill:#c64600;stroke-width:0.0105882;stroke-linecap:round;stroke-opacity:0.482353;paint-order:markers stroke fill" /> </g> </svg>` )}`;
+
+                            // 
+                            scss += `// Sample Pattern (svg-pattern)
+                                    @mixin svg-pattern($width, $height) {
+                                        background-image: url(${svgPatternBase64});
+                                        background-repeat: repeat;
+                                        background-size: 20px;
+                                        width: $width;
+                                        height: $height;
+                                    }
+                                    .pattern		{@include svg-pattern(100%, 60px);}
+                                    .pattern-25		{@include svg-pattern(25%, 60px);}
+                                    .pattern-50		{@include svg-pattern(50%, 60px);}
+                                    .pattern-75		{@include svg-pattern(75%, 60px);}
+                                    .pattern-100	{@include svg-pattern(100%, 60px);}
+                                `;
+    
                         }
-    
-    
     
                         this.bootstrapScssCode = scss;
                         this.isLoading = false; // Stop loading
@@ -784,6 +829,7 @@ createApp({
             downloadAnchorNode.click();
             downloadAnchorNode.remove();
         },
+
         importJsonConfig(event) {
             const file = event.target.files[0];
             const reader = new FileReader();
@@ -793,6 +839,7 @@ createApp({
             };
             reader.readAsText(file);
         },
+
         loadFromLocalStorage() {
             const storedColors = localStorage.getItem('colorsConfig');
             if (storedColors) {
@@ -802,6 +849,7 @@ createApp({
         chooseFile() {
             document.getElementById('customFile').click();
         },
+
         importSvgLogo(event) {
             const file = event.target.files[0];
             if (file && file.type === 'image/svg+xml') {
@@ -809,23 +857,43 @@ createApp({
                 reader.onload = (e) => {
                     this.svgLogoDataUri = e.target.result;
                     this.displaySvgPreview(this.svgLogoDataUri);
+
                 };
                 reader.readAsDataURL(file);
             } else {
                 alert('Please upload a valid SVG file.');
             }
         },
+
+        onImageLoad(event) {
+            const img = event.target;
+            this.svgLogoWidth = img.naturalWidth;
+            this.svgLogoHeight = img.naturalHeight;
+            console.log(this.svgLogoWidth);
+            console.log(this.svgLogoHeight);
+        },
         displaySvgPreview(svgUri) {
             const previewsContainer = document.getElementById('imagePreviews');
             previewsContainer.innerHTML = ''; // Clear previous previews
             const preview = document.createElement('div');
             preview.classList.add('col-md-4', 'mb-3', 'text-center');
-            preview.innerHTML = `<img src="${svgUri}" alt="SVG Preview" class="img-fluid rounded">
-                                <div class="text-center mt-2">
-                                <span class="badge bg-secondary">SVG Logo</span>
-                                </div>`;
+    
+            const img = document.createElement('img');
+            img.src = svgUri;
+            img.alt = 'SVG Preview';
+            img.classList.add('img-fluid', 'rounded');
+            img.addEventListener('load', this.onImageLoad);
+    
+            const badge = document.createElement('div');
+            badge.classList.add('text-center', 'mt-2');
+            badge.innerHTML = '<span class="badge bg-secondary">SVG Logo</span>';
+    
+            preview.appendChild(img);
+            preview.appendChild(badge);
             previewsContainer.appendChild(preview);
         },
+    
+
         importSvgPattern(event) {
             const file = event.target.files[0];
             if (file && file.type === 'image/svg+xml') {
@@ -853,5 +921,10 @@ createApp({
     },
     mounted() {
         this.loadFromLocalStorage();
+
+
     }
 }).mount('#app');
+
+
+

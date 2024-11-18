@@ -177,7 +177,7 @@
             <input type="file" class="form-control visually-hidden" id="LogoFile" accept=".svg" @change="importSvgLogo">
             <button class="btn btn-primary mt-3" type="button" onclick="document.getElementById('LogoFile').click()">Choose SVG Files</button>
 
-            <div class="mt-3">
+            <div class="mt-3" id="logoContainer">
                 <div class="row justify-content-center" id="imagePreviews"></div>
             </div>
 
@@ -205,8 +205,8 @@
                 <input class="form-select w-50" required type="text" placeholder="Enter the Font name" list="fontFamilyMain-list" autocomplete="off" style="width: 165px;"
                 v-model="fontFamilyMain"
                 :class="{
-                    'is-valid': fontFamilyMainUrls.length !== 0, 
-                    'is-invalid': fontFamilyMainUrls.length === 0
+                    'is-valid': FontFamilyMainInitialized && fontFamilyMainUrls.length !== 0, 
+                    'is-invalid': FontFamilyMainInitialized && fontFamilyMainUrls.length === 0
                 }">
                 <datalist id="fontFamilyMain-list">
                     <option value="Roboto">Roboto</option>
@@ -219,10 +219,10 @@
                 <button id="cleanFontFamilyMain" class="btn btn-danger btn-sm" @click="resetFontFamilyMain">
                     <i class="bi bi-x p-0 fs-5"></i>
                 </button>
-                <div class="valid-feedback" v-if="fontFamilyMainUrls.length !== 0">
+                <div class="valid-feedback" v-if="FontFamilyMainInitialized && fontFamilyMainUrls.length !== 0">
                     Super! Some CDNs were found for this font: <br> {{ fontFamilyMainUrls }}
                 </div>
-                <div class="invalid-feedback" v-else>
+                <div class="invalid-feedback" v-if="FontFamilyMainInitialized && fontFamilyMainUrls.length === 0">
                     Sorry, no CDNs found for this font
                 </div>
     
@@ -240,8 +240,8 @@
                 <input class="form-select w-50" required type="text" placeholder="Enter the Font name"  list="fontFamilyBrand-list" autocomplete="off" style="width: 165px;"
                 v-model="fontFamilyBrand"
                 :class="{
-                    'is-valid': fontFamilyBrandUrls.length !== 0, 
-                    'is-invalid': fontFamilyBrandUrls.length === 0
+                    'is-valid': FontFamilyBrandInitialized && fontFamilyBrandUrls.length !== 0, 
+                    'is-invalid': FontFamilyBrandInitialized &&  fontFamilyBrandUrls.length === 0
                 }">
                 <datalist id="fontFamilyBrand-list">
                     <option value="Roboto">Roboto</option>
@@ -254,10 +254,10 @@
                     <i class="bi bi-x p-0 fs-5"></i>
                 </button>
 
-                <div class="valid-feedback" v-if="this.fontFamilyBrandUrls.length !== 0">
+                <div class="valid-feedback" v-if="FontFamilyBrandInitialized && this.fontFamilyBrandUrls.length !== 0">
                     Super! Some CDNs were found for this font: <br> {{ this.fontFamilyBrandUrls }}
                 </div>
-                <div class="invalid-feedback" v-else>
+                <div class="invalid-feedback" v-if ="FontFamilyBrandInitialized && this.fontFamilyBrandUrls.length === 0">
                     Sorry, no CDNs found for this font
                 </div>
             </div>
